@@ -12,6 +12,11 @@ Built for clarity, performance, and long-term maintainability.
 - Custom domain support
 - Minimal, responsive design
 
+## Special Files
+
+CNAME - Github Pages redirect
+yandex_a701abe67b65d66b.html - Yandex search console verification
+
 ## License
 
 MIT
