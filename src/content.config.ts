@@ -20,7 +20,19 @@ export const collections = {
   projects: defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/projects' }), schema: contentSchema }),
   research: defineCollection({ loader: glob({ pattern: '**/*.md', base: './src/content/research' }), schema: contentSchema }),
   timeline: defineCollection({
-    loader: glob({ pattern: '**/*.md', base: './src/content/timeline' }),
+    loader: glob({ pattern: ['**/*.md', '!studio-*.md'], base: './src/content/timeline' }),
+    schema: z.object({
+      title: z.string(),
+      date: z.coerce.date(),
+      summary: z.string(),
+      sourceLabel: z.string().optional(),
+      sourceUrl: z.string().url().optional(),
+      tags: z.array(z.string()).default([]),
+      featured: z.boolean().default(false),
+    }),
+  }),
+  'studio-timeline': defineCollection({
+    loader: glob({ pattern: 'studio-*.md', base: './src/content/timeline' }),
     schema: z.object({
       title: z.string(),
       date: z.coerce.date(),

@@ -15,28 +15,16 @@ schema_name: "Kiefer Waight Archive"
 
 This archive collects original URLs and source snapshots for public content that used to live on AppealingStudio.com.
 
-## Core archive items
-
-- [Buenos Aires, Argentina](/archive/getmyboat-buenos-aires/)
-  - Kiefer Waight's account of visiting the GetMyBoat Argentina engineering team during global expansion.
-- [AppealingStudio](/archive/appealingstudio/)
-  - Source: [appealingstudio.com/about-us](https://www.appealingstudio.com/about-us/)
-- [GetMyBoat: Sharing the Tides](/archive/getmyboat-sharing-the-tides/)
-  - Source: [appealingstudio.com/getmyboat-sharing-the-tides](http://appealingstudio.com/getmyboat-sharing-the-tides/)
-- [GMB on FBN](/archive/getmyboat-gmb-on-fbn/)
-  - Source: [appealingstudio.com/gmb-on-fbn](http://appealingstudio.com/gmb-on-fbn/)
-- [GetMyBoat on FoxBusiness](/archive/getmyboat-on-foxbusiness/)
-  - Source: [appealingstudio.com/getmyboat-on-foxbusiness](http://appealingstudio.com/getmyboat-on-foxbusiness/)
-- [New York Times Puts Wind in the Sails of GetMyBoat and AppealingStudio](/archive/getmyboat-new-york-times/)
-  - Source: [appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio](http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/)
-- [GetMyBoat case-study category](http://appealingstudio.com/category/case-study/getmyboat/)
-  - Original external category URL; individual recovered records are listed above.
-
-## Additional captured URLs
-
-- [GetMyBoat Year in Review](https://web.archive.org/web/20150301164902/http://appealingstudio.com/getmyboat-year-in-review/)
-- [Boat-and-breakfast marketplace launch](https://web.archive.org/web/20150906133839/http://appealingstudio.com/getmyboat-launches-boat-and-breakfast-style-marketplace-sleep-aboard/)
-- [Early staging host](https://web.archive.org/web/20120510063715/http://getmyboat-dev.appealingstudio.com/)
-- [Kiefer Waight bio](https://web.archive.org/web/20111031090037/http://appealingstudio.com/about/kieferwaight)
-- [Independent corroboration](https://voyagedallas.com/interview/meet-jason-wilsey-appealingstudio-napkinbetabeyond-frisco/)
-- [AppealingStudio directory listing](https://theorg.com/org/appealingstudio)
+- [Buenos Aires, Argentina](/archive/getmyboat-buenos-aires/) - Kiefer Waight's account of visiting the GetMyBoat Argentina engineering team during global expansion.
+- [AppealingStudio](/archive/appealingstudio/) - The studio history that contextualizes the early GetMyBoat work.
+- [GetMyBoat: Sharing the Tides](/archive/getmyboat-sharing-the-tides/) - An early case study describing product, design, and post-launch support.
+- [GMB on FBN](/archive/getmyboat-gmb-on-fbn/) - A short record connecting GetMyBoat to early Fox Business coverage.
+- [GetMyBoat on FoxBusiness](/archive/getmyboat-on-foxbusiness/) - A later post documenting continued public visibility for the product.
+- [New York Times Puts Wind in the Sails of GetMyBoat and AppealingStudio](/archive/getmyboat-new-york-times/) - A press and operational-stability record from the GetMyBoat archive.
+- [GetMyBoat public timeline](/archive/getmyboat-timeline/) - A structured chronology of studio work, product milestones, and public records.
+- [GetMyBoat Year in Review](/archive/getmyboat-year-in-review/) - A captured reference to a year-in-review page in the publishing record.
+- [Boat-and-breakfast marketplace launch](/archive/getmyboat-launches-boat-and-breakfast/) - A captured reference to an early boat-and-breakfast marketplace launch.
+- [Early staging host](/archive/getmyboat-dev-staging/) - An early development host preserved as evidence of the product build period.
+- [Kiefer Waight bio](/archive/kiefer-waight-bio/) - An early public biography reference from the AppealingStudio record.
+- [Independent corroboration](/archive/voyage-dallas-appealingstudio/) - Independent Voyage Dallas coverage retained as external corroborating context.
+- [AppealingStudio directory listing](/archive/appealingstudio-directory/) - An external directory reference preserved as supplemental archive context.
