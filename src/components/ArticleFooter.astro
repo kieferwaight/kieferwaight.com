@@ -9,7 +9,12 @@ const relatedWriting = entryId === 'inherited-systems'
       ['/writing/custodial-secrets-architecture/', 'Custodial secrets and auditable architecture'],
       ['/writing/documentation-as-product/', 'Documentation is part of delivery'],
     ]
-  : [
+  : entryId === 'documentation-as-product'
+    ? [
+        ['/writing/inherited-systems/', 'How I rescue an inherited web system'],
+        ['/writing/custodial-secrets-architecture/', 'Custodial secrets and auditable architecture'],
+      ]
+    : [
       ['/writing/inherited-systems/', 'How I rescue an inherited web system'],
       ['/writing/documentation-as-product/', 'Documentation is part of delivery'],
     ];
