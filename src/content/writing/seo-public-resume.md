@@ -20,8 +20,6 @@ Writing
 
 A public resume site should do more than look good. It should make it obvious what the person does, what they have built, and why search should connect their name to those subjects.
 
-[Back to writing index](/writing/) [Open resume](/resume/)
-
 ## Search target
 
 Kiefer Waight plus the work itself: software engineer, full stack developer, React, Node.js, TypeScript, AWS, project history, and technical writing.

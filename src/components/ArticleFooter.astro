@@ -1,0 +1,31 @@
+---
+const { kind = 'writing', entryId = '' } = Astro.props;
+const isCaseStudy = kind === 'case-studies';
+const relatedCaseStudies = entryId.startsWith('industrial-telemetry/')
+  ? [['/case-studies/uta-website-transformation/', 'UTA Website Transformation']]
+  : [['/case-studies/industrial-telemetry/', 'Industrial Telemetry ML System']];
+const relatedWriting = entryId === 'inherited-systems'
+  ? [
+      ['/writing/custodial-secrets-architecture/', 'Custodial secrets and auditable architecture'],
+      ['/writing/documentation-as-product/', 'Documentation is part of delivery'],
+    ]
+  : [
+      ['/writing/inherited-systems/', 'How I rescue an inherited web system'],
+      ['/writing/documentation-as-product/', 'Documentation is part of delivery'],
+    ];
+---
+<footer class="article-footer">
+  <div class="article-footer-group">
+    <h2>Related writing</h2>
+    <ul>
+      {relatedWriting.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+    </ul>
+  </div>
+  <div class="article-footer-group">
+    <h2>Related case studies</h2>
+    <ul>
+      {relatedCaseStudies.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+    </ul>
+  </div>
+  <a class="article-footer-back" href={isCaseStudy ? '/case-studies/' : '/writing/'}>Back to {isCaseStudy ? 'case studies' : 'writing index'}</a>
+</footer>

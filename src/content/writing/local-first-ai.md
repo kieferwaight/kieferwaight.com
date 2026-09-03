@@ -108,8 +108,3 @@ The interesting engineering question is no longer whether local inference is pos
 
 The durable advantage will belong to teams that treat inference placement as an architectural decision: governed by policy, shaped by context, and explicit about what must remain under their control.
 
-## Related reading
-
-- [Custodial Secrets & Auditable Architecture](/writing/custodial-secrets-architecture/)
-- [The Compactor Became the Sensor](/case-studies/industrial-telemetry/sensing.html)
-- [Industrial Telemetry ML System](/case-studies/industrial-telemetry/)

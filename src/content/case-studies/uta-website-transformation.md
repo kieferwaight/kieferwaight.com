@@ -14,13 +14,9 @@ author_url: "https://kieferwaight.com"
 date_published: "2026-08-29"
 date_modified: "2026-08-29"
 ---
-Case study
-
 # University of Texas Arlington website transformation
 
 This is the kind of project that rewards structure more than heroics. The site was inherited across Gatsby, React, Contentful, and Azure DevOps, so the real job was to make the stack legible: discover how it worked, document what mattered, and leave a cleaner handoff for the next people in the chain.
-
-[Back to case studies](/case-studies/) [Browse projects](/projects/)
 
 ## At a glance
 

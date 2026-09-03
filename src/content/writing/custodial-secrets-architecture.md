@@ -16,17 +16,15 @@ date_modified: "2026-09-01"
 ---
 # Custodial Secrets & Auditable Architecture
 
-Kiefer B. Waight - Staff-Level Software Engineer & AI Systems Architect
-
 ## The Security Problem
 
 ### AI ORCHESTRATION & THE TRANSPARENCY PARADOX
 
-Modern continuous deployment environments and AI-driven orchestration loops require deep observability to function. Agents evaluating architecture must understand the topological layout of a system to compound their optimization capabilities.
+Modern continuous deployment environments and AI-driven orchestration loops require deep observability to function. Agents evaluating architecture must understand the topological layout of a system well enough to improve it safely.
 
 However, this need for transparency creates a paradox when managing secure credentials. Traditional monolithic architectures often rely on environment variables injected at runtime or long-lived persistent volumes, generating **black-box technical debt** that obscures the exact origin and destination of sensitive payload traversal.
 
-When an AI agent, such as an MCP server operating over a codebase, attempts to analyze data workflows, obscured secrets present as opaque scripts. Alternatively, embedding secret logic directly within the orchestration repository introduces catastrophic leak vectors.
+When an AI agent, such as an MCP server operating over a codebase, attempts to analyze data workflows, obscured secrets present as opaque scripts. Alternatively, embedding secret logic directly within the orchestration repository introduces serious leak paths.
 
 > **The Core Principle:** The primary repository must orchestrate solutions flexibly, maintaining zero prejudice on architecture, while enforcing strict custodial governance over runtime credentials.
 
@@ -63,8 +61,5 @@ While the architectural pattern secures the token, platform architects must acco
 
 If the target OpenBao cluster enters a sealed state, the sidecar will receive HTTP 503 responses, requiring orchestrated retry logic. Similarly, massive logical secret trees processed entirely in memory via `jq` may exceed container constraints, triggering silent SIGKILL events if resource limits are not declaratively configured within the execution manifest.
 
-## Related writing
+Custodial architecture is not simply about hiding secrets. It makes secret handling observable, reviewable, and governable under automation, so the system can explain what happened without exposing what must remain protected.
 
-- [How I rescue an inherited web system](/writing/inherited-systems/)
-- [Documentation is part of delivery](/writing/documentation-as-product/)
-- [Writing index](/writing/)

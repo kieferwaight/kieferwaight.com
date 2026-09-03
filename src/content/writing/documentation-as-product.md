@@ -20,8 +20,6 @@ Writing
 
 If a project cannot be set up, understood, or handed off by someone other than the original author, the delivery is not finished. Documentation is what turns one person's memory into a team's ability.
 
-[Back to writing index](/writing/) [See related projects](/projects/)
-
 ## Delivery lens
 
 I treat setup guides, runbooks, architecture notes, and handoff docs as a core part of the engineering outcome.

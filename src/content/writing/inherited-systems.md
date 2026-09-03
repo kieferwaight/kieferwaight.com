@@ -18,8 +18,6 @@ date_modified: "2026-08-29"
 
 When a team inherits an undocumented stack, the first problem is not the code. The first problem is uncertainty. This is the framework I use to reduce uncertainty, regain control, and build trust with the people who have to keep the system alive.
 
-[Back to writing index](/writing/) · [See related projects](/projects/)
-
 ## Core idea
 
 Don't start by rewriting. Start by mapping the system, proving you can run it locally, and documenting enough to make it legible to the next person.
