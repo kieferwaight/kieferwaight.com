@@ -446,12 +446,35 @@ main {
     font-size: 1.1rem;
 }
 
-.content-shell p,
+.content-shell p {
+    max-width: none;
+    margin-left: 0;
+    margin-right: auto;
+}
+
 .content-shell ul,
 .content-shell ol {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.index-content>p:first-of-type {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.telemetry-deep-dive>p {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.resume-content>p {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .content-shell a {
