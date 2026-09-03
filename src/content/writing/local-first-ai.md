@@ -94,11 +94,11 @@ The cloud still has a place for massive batch training, elastic capacity, shared
 
 The question is where a particular request should execute, based on sensitivity, latency, cost, model size, availability, and the consequences of moving its context.
 
-<figure class="diagram-figure"><img src="/diagrams/writing-local-first-ai-md-02.svg" alt="writing local first ai md 02 architecture diagram" loading="lazy" decoding="async" /></figure>
+<figure class="diagram-figure"><img src="/diagrams/writing-local-first-ai-md-02.svg" alt="Decision boundary between local inference, private mesh services, and cloud workloads" loading="lazy" decoding="async" /><figcaption>Placement decisions across local, private, and cloud infrastructure.</figcaption></figure>
 
 This model gives teams more useful choices than “send everything to the API” or “run everything on one workstation.”
 
-## The bottom line
+## Where this leads
 
 For agentic loops requiring low-latency execution, uncompromised privacy, and predictable economics, the future is increasingly about running inference on the bare metal a team can control.
 
@@ -106,7 +106,7 @@ The edge is the new center.
 
 The interesting engineering question is no longer whether local inference is possible. It is whether the surrounding network, storage, secrets, policy, and recovery paths are disciplined enough to make local inference trustworthy.
 
-How are you currently balancing cloud dependency with local inference in your production stacks?
+The durable advantage will belong to teams that treat inference placement as an architectural decision: governed by policy, shaped by context, and explicit about what must remain under their control.
 
 ## Related reading
 

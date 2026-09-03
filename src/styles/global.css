@@ -494,6 +494,14 @@ main {
     outline-offset: 3px;
 }
 
+.content-shell li::marker {
+    color: var(--muted);
+}
+
+.local-first-ai-content .code-copy {
+    display: none;
+}
+
 .content-shell img {
     display: block;
     max-width: 100%;
