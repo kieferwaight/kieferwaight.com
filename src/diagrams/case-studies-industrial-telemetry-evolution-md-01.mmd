@@ -1,0 +1,7 @@
+flowchart TB
+    A[Observe raw telemetry] --> B[Try explicit thresholds]
+    B --> C[Segment cycles and normalize]
+    C --> D[Learn device and site behavior]
+    D --> E[Score confidence and trend]
+    E --> F[Learn from service outcomes]
+    F --> D

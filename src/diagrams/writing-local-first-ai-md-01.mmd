@@ -1,0 +1,17 @@
+graph TD
+    A[Client Request / Agentic Loop] --> B[Local AI Control Plane]
+
+    subgraph Secure Private Mesh
+        B --> C{Load Balancer / Router}
+        C -->|Heavy LLM Workloads| D[Unified Memory Node<br/>Apple Silicon / MLX]
+        C -->|Context / State| E[Linux Utility Node<br/>Vector DB / ZFS Storage]
+        C -->|Pre-processing| F[Edge Micro-Node<br/>Quantized SLM]
+    end
+
+    classDef ai fill:#191b4a,stroke:#6366F1,color:#e0e7ff,stroke-width:2px
+    classDef telemetry fill:#0e2f2e,stroke:#14B8A6,color:#d1fae5,stroke-width:2px
+    classDef infra fill:#1e293b,stroke:#64748B,color:#e2e8f0,stroke-width:2px
+    class A,B,C,D ai
+    class E infra
+    class F telemetry
+    style Secure Private Mesh fill:#0f172a,stroke:#F59E0B,stroke-width:1px,stroke-dasharray: 5 5,color:#e5e7eb

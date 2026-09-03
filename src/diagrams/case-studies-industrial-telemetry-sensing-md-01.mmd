@@ -1,0 +1,6 @@
+flowchart LR
+    M[Compactor motor behavior] --> T[Telemetry event]
+    T --> S[Segment crush cycle]
+    S --> F[Extract features]
+    F --> I[Infer operational state]
+    I --> D[Support dispatch decision]

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" role="img" aria-labelledby="title description">
+  <title id="title">Ephemeral sidecar architecture</title>
+  <desc id="description">OpenBao sends a secret through a RAM mount and an ephemeral sidecar to JSON output. The sidecar self-terminates after payload execution.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#294596" />
+    </marker>
+  </defs>
+
+  <rect width="1200" height="330" fill="#ffffff" />
+
+  <line x1="262" y1="110" x2="330" y2="110" stroke="#294596" stroke-width="5" marker-end="url(#arrow)" />
+  <line x1="570" y1="110" x2="630" y2="110" stroke="#294596" stroke-width="5" marker-end="url(#arrow)" />
+  <line x1="920" y1="110" x2="975" y2="110" stroke="#294596" stroke-width="5" marker-end="url(#arrow)" />
+
+  <rect x="32" y="55" width="230" height="110" rx="13" fill="#294596" />
+  <text x="147" y="122" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle">OpenBao</text>
+
+  <rect x="330" y="55" width="240" height="110" rx="13" fill="#eaf1ff" stroke="#4e89e8" stroke-width="4" />
+  <text x="450" y="105" fill="#294596" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" text-anchor="middle">RAM Mount</text>
+  <text x="450" y="137" fill="#65758d" font-family="Inter, Arial, sans-serif" font-size="17" text-anchor="middle">(/tmpfs secret)</text>
+
+  <rect x="630" y="55" width="290" height="110" rx="13" fill="#ffffff" stroke="#294596" stroke-width="4" stroke-dasharray="9 8" />
+  <text x="775" y="105" fill="#294596" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Ephemeral Sidecar</text>
+  <text x="775" y="137" fill="#65758d" font-family="Inter, Arial, sans-serif" font-size="17" text-anchor="middle">(jq / Bash Masking)</text>
+
+  <rect x="975" y="55" width="145" height="110" rx="13" fill="#f8fafc" stroke="#cbd6e5" stroke-width="4" />
+  <text x="1047" y="105" fill="#39475e" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">JSON</text>
+  <text x="1047" y="137" fill="#39475e" font-family="Inter, Arial, sans-serif" font-size="17" text-anchor="middle">Output</text>
+
+  <path d="M 450 166 V 235 H 775 V 166" fill="none" stroke="#a8b4c4" stroke-width="3" stroke-dasharray="8 8" />
+  <text x="612" y="276" fill="#6d7b90" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Container self-terminates after payload execution</text>
+</svg>

@@ -1,0 +1,6 @@
+flowchart LR
+    P[Prediction] --> R[Review or dispatch]
+    R --> S[Service outcome]
+    S --> A[Operational audit]
+    A --> L[Label and learning signal]
+    L --> P

@@ -1,0 +1,25 @@
+{
+  "name": "kieferwaight-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "diagrams": "node scripts/build-diagrams.mjs",
+    "dev": "astro dev",
+    "prebuild": "npm run diagrams",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "latest",
+    "@astrojs/sitemap": "latest",
+    "astro": "latest",
+    "mermaid": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "@mermaid-js/mermaid-cli": "latest",
+    "typescript": "latest"
+  }
+}

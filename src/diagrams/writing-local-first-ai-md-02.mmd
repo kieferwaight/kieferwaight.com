@@ -1,0 +1,10 @@
+flowchart LR
+    R[Request] --> P{Classify workload}
+    P -->|Sensitive and latency-critical| L[Local private inference]
+    P -->|Needs local context| V[Local retrieval and control plane]
+    P -->|Can be sanitized| E[Edge preprocessing]
+    P -->|Elastic batch or generic| C[Cloud capacity]
+    L --> O[Audited response]
+    V --> O
+    E --> O
+    C --> O

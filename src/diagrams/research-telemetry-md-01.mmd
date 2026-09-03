@@ -1,0 +1,19 @@
+flowchart TB
+    A[Machine behavior] --> B[Telemetry event]
+    B --> C[Cycle segmentation]
+    C --> D[Feature engineering]
+    D --> E[Device and site context]
+    E --> F[Inference and confidence]
+    F --> G[Dispatch review]
+    G --> H[Service outcome]
+    H --> E
+    classDef telemetry fill:#0e2f2e,stroke:#14B8A6,color:#d1fae5,stroke-width:2px
+    classDef ai fill:#191b4a,stroke:#6366F1,color:#e0e7ff,stroke-width:2px
+    classDef advisory fill:#3b2a0a,stroke:#F59E0B,color:#fef3c7,stroke-width:2px
+    classDef healthy fill:#10351f,stroke:#22C55E,color:#dcfce7,stroke-width:2px
+    classDef infra fill:#1e293b,stroke:#64748B,color:#e2e8f0,stroke-width:2px
+    class A,B,C telemetry
+    class D,F ai
+    class E infra
+    class G advisory
+    class H healthy

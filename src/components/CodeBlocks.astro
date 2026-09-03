@@ -1,0 +1,39 @@
+<script is:inline>
+  const languageNames = {
+    ts: 'TypeScript', typescript: 'TypeScript', js: 'JavaScript', javascript: 'JavaScript',
+    json: 'JSON', yaml: 'YAML', yml: 'Compose', dockerfile: 'Dockerfile', docker: 'Compose',
+    sh: 'Console', bash: 'Console', shell: 'Console', console: 'Console', css: 'CSS', html: 'HTML',
+    sql: 'SQL', python: 'Python', rust: 'Rust', go: 'Go',
+  };
+
+  document.querySelectorAll('pre[data-language]').forEach((pre) => {
+    if (pre.parentElement?.classList.contains('code-frame')) return;
+    const language = pre.dataset.language || 'code';
+    const frame = document.createElement('div');
+    frame.className = 'code-frame';
+    pre.parentNode.insertBefore(frame, pre);
+    frame.append(pre);
+
+    const label = document.createElement('span');
+    label.className = 'code-language';
+    label.textContent = languageNames[language.toLowerCase()] || language;
+    label.setAttribute('aria-hidden', 'true');
+
+    const copy = document.createElement('button');
+    copy.className = 'code-copy';
+    copy.type = 'button';
+    copy.setAttribute('aria-label', `Copy ${label.textContent} code`);
+    copy.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="10" height="10" rx="1.5"></rect><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"></path></svg><span>Copy</span>';
+    copy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pre.innerText);
+        copy.classList.add('is-copied');
+        copy.querySelector('span').textContent = 'Copied';
+        setTimeout(() => { copy.classList.remove('is-copied'); copy.querySelector('span').textContent = 'Copy'; }, 1600);
+      } catch {
+        copy.querySelector('span').textContent = 'Select';
+      }
+    });
+    frame.append(label, copy);
+  });
+</script>

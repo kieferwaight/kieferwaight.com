@@ -1,0 +1,12 @@
+flowchart TD
+    A[Compactor activity] --> B[Telemetry collection]
+    B --> C[Signal processing]
+    C --> D[Fullness and trend estimate]
+    D --> E{Confidence high enough?}
+    E -->|Yes| F[Service recommendation]
+    E -->|No| G[Account-manager review]
+    F --> H[Pickup scheduled]
+    G --> H
+    H --> I[Haul confirmation]
+    I --> J[Feedback and audit record]
+    J --> A

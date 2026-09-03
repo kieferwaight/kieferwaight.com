@@ -1,0 +1,7 @@
+flowchart LR
+    A[Historical baseline] --> B[Recent operating window]
+    B --> C[Compare behavior]
+    C --> D{Drift detected?}
+    D -->|No| E[Continue scoring]
+    D -->|Yes| F[Recalibrate and reduce confidence]
+    F --> A

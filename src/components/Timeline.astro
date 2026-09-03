@@ -1,0 +1,25 @@
+---
+const { items } = Astro.props;
+const sorted = [...items].sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+const formatDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+const siteOrigin = Astro.site?.origin;
+const getSourceHref = (sourceUrl: string) => {
+  const source = new URL(sourceUrl);
+  return source.origin === siteOrigin ? `${source.pathname}${source.search}${source.hash}` : sourceUrl;
+};
+---
+<ol class="timeline" aria-label="Chronological timeline">
+  {sorted.map((item) => (
+    <li class:list={["timeline-item", { "is-featured": item.data.featured }]}>
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <article class="timeline-card">
+        <p class="timeline-date"><time datetime={item.data.date.toISOString()}>{formatDate.format(item.data.date)}</time>{item.data.featured && <span class="timeline-featured">Featured milestone</span>}</p>
+        <h3 class="timeline-title">{item.data.title}</h3>
+        <p class="timeline-summary">{item.data.summary}</p>
+        {item.data.tags.length > 0 && <ul class="timeline-tags" aria-label="Topics">{item.data.tags.map((tag: string) => <li>{tag}</li>)}</ul>}
+        {item.data.sourceUrl && <details class="timeline-details"><summary>Evidence and provenance</summary><p><a href={getSourceHref(item.data.sourceUrl)} target="_blank" rel="noopener noreferrer">{item.data.sourceLabel || 'Open source'}</a></p></details>}
+        {!item.data.sourceUrl && item.data.sourceLabel && <p class="timeline-source">{item.data.sourceLabel}</p>}
+      </article>
+    </li>
+  ))}
+</ol>

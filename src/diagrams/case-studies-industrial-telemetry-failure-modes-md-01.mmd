@@ -1,0 +1,10 @@
+flowchart TD
+    A[Unexpected signal] --> B{Does behavior persist?}
+    B -->|No| C[Lower confidence and monitor]
+    B -->|Yes| D{Does site context support fullness?}
+    D -->|No| E[Escalate as anomaly]
+    D -->|Yes| F[Recommend service review]
+    C --> G[Collect next cycles]
+    E --> G
+    F --> H[Record outcome]
+    G --> H

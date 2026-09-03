@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import ContentPage from '../../components/ContentPage.astro';
+export async function getStaticPaths() {
+  return (await getCollection('case-studies')).filter((entry: any) => entry.id !== 'index').map((entry: any) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+<ContentPage entry={entry} section="Case studies" />

@@ -1,0 +1,14 @@
+flowchart LR
+    A[Observe raw telemetry] --> B[Try explicit thresholds]
+    B --> C[Segment cycles and normalize]
+    C --> D[Learn device and site behavior]
+    D --> E[Score confidence and trend]
+    E --> F[Learn from service outcomes]
+    F --> D
+    classDef telemetry fill:#0e2f2e,stroke:#14B8A6,color:#d1fae5,stroke-width:2px
+    classDef ai fill:#191b4a,stroke:#6366F1,color:#e0e7ff,stroke-width:2px
+    classDef healthy fill:#10351f,stroke:#22C55E,color:#dcfce7,stroke-width:2px
+    class A telemetry
+    class B,C infra
+    class D,E ai
+    class F healthy

@@ -1,0 +1,12 @@
+flowchart TD
+    A[Raw electrical signal] --> B[Detect cycle boundaries]
+    B --> C[Remove startup artifact]
+    C --> D[Normalize against device history]
+    D --> E[Calculate features]
+    E --> F[Compare site and device context]
+    F --> G[Estimate state and confidence]
+    classDef telemetry fill:#0e2f2e,stroke:#14B8A6,color:#d1fae5,stroke-width:2px
+    classDef ai fill:#191b4a,stroke:#6366F1,color:#e0e7ff,stroke-width:2px
+    classDef infra fill:#1e293b,stroke:#64748B,color:#e2e8f0,stroke-width:2px
+    class A,B,C telemetry
+    class D,E,F,G ai

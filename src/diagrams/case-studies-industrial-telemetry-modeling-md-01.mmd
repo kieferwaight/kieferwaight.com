@@ -1,0 +1,7 @@
+flowchart TD
+    A[Raw electrical signal] --> B[Detect cycle boundaries]
+    B --> C[Remove startup artifact]
+    C --> D[Normalize against device history]
+    D --> E[Calculate features]
+    E --> F[Compare with site and device context]
+    F --> G[Estimate state and confidence]

@@ -1,0 +1,9 @@
+flowchart TD
+    H[Business or operational problem] --> A{Architecture boundary}
+    A -->|Applied AI and infrastructure| AI[Routing, inference, context, custody]
+    A -->|Advisory and scaling| CTO[Audit, risk map, modernization roadmap]
+    A -->|Telemetry and edge| EDGE[Sensing, signals, failover, operations]
+    AI --> P[Decision-ready architecture evidence]
+    CTO --> P
+    EDGE --> P
+    P --> C[Clearer system for the people who run it]

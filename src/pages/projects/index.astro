@@ -1,0 +1,6 @@
+---
+import { getEntry } from 'astro:content';
+import ContentPage from '../../components/ContentPage.astro';
+const entry = await getEntry('projects', 'index');
+---
+<ContentPage entry={entry} section="Projects" />
