@@ -1,0 +1,22 @@
+flowchart TB
+    A[Homepage<br/>Identity]
+    A --> B[Resume<br/>Professional overview]
+    A --> C[Case studies<br/>Project-level evidence]
+    A --> D[Writing<br/>Methods and decisions]
+    B --> B1[Capabilities and experience]
+    B --> B2[Links to verifiable work]
+    C --> C1[Industrial telemetry ML system]
+    C --> C2[Architecture and delivery decisions]
+    C --> C3[Project-level outcomes]
+    D --> D1[SEO for a public resume site]
+    D --> D2[Inherited web systems]
+    D --> D3[Documentation as product]
+
+    classDef root fill:#191b4a,stroke:#6366F1,color:#e0e7ff,stroke-width:2px
+    classDef section fill:#1e293b,stroke:#64748B,color:#e2e8f0,stroke-width:2px
+    classDef detail fill:#0e2f2e,stroke:#14B8A6,color:#d1fae5,stroke-width:1px
+    class A root
+    class B,C,D section
+    class B1,B2,C1,C2,C3,D1,D2,D3 detail
+    linkStyle 0,1,2 stroke:#F59E0B,stroke-width:2px
+    linkStyle 3,4,5,6,7,8,9,10 stroke:#94A3B8,stroke-width:1px
