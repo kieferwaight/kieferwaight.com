@@ -15,20 +15,6 @@ wayback_url: "https://web.archive.org/web/20150827064735/http://appealingstudio.
 ---
 This historical edition preserves one of the most detailed early GetMyBoat case studies recovered from the AppealingStudio archive that is currently available to this project. The surviving source presents the project as a transition from prototype-stage product work to a broader mix of design, workflow refinement, and post-launch marketing support.
 
-<section class="archive-source-panel" aria-labelledby="source-status-heading">
-	<h2 id="source-status-heading">Source status</h2>
-	<dl>
-		<div><dt>Original publisher</dt><dd>AppealingStudio</dd></div>
-		<div><dt>Original URL</dt><dd><a href="http://appealingstudio.com/getmyboat-sharing-the-tides/">appealingstudio.com/getmyboat-sharing-the-tides</a></dd></div>
-		<div><dt>Archived capture used</dt><dd><a href="https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/">August 27, 2015</a></dd></div>
-		<div><dt>Capture used for this edition</dt><dd>August 27, 2015, 06:47 UTC</dd></div>
-		<div><dt>Publication date stated in source</dt><dd>July 10, 2013</dd></div>
-		<div><dt>Record type</dt><dd>Historical republication</dd></div>
-		<div><dt>Evidence level</dt><dd>Archived page text, external capture link, and structural summary</dd></div>
-		<div><dt>Editorial confidence</dt><dd>High for the text-based record; limited for visual and implementation evidence.</dd></div>
-	</dl>
-</section>
-
 ## Why this record matters
 
 This entry is one of the clearest surviving examples of early-stage product positioning in the recovered AppealingStudio material. It links interface work, architecture choices, and post-launch marketing support in a way that shows the studio's role extending beyond a narrow design handoff.

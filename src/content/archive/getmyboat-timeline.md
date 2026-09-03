@@ -31,9 +31,9 @@ The structured chronology below separates dated milestones from the narrative co
 
 ## Evidence links
 
-### [GetMyBoat case-study index](/archive/getmyboat-case-studies/)
+### [Archive index](/archive/)
 
-Entry point to the republished archive pages that define the public record.
+Index of the independent archive pages that define the public record.
 
 ### [GetMyBoat: Sharing the Tides](/archive/getmyboat-sharing-the-tides/)
 

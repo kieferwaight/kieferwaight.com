@@ -13,20 +13,9 @@ author_type: "Organization"
 source_url: "https://www.appealingstudio.com/about-us/"
 wayback_url: "https://web.archive.org/web/20190809011840/https://www.appealingstudio.com/about-us/"
 ---
-Historical republication
-
 # AppealingStudio
 
 The original about page described the studio that Kiefer Waight co-founded with Melanie Waight. It framed the company as a strategy-first web and mobile studio and established the background for the later GetMyBoat work.
-
-[Open original](https://www.appealingstudio.com/about-us/) [Open Wayback](https://web.archive.org/web/20190718105537/https://www.appealingstudio.com/about-us/)
-
-## Source details
-
-- Original URL: appealingstudio.com/about-us
-- Wayback snapshot: 2019-07-18
-- Studio context for early GetMyBoat work
-- Co-founded by Kiefer Waight and Melanie Waight
 
 ## What the page established
 
@@ -68,12 +57,3 @@ GetMyBoat becomes the biggest public example of the studio\'s marketplace work.
 
 Later projects and events reinforce the studio\'s product, marketing, and launch history.
 
-## Source of record
-
-### Original URL
-
-[appealingstudio.com/about-us](https://www.appealingstudio.com/about-us/)
-
-### Wayback snapshot
-
-[2019-07-18 snapshot](https://web.archive.org/web/20190718105537/https://www.appealingstudio.com/about-us/)

@@ -42,4 +42,4 @@ These pages explain how the work was approached, where the architecture boundary
 
 - [Archive](/archive/)
 - [GetMyBoat timeline](/archive/getmyboat-timeline/)
-- [GetMyBoat case-study index](/archive/getmyboat-case-studies/)
+- [GetMyBoat archive](/archive/)

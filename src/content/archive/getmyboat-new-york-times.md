@@ -13,20 +13,9 @@ author_type: "Organization"
 source_url: "http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/"
 wayback_url: "https://web.archive.org/web/20150126065432/http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/"
 ---
-Historical republication
-
 # New York Times Puts Wind in the Sails of GetMyBoat and AppealingStudio
 
 This post records the day the GetMyBoat story reached the New York Times and describes how the site handled the attention without slowing down or crashing. It is one of the strongest external validation points in the archive.
-
-[Open original](http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/) [Open Wayback](https://web.archive.org/web/20140926043300/http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/)
-
-## Source details
-
-- Original URL: appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio
-- Wayback snapshot: 2014-09-26
-- Published 2014-08-19
-- Captures the traffic spike story
 
 ## What the post adds to the record
 
@@ -42,12 +31,3 @@ It explicitly notes that the site handled the wave of readers without incident, 
 
 It ties the result back to the engineering team and to the studio partner that helped build the foundation.
 
-## Source of record
-
-### Original URL
-
-[appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio](http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/)
-
-### Wayback snapshot
-
-[2014-09-26 snapshot](https://web.archive.org/web/20140926043300/http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/)

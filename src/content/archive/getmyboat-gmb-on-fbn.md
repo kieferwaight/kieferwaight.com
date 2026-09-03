@@ -13,20 +13,9 @@ author_type: "Organization"
 source_url: "http://appealingstudio.com/gmb-on-fbn/"
 wayback_url: "https://web.archive.org/web/20150101214738/http://appealingstudio.com/gmb-on-fbn/"
 ---
-Historical republication
-
 # GMB on FBN
 
 A short archive item that records an early Fox Business mention of GetMyBoat. It is useful because it ties the product to a public media appearance and shows how the studio was surfacing the work in real time.
-
-[Open original](http://appealingstudio.com/gmb-on-fbn/) [Open Wayback](https://web.archive.org/web/20130903060209/http://appealingstudio.com/gmb-on-fbn/)
-
-## Source details
-
-- Original URL: appealingstudio.com/gmb-on-fbn
-- Wayback snapshot: 2013-09-03
-- Filed under GetMyBoat
-- Earlier Fox Business related post
 
 ## What the post establishes
 
@@ -42,12 +31,3 @@ The text places the announcement in the AppealingStudio voice, which matters for
 
 Even though the post is short, it documents an active product launch rather than a retrospective summary.
 
-## Source of record
-
-### Original URL
-
-[appealingstudio.com/gmb-on-fbn](http://appealingstudio.com/gmb-on-fbn/)
-
-### Wayback snapshot
-
-[2013-09-03 snapshot](https://web.archive.org/web/20130903060209/http://appealingstudio.com/gmb-on-fbn/)

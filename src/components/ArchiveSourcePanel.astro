@@ -1,0 +1,17 @@
+---
+const { entry } = Astro.props;
+const data = entry.data;
+const captureDate = data.wayback_url?.match(/web\/\d{14}/)?.[0].slice(4);
+const formattedCapture = captureDate ? `${captureDate.slice(4, 6)}/${captureDate.slice(6, 8)}/${captureDate.slice(0, 4)}` : null;
+const publisher = data.author_name || 'Public record';
+---
+<section class="archive-source-panel" aria-labelledby="source-status-heading">
+  <h2 id="source-status-heading">Source status</h2>
+  <dl>
+    <div><dt>Original publisher</dt><dd>{publisher}</dd></div>
+    {data.source_url && <div><dt>Original URL</dt><dd><a href={data.source_url}>{new URL(data.source_url).hostname}{new URL(data.source_url).pathname}</a></dd></div>}
+    {data.wayback_url && <div><dt>Archived capture used</dt><dd><a href={data.wayback_url}>{formattedCapture || 'Wayback capture'}</a></dd></div>}
+    <div><dt>Record type</dt><dd>Historical republication</dd></div>
+    <div><dt>Evidence level</dt><dd>Archived page text, external capture link, and structural summary</dd></div>
+  </dl>
+</section>

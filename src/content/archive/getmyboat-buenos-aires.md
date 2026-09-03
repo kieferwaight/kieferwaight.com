@@ -16,8 +16,6 @@ about_type: "Organization"
 date_published: "2026-09-03"
 date_modified: "2026-09-03"
 ---
-GetMyBoat public record
-
 # Buenos Aires, Argentina
 
 ![Colorful architecture in Caminito, Buenos Aires](/assets/img/getmyboat/buenos-aires-caminito.jpg)
@@ -42,8 +40,3 @@ During COVID, the boating industry accelerated dramatically as boating became on
 
 The visit remains an important part of the GetMyBoat record because it shows the operational work behind a global product: relationships, offices, benefits, management structure, and the trust required to make distributed engineering teams function as one organization.
 
-## Related records
-
-- [GetMyBoat public timeline](/archive/getmyboat-timeline/)
-- [GetMyBoat: Sharing the Tides](/archive/getmyboat-sharing-the-tides/)
-- [GetMyBoat case-study index](/archive/getmyboat-case-studies/)

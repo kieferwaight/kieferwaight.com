@@ -29,8 +29,8 @@ This archive collects original URLs and source snapshots for public content that
   - Source: [appealingstudio.com/getmyboat-on-foxbusiness](http://appealingstudio.com/getmyboat-on-foxbusiness/)
 - [New York Times Puts Wind in the Sails of GetMyBoat and AppealingStudio](/archive/getmyboat-new-york-times/)
   - Source: [appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio](http://appealingstudio.com/new-york-times-puts-some-wind-in-the-sails-of-getmyboat-and-appealingstudio/)
-- [GetMyBoat case-study index](/archive/getmyboat-case-studies/)
-  - Source: [appealingstudio.com/category/case-study/getmyboat](http://appealingstudio.com/category/case-study/getmyboat/)
+- [GetMyBoat case-study category](http://appealingstudio.com/category/case-study/getmyboat/)
+  - Original external category URL; individual recovered records are listed above.
 
 ## Additional captured URLs
 
