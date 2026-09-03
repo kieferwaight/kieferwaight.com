@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "diagrams": "node scripts/build-diagrams.mjs",
+    "llm-txt": "node scripts/build-llm-txt.mjs",
     "dev": "astro dev",
-    "prebuild": "npm run diagrams",
+    "prebuild": "npm run diagrams && npm run llm-txt",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check"

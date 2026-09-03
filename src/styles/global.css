@@ -84,6 +84,7 @@ a {
     letter-spacing: -.05em;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .wordmark span {
@@ -266,7 +267,7 @@ main {
 .home-identity h1 {
     margin: 0 0 .35rem;
     line-height: .95;
-    font-size: clamp(4rem, 11vw, 9rem);
+    font-size: clamp(4rem, 11vw, 8rem);
 }
 
 .home-identity .accent {
@@ -982,6 +983,39 @@ pre {
     padding-bottom: 38px;
 }
 
+@media (max-width:860px) {
+    .site-header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 5;
+        flex: 0 0 100%;
+        display: none;
+        gap: 0;
+        margin-left: 0;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+    }
+
+    .menu-open nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: .45rem 0;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
 @media (max-width:900px) {
     .home-hero-body {
         grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
@@ -1085,39 +1119,8 @@ pre {
         padding: 20px;
     }
 
-    .site-header {
-        flex-wrap: wrap;
-    }
-
-    nav {
-        order: 5;
-        flex: 0 0 100%;
-        display: none;
-        gap: 0;
-        margin-left: 0;
-        padding-top: 16px;
-        border-top: 1px solid var(--line);
-    }
-
-    .menu-open nav {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav a {
-        padding: .45rem 0;
-    }
-
     .theme-label {
         display: none;
-    }
-
-    .header-actions {
-        margin-left: auto;
-    }
-
-    .menu-toggle {
-        display: block;
     }
 
     main {
