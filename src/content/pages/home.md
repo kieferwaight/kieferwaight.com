@@ -1,8 +1,8 @@
 ---
-title: "Kiefer Waight | Staff AI Systems Architect and Fractional CTO"
-description: "Kiefer Waight is a Staff AI Systems Architect and Fractional CTO focused on deterministic distributed infrastructure, production AI orchestration, and industrial telemetry systems."
+title: "Kiefer Waight | Systems Architect and Fractional CTO"
+description: "Kiefer Waight is a Systems Architect and Fractional CTO focused on deterministic distributed infrastructure, production AI orchestration, and industrial telemetry systems."
 canonical: "https://kieferwaight.com/"
-og_title: "Kiefer Waight | Staff AI Systems Architect"
+og_title: "Kiefer Waight | Systems Architect"
 og_description: "Architecting deterministic distributed infrastructure, production AI orchestration layers, and industrial telemetry platforms."
 og_type: "website"
 og_image: "https://kieferwaight.com/assets/img/kiefer-bryan-waight-headshot-og-image.jpg"
@@ -16,15 +16,9 @@ about_url: "https://kieferwaight.com"
 schema_name: "Kiefer Waight"
 about_same_as: "https://github.com/kieferwaight,https://www.linkedin.com/in/kieferwaight/"
 ---
-# Staff AI Systems Architect & Fractional CTO
-
-I'm Kiefer Waight. I architect deterministic distributed infrastructure, production AI orchestration layers, and industrial telemetry platforms.
-
-I work where applied AI, physical systems, and business-critical software meet. My role is to make the architecture legible, the operational risks explicit, and the next decision easier to make.
-
-![Kiefer Waight](/assets/img/kiefer-bryan-waight-headshot.jpg)
-
 ## Three systems boundaries
+
+<div class="expertise-grid">
 
 ### Applied AI & infrastructure
 
@@ -38,7 +32,7 @@ I help teams understand what they have, find the highest-risk bottlenecks, and c
 
 I turn hardware behavior and uncertain signals into operational decisions. The [industrial telemetry case study](/case-studies/industrial-telemetry/) covers indirect sensing, time-series modeling, feedback, dispatch, and failure modes.
 
-<figure class="diagram-figure"><img src="/diagrams/pages-home-md-01.svg" alt="pages home md 01 architecture diagram" loading="lazy" decoding="async" /></figure>
+</div>
 
 ## Architecture judgment
 
@@ -77,12 +71,6 @@ My earlier work also includes serving as Secretary of the Texas Tech TMA User Co
 - Review the [advisory page](/advisory/) for focused architecture and scaling engagements.
 - Read the [writing and research](/writing/) for how I think about systems, delivery, and architecture.
 - Visit the [archive](/archive/) for historical source material and public records.
-
-## Start with proof
-
-- [Industrial Telemetry ML System](/case-studies/industrial-telemetry/) - non-invasive sensing, waveform analysis, applied machine learning, and operational decision support.
-- [University of Texas Arlington website transformation](/case-studies/uta-website-transformation/) - discovery, stabilization, documentation, and handoff across an inherited web stack.
-- [GetMyBoat public timeline](/archive/getmyboat-timeline/) - a documented record connecting product work, press, and historical sources.
 
 The industrial telemetry case study has an independent reading path: [sensing](/case-studies/industrial-telemetry/sensing.html), [modeling](/case-studies/industrial-telemetry/modeling.html), [model evolution](/case-studies/industrial-telemetry/evolution.html), [operations](/case-studies/industrial-telemetry/operations.html), and [failure modes](/case-studies/industrial-telemetry/failure-modes.html).
 

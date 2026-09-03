@@ -1,9 +1,29 @@
 ---
 import { getEntry, render } from 'astro:content';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import HeadshotHero from '../components/HeadshotHero.astro';
 const entry = await getEntry('pages', 'home');
 const { Content } = await render(entry);
 ---
 <SiteLayout title={entry.data.title} description={entry.data.description} image={entry.data.og_image}>
+  <div class="home-hero">
+    <header class="home-identity">
+      <span class="eyebrow">Systems Architecture</span>
+      <h1>Kiefer <span class="accent">Waight</span></h1>
+      <p>Systems Architect | Fractional CTO</p>
+    </header>
+    <div class="home-hero-body">
+      <div class="home-hero-copy">
+        <p class="home-introduction">I work where applied AI, industrial telemetry, and distributed infrastructure meet. My role is to make the architecture legible, the operational risks explicit, and the next decision easier to make.</p>
+        <section class="proof-strip" aria-labelledby="proof-heading">
+          <h2 id="proof-heading">Start with proof</h2>
+          <a href="/case-studies/industrial-telemetry/"><strong>Industrial Telemetry ML System</strong><span>Non-invasive sensing, waveform analysis, and operational decision support.</span></a>
+          <a href="/case-studies/uta-website-transformation/"><strong>UTA Website Transformation</strong><span>Discovery, stabilization, documentation, and handoff across an inherited web stack.</span></a>
+          <a href="/archive/getmyboat-timeline/"><strong>GetMyBoat Public Timeline</strong><span>A documented record connecting product work, press, and historical sources.</span></a>
+        </section>
+      </div>
+      <HeadshotHero />
+    </div>
+  </div>
   <article class="content-shell home-content"><Content /></article>
 </SiteLayout>

@@ -1,0 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import headshot from '../assets/img/kiefer-bryan-waight-headshot.jpg';
+---
+<figure class="home-headshot">
+  <Image src={headshot} alt="Kiefer Waight" widths={[480, 720]} sizes="(max-width: 700px) 100vw, 38vw" loading="eager" decoding="async" />
+  <figcaption>Systems architecture, applied AI, and operational intelligence.</figcaption>
+</figure>
