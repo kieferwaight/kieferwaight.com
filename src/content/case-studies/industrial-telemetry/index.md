@@ -28,11 +28,11 @@ For the full research narrative, see the [Telemetry research brief](/research/te
 
 The long-form material is split into pages that keep their own context. A reader can enter at the problem, the signal, the model, the operating workflow, or the failure analysis without needing the PDF open beside the site.
 
-- [The compactor became the sensor](/case-studies/industrial-telemetry/sensing.html) — why indirect measurement was the useful design move.
-- [Reading the signal](/case-studies/industrial-telemetry/modeling.html) — cycle segmentation, features, device fingerprints, and confidence.
-- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution.html) — how observation, labels, and feedback changed the system.
-- [From prediction to dispatch](/case-studies/industrial-telemetry/operations.html) — where telemetry became a workflow rather than an analytics screen.
-- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes.html) — what broke, what the breaks taught, and why adaptation is normal.
+- [The compactor became the sensor](/case-studies/industrial-telemetry/sensing/) — why indirect measurement was the useful design move.
+- [Reading the signal](/case-studies/industrial-telemetry/modeling/) — cycle segmentation, features, device fingerprints, and confidence.
+- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution/) — how observation, labels, and feedback changed the system.
+- [From prediction to dispatch](/case-studies/industrial-telemetry/operations/) — where telemetry became a workflow rather than an analytics screen.
+- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes/) — what broke, what the breaks taught, and why adaptation is normal.
 
 ## The system in one sentence
 

@@ -1,7 +1,7 @@
 ---
 title: "Failure Modes and Drift in Industrial Telemetry | Kiefer Waight"
 description: "What false positives, false negatives, maintenance, connectivity, and changing physical systems teach an industrial ML platform."
-canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/failure-modes.html"
+canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/failure-modes/"
 og_title: "Failure Modes and Drift in Industrial Telemetry"
 og_description: "Physical systems change. This is how failure analysis and drift handling become part of the product."
 og_type: "article"
@@ -74,6 +74,6 @@ That makes confidence weighting important. Stable telemetry with normal timing c
 
 ## Continue reading
 
-- [From prediction to dispatch](/case-studies/industrial-telemetry/operations.html) shows where these safeguards operate.
-- [Reading the signal](/case-studies/industrial-telemetry/modeling.html) explains the features that drift.
+- [From prediction to dispatch](/case-studies/industrial-telemetry/operations/) shows where these safeguards operate.
+- [Reading the signal](/case-studies/industrial-telemetry/modeling/) explains the features that drift.
 - [Public evidence and source repository](https://github.com/kieferwaight/industrial-telemetry-ml-system) provides the underlying authored record.

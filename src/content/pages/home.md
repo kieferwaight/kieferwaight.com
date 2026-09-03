@@ -72,7 +72,7 @@ My earlier work also includes serving as Secretary of the Texas Tech TMA User Co
 - Read the [writing and research](/writing/) for how I think about systems, delivery, and architecture.
 - Visit the [archive](/archive/) for historical source material and public records.
 
-The industrial telemetry case study has an independent reading path: [sensing](/case-studies/industrial-telemetry/sensing.html), [modeling](/case-studies/industrial-telemetry/modeling.html), [model evolution](/case-studies/industrial-telemetry/evolution.html), [operations](/case-studies/industrial-telemetry/operations.html), and [failure modes](/case-studies/industrial-telemetry/failure-modes.html).
+The industrial telemetry case study has an independent reading path: [sensing](/case-studies/industrial-telemetry/sensing/), [modeling](/case-studies/industrial-telemetry/modeling/), [model evolution](/case-studies/industrial-telemetry/evolution/), [operations](/case-studies/industrial-telemetry/operations/), and [failure modes](/case-studies/industrial-telemetry/failure-modes/).
 
 ## Recent writing
 

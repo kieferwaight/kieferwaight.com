@@ -1,7 +1,7 @@
 ---
 title: "Reading Industrial Behavior as a Time-Series System | Kiefer Waight"
 description: "A practical account of cycle segmentation, feature engineering, device fingerprints, site context, and confidence in industrial telemetry."
-canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/modeling.html"
+canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/modeling/"
 og_title: "Reading Industrial Behavior as a Time-Series System"
 og_description: "How waveform behavior becomes model-ready evidence without relying on a universal threshold."
 og_type: "article"
@@ -84,6 +84,6 @@ This is the modeling shift: from “what percentage is this?” to “what state
 
 ## Continue reading
 
-- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution.html) follows how these features became a learning system.
-- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes.html) covers when the features lie or change meaning.
+- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution/) follows how these features became a learning system.
+- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes/) covers when the features lie or change meaning.
 - [The full case study overview](/case-studies/industrial-telemetry/) links the full public record.

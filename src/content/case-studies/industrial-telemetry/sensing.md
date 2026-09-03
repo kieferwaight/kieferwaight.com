@@ -1,7 +1,7 @@
 ---
 title: "The Compactor Became the Sensor | Kiefer Waight"
 description: "How industrial compactor behavior became a non-invasive signal for fullness inference and operational decision support."
-canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/sensing.html"
+canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/sensing/"
 og_title: "The Compactor Became the Sensor"
 og_description: "A practical case study in indirect measurement, industrial telemetry, and machine behavior."
 og_type: "article"
@@ -76,8 +76,8 @@ The central problem therefore became normalization. The question was not “does
 
 ## Continue reading
 
-- [Reading the signal](/case-studies/industrial-telemetry/modeling.html) explains how cycles become features.
-- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution.html) follows the learning loop.
-- [From prediction to dispatch](/case-studies/industrial-telemetry/operations.html) shows how inference becomes action.
+- [Reading the signal](/case-studies/industrial-telemetry/modeling/) explains how cycles become features.
+- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution/) follows the learning loop.
+- [From prediction to dispatch](/case-studies/industrial-telemetry/operations/) shows how inference becomes action.
 
 The full public source is the [industrial telemetry ML system repository](https://github.com/kieferwaight/industrial-telemetry-ml-system).

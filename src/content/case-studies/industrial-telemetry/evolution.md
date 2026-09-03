@@ -1,7 +1,7 @@
 ---
 title: "From Rules to Adaptive Models | Kiefer Waight"
 description: "How an industrial telemetry system evolved from observation and thresholds into device-aware, confidence-scored, feedback-driven inference."
-canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/evolution.html"
+canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/evolution/"
 og_title: "From Rules to Adaptive Models"
 og_description: "Model evolution, ground truth, and the feedback loop behind industrial operational intelligence."
 og_type: "article"
@@ -94,6 +94,6 @@ The durable system is the feedback loop around the model.
 
 ## Continue reading
 
-- [Reading industrial behavior](/case-studies/industrial-telemetry/modeling.html) covers the feature boundary.
-- [From prediction to dispatch](/case-studies/industrial-telemetry/operations.html) follows the operational loop.
-- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes.html) shows why adaptation never ends.
+- [Reading industrial behavior](/case-studies/industrial-telemetry/modeling/) covers the feature boundary.
+- [From prediction to dispatch](/case-studies/industrial-telemetry/operations/) follows the operational loop.
+- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes/) shows why adaptation never ends.

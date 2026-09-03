@@ -22,7 +22,7 @@ These pages explain how the work was approached, where the architecture boundary
 
 - [Industrial Telemetry ML System](/case-studies/industrial-telemetry/)
   - Non-invasive sensing, waveform analysis, synthetic telemetry, and fill-level inference.
-  - [Sensing problem](/case-studies/industrial-telemetry/sensing.html) · [Signal modeling](/case-studies/industrial-telemetry/modeling.html) · [Model evolution](/case-studies/industrial-telemetry/evolution.html) · [Operations](/case-studies/industrial-telemetry/operations.html) · [Failure modes](/case-studies/industrial-telemetry/failure-modes.html)
+  - [Sensing problem](/case-studies/industrial-telemetry/sensing/) · [Signal modeling](/case-studies/industrial-telemetry/modeling/) · [Model evolution](/case-studies/industrial-telemetry/evolution/) · [Operations](/case-studies/industrial-telemetry/operations/) · [Failure modes](/case-studies/industrial-telemetry/failure-modes/)
 - [University of Texas Arlington website transformation](/case-studies/uta-website-transformation/)
   - Inherited Gatsby, React, Contentful, and Azure DevOps stack work centered on discovery and handoff.
 

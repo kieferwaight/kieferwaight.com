@@ -1,7 +1,7 @@
 ---
 title: "From Prediction to Dispatch | Kiefer Waight"
 description: "How industrial telemetry became condition-based service decisions, human review, exception handling, and operational visibility."
-canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/operations.html"
+canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/operations/"
 og_title: "From Prediction to Dispatch"
 og_description: "The value of industrial machine learning appears when inference changes the operational workflow."
 og_type: "article"
@@ -83,6 +83,6 @@ The public repository describes national deployment context and synthetic benchm
 
 ## Continue reading
 
-- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes.html) explains the safeguards around uncertainty.
-- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution.html) follows the feedback loop.
+- [Failure modes and drift](/case-studies/industrial-telemetry/failure-modes/) explains the safeguards around uncertainty.
+- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution/) follows the feedback loop.
 - [Industrial telemetry overview](/case-studies/industrial-telemetry/) links the complete reading path.

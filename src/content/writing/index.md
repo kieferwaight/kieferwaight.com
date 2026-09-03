@@ -22,9 +22,9 @@ Deep dives on the work behind the work.
 - [How I rescue an inherited web system](/writing/inherited-systems/)
 - [SEO for a public resume site](/writing/seo-public-resume/)
 - [Documentation is part of delivery](/writing/documentation-as-product/)
-- [The compactor became the sensor](/case-studies/industrial-telemetry/sensing.html)
-- [Reading industrial behavior as a time-series system](/case-studies/industrial-telemetry/modeling.html)
-- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution.html)
+- [The compactor became the sensor](/case-studies/industrial-telemetry/sensing/)
+- [Reading industrial behavior as a time-series system](/case-studies/industrial-telemetry/modeling/)
+- [From rules to adaptive models](/case-studies/industrial-telemetry/evolution/)
 
 ## Primary themes
 
