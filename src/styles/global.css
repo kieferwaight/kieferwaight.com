@@ -532,6 +532,59 @@ main {
     text-decoration: none;
 }
 
+.archive-source-panel {
+    max-width: 820px;
+    margin: 2.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--rule-subtle);
+    border-left: 3px solid var(--accent);
+    background: #f4f7fb;
+}
+
+.archive-source-panel h2 {
+    margin: 0 0 1rem;
+    font: 700 .72rem 'DM Mono', monospace;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.archive-source-panel dl {
+    margin: 0;
+    font-size: .88rem;
+}
+
+.archive-source-panel dl>div {
+    display: grid;
+    grid-template-columns: minmax(170px, .42fr) 1fr;
+    gap: 1.25rem;
+    padding: .55rem 0;
+    border-top: 1px solid var(--rule-subtle);
+}
+
+.archive-source-panel dl>div:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.archive-source-panel dt {
+    color: var(--muted);
+    font: 500 .68rem 'DM Mono', monospace;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.archive-source-panel dd {
+    margin: 0;
+}
+
+.archive-source-panel a {
+    overflow-wrap: anywhere;
+}
+
+[data-theme="dark"] .archive-source-panel {
+    background: #111827;
+}
+
 .content-shell li::marker {
     color: var(--muted);
 }
@@ -985,6 +1038,26 @@ pre {
     .proof-strip,
     .expertise-grid {
         display: block;
+    }
+
+    .archive-source-panel dl {
+        display: block;
+    }
+
+    .archive-source-panel dl>div {
+        display: block;
+    }
+
+    .archive-source-panel dt {
+        margin-top: .8rem;
+    }
+
+    .archive-source-panel dt:first-child {
+        margin-top: 0;
+    }
+
+    .archive-source-panel dd {
+        margin-top: .15rem;
     }
 
     .proof-strip a,

@@ -14,13 +14,9 @@ author_url: "https://kieferwaight.com"
 date_published: "2026-08-31"
 date_modified: "2026-08-31"
 ---
-GetMyBoat record
-
 # A timeline for the public history around GetMyBoat.
 
 This page turns the recovered archive into a chronological record. It is meant to show how the public story evolved: early studio work, launch-era coverage, mainstream press, and the later retrospective material that helps establish the shape of the work.
-
-[Open archive](/archive/) [Open case studies](/case-studies/)
 
 ## What this timeline shows
 

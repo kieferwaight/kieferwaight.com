@@ -15,5 +15,5 @@ const formattedDate = entry.data.date_published ? new Intl.DateTimeFormat('en-US
 <SiteLayout title={entry.data.title} description={entry.data.description ?? entry.data.title} type={entry.data.schema_type === 'BlogPosting' || entry.data.schema_type === 'TechArticle' ? 'article' : 'website'} published={entry.data.date_published} image={entry.data.og_image}>
   <header class:list={["page-intro", { "article-header": isArticle }]}><span class="eyebrow">{section || 'Field notes'}</span><h1>{displayTitle}</h1><p>{entry.data.description}</p>{isArticle && <div class="article-meta"><span class="author">By {entry.data.author_name || 'Kiefer Waight'}</span>{formattedDate && <span>{formattedDate}</span>}<span>{section || 'Field notes'}</span></div>}</header>
   <article class:list={["content-shell", { "index-content": isIndex, "telemetry-deep-dive": isTelemetryDeepDive, "resume-content": isResume, "local-first-ai-content": isLocalFirstAi }]}><Content /></article>
-  {['Writing', 'Case studies'].includes(section) && !isIndex && <ArticleFooter kind={section === 'Case studies' ? 'case-studies' : 'writing'} entryId={entry.id} />}
+  {['Writing', 'Case studies', 'Archive'].includes(section) && !isIndex && <ArticleFooter kind={section === 'Case studies' ? 'case-studies' : section === 'Archive' ? 'archive' : 'writing'} entryId={entry.id} />}
 </SiteLayout>

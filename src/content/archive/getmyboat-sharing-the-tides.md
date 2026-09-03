@@ -1,6 +1,6 @@
 ---
 title: "GetMyBoat: Sharing the Tides | Historical Republication"
-description: "Historical republication of the GetMyBoat: Sharing the Tides case study from AppealingStudio."
+description: "Historical edition of an AppealingStudio GetMyBoat case study, reconstructed from archived page text and a 2015 Wayback capture."
 canonical: "https://kieferwaight.com/archive/getmyboat-sharing-the-tides/"
 og_title: "GetMyBoat: Sharing the Tides"
 og_description: "Historical republication of an AppealingStudio GetMyBoat case study."
@@ -13,22 +13,27 @@ author_type: "Organization"
 source_url: "http://appealingstudio.com/getmyboat-sharing-the-tides/"
 wayback_url: "https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/"
 ---
-Historical republication
+This historical edition preserves one of the most detailed early GetMyBoat case studies recovered from the AppealingStudio archive that is currently available to this project. The surviving source presents the project as a transition from prototype-stage product work to a broader mix of design, workflow refinement, and post-launch marketing support.
 
-# GetMyBoat: Sharing the Tides
+<section class="archive-source-panel" aria-labelledby="source-status-heading">
+	<h2 id="source-status-heading">Source status</h2>
+	<dl>
+		<div><dt>Original publisher</dt><dd>AppealingStudio</dd></div>
+		<div><dt>Original URL</dt><dd><a href="http://appealingstudio.com/getmyboat-sharing-the-tides/">appealingstudio.com/getmyboat-sharing-the-tides</a></dd></div>
+		<div><dt>Archived capture used</dt><dd><a href="https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/">August 27, 2015</a></dd></div>
+		<div><dt>Capture used for this edition</dt><dd>August 27, 2015, 06:47 UTC</dd></div>
+		<div><dt>Publication date stated in source</dt><dd>July 10, 2013</dd></div>
+		<div><dt>Record type</dt><dd>Historical republication</dd></div>
+		<div><dt>Evidence level</dt><dd>Archived page text, external capture link, and structural summary</dd></div>
+		<div><dt>Editorial confidence</dt><dd>High for the text-based record; limited for visual and implementation evidence.</dd></div>
+	</dl>
+</section>
 
-This is the most detailed early case study in the recovered archive. It describes how AppealingStudio helped GetMyBoat move from prototype to a more scalable product shape, and it explains the product, design, and marketing work that came after launch.
+## Why this record matters
 
-[Open original](http://appealingstudio.com/getmyboat-sharing-the-tides/) [Open Wayback](https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/)
+This entry is one of the clearest surviving examples of early-stage product positioning in the recovered AppealingStudio material. It links interface work, architecture choices, and post-launch marketing support in a way that shows the studio's role extending beyond a narrow design handoff.
 
-## Source details
-
-- Original URL: appealingstudio.com/getmyboat-sharing-the-tides
-- Wayback snapshot: 2015-08-27
-- First published: 2013-07-10
-- WordPress ID: 190
-
-## What the case study says
+## Claims in the archived source
 
 ### Launch context
 
@@ -36,13 +41,13 @@ GetMyBoat is framed as a peer-to-peer boat rental marketplace launched in San Fr
 
 ### Product approach
 
-The team built the prototype with scale in mind and used MVC architecture so the product could evolve as feedback arrived.
+The archived source describes a prototype designed for iteration, using an MVC architecture as the product evolved through feedback.
 
 ### After launch
 
 Once beta traction arrived, the work shifted toward SEO, content, publishing, and broader marketing support.
 
-## Original structure of the post
+## Recovered structure
 
 ### Background
 
@@ -60,16 +65,22 @@ It focuses on the prototype, user feedback, and a flexible architecture that cou
 
 It describes a redesign, a tighter workflow, and third-party integrations that improved the launch experience.
 
-### Post launch
+### Post-launch
 
 It moves into longevity, SEO, content, publishing, and online marketing.
 
-## Source of record
+## Visual record
 
-### Original URL
+**Visual record unavailable**
 
-[appealingstudio.com/getmyboat-sharing-the-tides](http://appealingstudio.com/getmyboat-sharing-the-tides/)
+No verified screenshot or other visual capture is currently attached to this edition. If a source-grounded image is recovered, it will be added with its original asset URL, capture URL, and date. Until then, this record preserves text and structure only.
 
-### Wayback snapshot
+## Editorial note
 
-[2015-08-27 snapshot](https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/)
+This page preserves the source's public claims and broad structure while normalizing headings, links, and punctuation for the current archive. The summaries above are evidence-backed readings of the archived text, not independent verification of every technical or business claim. Missing media, implementation details, and private project context are omitted rather than inferred.
+
+## Archival sources
+
+[Original URL](http://appealingstudio.com/getmyboat-sharing-the-tides/)
+
+[2015-08-27 archived capture](https://web.archive.org/web/20150827064735/http://appealingstudio.com/getmyboat-sharing-the-tides/)

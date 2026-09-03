@@ -1,6 +1,7 @@
 ---
 const { kind = 'writing', entryId = '' } = Astro.props;
 const isCaseStudy = kind === 'case-studies';
+const isArchive = kind === 'archive';
 const relatedCaseStudies = entryId.startsWith('industrial-telemetry/')
   ? [['/case-studies/uta-website-transformation/', 'UTA Website Transformation']]
   : [['/case-studies/industrial-telemetry/', 'Industrial Telemetry ML System']];
@@ -32,5 +33,5 @@ const relatedWriting = entryId === 'inherited-systems'
       {relatedCaseStudies.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
     </ul>
   </div>
-  <a class="article-footer-back" href={isCaseStudy ? '/case-studies/' : '/writing/'}>Back to {isCaseStudy ? 'case studies' : 'writing index'}</a>
+  <a class="article-footer-back" href={isCaseStudy ? '/case-studies/' : isArchive ? '/archive/' : '/writing/'}>Back to {isCaseStudy ? 'case studies' : isArchive ? 'archive' : 'writing index'}</a>
 </footer>
