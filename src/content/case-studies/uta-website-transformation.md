@@ -14,77 +14,144 @@ author_url: "https://kieferwaight.com"
 date_published: "2026-08-29"
 date_modified: "2026-08-29"
 ---
-# University of Texas Arlington website transformation
+The UTA Design Site engagement began with an inherited Gatsby, React, Contentful, and Azure DevOps workflow whose operational knowledge was distributed across teams and incomplete documentation. I worked with UTA stakeholders to map the delivery path, document the environment and ownership boundaries, identify operational risks, and create a clearer foundation for future maintenance and development.
 
-This is the kind of project that rewards structure more than heroics. The site was inherited across Gatsby, React, Contentful, and Azure DevOps, so the real job was to make the stack legible: discover how it worked, document what mattered, and leave a cleaner handoff for the next people in the chain.
+## Context
 
-## At a glance
+The site depended on several systems and teams: Contentful for content management, Gatsby and React for the frontend, and Azure DevOps for build and deployment workflows. The technical stack was only part of the challenge. The more important question was how those systems, responsibilities, and undocumented practices fit together in daily operation.
 
-- Gatsby, React, Contentful, Azure DevOps
-- Discovery of routes, content models, and dependencies
-- Security review and operational clarity
-- Handoff materials for a future team
+## Challenge
 
-**Working assumption:**
+The work began with partial institutional knowledge spread across repositories, tools, habits, and team boundaries. Local setup, content flow, deployment responsibilities, and known technical debt were not represented in one shared operating view. That made maintenance slower and increased the risk that important decisions would remain dependent on individual memory.
 
-Inherited systems are usually less about new code and more about revealing the shape of what already exists.
+<figure class="diagram-figure">
+	<img src="/diagrams/case-studies-uta-website-transformation-md-02.svg" alt="Repositories, environments, content flow, deployment process, and team knowledge converge through discovery and documentation into a shared system map, setup guide, and prioritized backlog" loading="lazy" decoding="async" />
+	<figcaption>Discovery consolidated distributed technical and institutional knowledge into a shared operating view.</figcaption>
+</figure>
 
-## Starting point
+## Architecture
 
-The project began with an existing website and the usual inherited ambiguity that comes with it: some things are documented, some are only known by habit, and some are only obvious once you map the whole chain from content to deployment. The useful response is not to guess, but to inventory the real system.
+The delivery path connected content in Contentful to a Gatsby and React frontend, through Azure DevOps build and deployment processes, and into the published UTA web experience. Documentation formed a shared operational layer across those boundaries: it recorded how the pieces related, where ownership changed, and how a future team could work with the system.
 
-## What I had to uncover
+<figure class="diagram-figure">
+	<img src="/diagrams/case-studies-uta-website-transformation-md-01.svg" alt="Contentful content flows into a Gatsby and React frontend, through Azure DevOps build and deployment, to the UTA web experience, with documentation spanning each system boundary" loading="lazy" decoding="async" />
+	<figcaption>Content, build, deployment, and documentation boundaries in the UTA Design Site workflow.</figcaption>
+</figure>
 
-### Content flow
+## Approach
 
-How the content model worked, where authors changed copy, and what had to be preserved so the site could keep running.
+The approach combined discovery, system mapping, documentation, risk review, backlog triage, and workflow improvement. I conducted discovery with the UTA team to reconstruct the system's architecture, dependencies, and operating practices. The work focused on making the existing system legible before recommending changes.
 
-### Deployment shape
+<figure class="diagram-figure">
+	<img src="/diagrams/case-studies-uta-website-transformation-md-03.svg" alt="Five engagement milestones progress from foundation and shared clarity through control and momentum to ownership" loading="lazy" decoding="async" />
+	<figcaption>The engagement progressed from discovery and shared context to documented ownership and a maintenance path.</figcaption>
+</figure>
 
-How the site moved through Azure DevOps and what each stage needed in order to stay predictable.
+## Discovery and Team Alignment
 
-### Security and handoff
+**September 4-8**
 
-What the next team would need to know to inherit the system without inheriting avoidable confusion.
+The first week established the working relationship, access, and shared context needed to investigate an inherited system. Discovery with the UTA team reconstructed the system's architecture, dependencies, and operating practices while surfacing the institutional context that was not present in the repositories.
 
-## My operating model
+The work established an open communication rhythm and a shared record of what needed to be understood. Fresh review helped reveal the system's shape, while UTA stakeholders supplied the operational context behind existing decisions.
 
-### Map first
+**Focus**
 
-I start by identifying the real components of the system instead of assuming the architecture from a single repo view.
+- Establish communication channels, project rituals, access, and decision-making paths.
+- Map repositories, environments, dependencies, ownership boundaries, and the flow from Sitecore content to the Design Site.
+- Begin a newcomer-oriented guide to local setup, architecture, and common terminology.
+- Create an initial backlog that distinguishes urgent risks, quick wins, and longer-term improvements.
 
-### Document the seams
+**Outcome:** Discovery notes, an initial system map, working agreements, and a backlog separating urgent risks, quick wins, and longer-term improvements.
 
-The parts that most need explanation are usually the seams: where content meets code, where build meets deploy, and where a human has to intervene.
+## System Mapping and Documentation
 
-### Leave a route forward
+**September 11-22**
 
-The end state is not just a fix. It is a system that can be understood by the next person without a week of archeology.
+The next milestone turned scattered knowledge into a shared map of the code, content, tools, and deployment responsibilities. Essential information had been distributed across repositories, habits, individuals, and undocumented decisions.
 
-## What this project says about my work
+The work produced a documented view of repositories, environment setup, content flows, and deployment responsibilities. Documentation, inventory, and guided walkthroughs made the Design Site understandable enough for informed maintenance decisions.
 
-### I like inherited systems
+**Focus**
 
-Complexity does not scare me off. I tend to get sharper when the stack is already in motion and needs clarity.
+- Document the current architecture, Gatsby/React components, packages, content flows, Sitecore touchpoints, Contentful models, and Azure DevOps processes.
+- Create and validate local-development setup instructions, including required configuration, access, and troubleshooting guidance.
+- Inventory features, routes, templates, third-party services, dependencies, licenses, and known technical debt.
+- Map user and content-creator journeys, sitemap structure, navigation, and operational handoffs between teams.
+- Prioritize risks, bugs, security concerns, and backlog items with UTA stakeholders.
 
-### I write for the next team
+**Outcome:** A shared system map, validated setup guidance, an inventory of dependencies and technical debt, and an agreed-upon set of priorities.
 
-The work only counts if someone else can continue it. Handoff quality is part of the deliverable.
+## Standards, Risk Review, and Stabilization
 
-### I think in public artifacts
+**September 25-October 6**
 
-Project pages, notes, and case studies are not extra polish. They are the way the work becomes reusable knowledge.
+With the system mapped, the work moved from discovery to control: clear standards, safer workflows, stronger components, and a realistic plan for resolving technical debt.
 
-## Supporting public record
+The assessment documented expectations for code quality, security, ownership, and release readiness, rather than leaving those decisions to be reconstructed during each change.
 
-### [Archive](/archive/)
+**Focus**
 
-Recovered source pages that show how earlier public work was published and preserved.
+- Define practical standards for branching, pull requests, reviews, testing, documentation, and release decisions.
+- Assess frontend components for compatibility, modularity, responsiveness, accessibility, and maintainability.
+- Address high-priority security and performance findings in coordination with the ECM team where responsibilities overlap.
+- Document technical debt with severity, impact, recommended resolution, and sequencing.
+- Verify Contentful models, API integration, webhooks, publishing behavior, and content-management responsibilities.
 
-### [GetMyBoat timeline](/archive/getmyboat-timeline/)
+**Outcome:** The assessment identified prioritized technical-debt, security, performance, and workflow concerns, with recommended remediation steps.
 
-A separate chronology for the archive record around GetMyBoat and AppealingStudio.
+## Workflow Improvements and Delivery Enablement
 
-### [Case studies](/case-studies/)
+**October 9-20**
 
-The broader portfolio cluster, useful for seeing how this page fits into the whole site.
+With a shared understanding and stronger controls in place, the work shifted from diagnosis to delivery enablement. The focus was on prioritized backlog items, reduced friction, and a more predictable deployment path.
+
+The objective was not automation for its own sake. It was to identify where workflow improvements could reduce unnecessary friction and make content, quality, and future maintenance easier to manage.
+
+**Focus**
+
+- Prioritize fixes, improvements, and backlog items for implementation and future delivery.
+- Assess Gatsby build and static-generation workflows and document recommended improvements.
+- Assess and improve the Azure DevOps pipeline for build, test, deployment, traceability, and repeatability.
+- Document staging practices and release-review requirements.
+- Identify an appropriate path toward continuous deployment, including any technical or governance constraints that may place full automation outside the initial scope.
+- Identify performance opportunities involving asset delivery, caching, compression, lazy loading, and targeted frontend improvements.
+
+**Outcome:** The revised workflow clarified how changes could be reviewed, tested, and promoted through the existing delivery path.
+
+## Knowledge Transfer and Operational Handoff
+
+**October 23-November 3**
+
+The final milestone transferred knowledge, validated operational readiness, and documented a route for continued maintenance and development.
+
+The handoff covered setup, changes, risk evaluation, deployment responsibilities, and the points where an issue crossed team boundaries.
+
+**Focus**
+
+- Complete and validate technical documentation, including local setup, architecture, content processes, deployment procedures, troubleshooting, and operational ownership.
+- Prepare handoff and training materials for the lead developer and junior developers.
+- Create a maintenance roadmap that separates immediate follow-up work, planned improvements, and future opportunities.
+- Document and review staging and production release procedures, rollback considerations, health checks, alerts, security scans, and escalation paths.
+- Review accomplishments, unresolved decisions, risks, and next steps with project stakeholders.
+- Establish a defined post-handoff support and monitoring period, if included in scope.
+
+**Outcome:** The handoff included setup guidance, process documentation, and a maintenance roadmap intended to support continued internal ownership.
+
+## Deliverables
+
+- Local setup and newcomer-oriented architecture guidance.
+- Documentation of repositories, components, packages, content flows, Sitecore touchpoints, Contentful models, and Azure DevOps processes.
+- Inventory of routes, templates, third-party services, dependencies, licenses, and known technical debt.
+- Prioritized findings covering operational, security, performance, and workflow concerns.
+- Recommended standards for branching, reviews, testing, documentation, and release decisions.
+- Handoff materials covering maintenance, deployment, troubleshooting, ownership, and follow-up work.
+
+## Outcome
+
+The engagement converted a partially inherited and undocumented delivery workflow into a clearer operational picture: how content moved through the system, where team responsibilities intersected, what risks and technical debt required attention, and what procedures would support future maintenance. The lasting value was not limited to code or configuration changes; it was the documentation, shared context, and delivery guidance that reduced reliance on individual memory.
+
+## What I learned
+
+In inherited systems, discovery is delivery. Before a team can modernize a platform confidently, it needs a common understanding of its architecture, dependencies, ownership boundaries, and deployment path. Clear documentation turns that understanding into an asset that remains useful after the engagement ends.
+

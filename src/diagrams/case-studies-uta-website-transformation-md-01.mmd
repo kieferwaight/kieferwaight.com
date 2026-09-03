@@ -1,0 +1,19 @@
+flowchart LR
+    A[Contentful] -->|content| B[Gatsby / React]
+    B -->|build| C[Azure DevOps]
+    C -->|deploy| D[UTA web experience]
+
+    A -.-> E[Documentation]
+    B -.-> E
+    C -.-> E
+    D -.-> E
+    D -->|team ownership| F[Team ownership]
+
+    classDef system fill:#e2e8f0,stroke:#64748B,color:#0f172a,stroke-width:2px
+    classDef docs fill:#e0f2fe,stroke:#0284C7,color:#0c4a6e,stroke-width:2px
+    classDef ownership fill:#fff7ed,stroke:#F59E0B,color:#7c2d12,stroke-width:2px
+    class A,B,C,D system
+    class E docs
+    class F ownership
+    linkStyle 0,1,2,7 stroke:#F59E0B,stroke-width:2px
+    linkStyle 3,4,5,6 stroke:#94A3B8,stroke-width:1px,stroke-dasharray:5 5

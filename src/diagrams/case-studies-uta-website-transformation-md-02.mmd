@@ -1,0 +1,19 @@
+flowchart LR
+    A[Repositories] --> F[Discovery and documentation]
+    B[Environments] --> F
+    C[Content flow] --> F
+    D[Deployment process] --> F
+    E[Team knowledge] --> F
+    F --> G[Shared operating view]
+    G --> H[System map]
+    G --> I[Setup guide]
+    G --> J[Prioritized backlog]
+
+    classDef fragmented fill:#e2e8f0,stroke:#64748B,color:#334155,stroke-width:1px
+    classDef discovery fill:#fff7ed,stroke:#F59E0B,color:#7c2d12,stroke-width:2px
+    classDef organized fill:#e0f2fe,stroke:#0284C7,color:#0c4a6e,stroke-width:2px
+    class A,B,C,D,E fragmented
+    class F discovery
+    class G,H,I,J organized
+    linkStyle 0,1,2,3,4 stroke:#94A3B8,stroke-width:1px,stroke-dasharray:5 5
+    linkStyle 5,6,7,8 stroke:#F59E0B,stroke-width:2px
