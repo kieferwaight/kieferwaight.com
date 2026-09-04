@@ -23,6 +23,8 @@ The development server is available at `http://localhost:4321/` by default.
 | `npm run images:upload` | Generate `480`, `768`, `960`, and `1440`px WebP variants in R2, without upscaling, and verify each public URL. |
 | `npm run install-hooks` | Configure this clone to run the repository's pre-push checks. |
 | `npm run build` | Regenerate diagrams, then build the static site into `dist/`. |
+| `npm run test:unit` | Run Vitest utility tests for image URLs and content relationships. |
+| `npm run test:quality` | Run Astro checks, unit tests, production artifact validation, and live R2 image checks. |
 | `npm run preview` | Serve the production build locally. |
 
 `npm run build` runs `npm run diagrams` first through the `prebuild` hook. Run `npm run check` after content or component changes; run `npm run build` before publishing.

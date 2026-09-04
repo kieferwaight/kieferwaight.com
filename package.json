@@ -12,6 +12,12 @@
     "dev": "astro dev",
     "prebuild": "npm run diagrams && npm run llm-txt",
     "build": "astro build",
+    "test:build": "npm run build && node scripts/validate-build.mjs && node scripts/validate-links.mjs && node scripts/validate-images.mjs",
+    "test:links": "node scripts/validate-links.mjs",
+    "test:images": "node scripts/validate-images.mjs",
+    "test:images:remote": "node scripts/validate-images.mjs --remote",
+    "test:unit": "vitest run",
+    "test:quality": "npm run check && npm run test:unit && npm run test:build && npm run test:images:remote",
     "preview": "astro preview",
     "check": "astro check"
   },
@@ -26,6 +32,7 @@
     "@aws-sdk/client-s3": "^3.1126.0",
     "@mermaid-js/mermaid-cli": "latest",
     "sharp": "^0.35.4",
-    "typescript": "latest"
+    "typescript": "latest",
+    "vitest": "^5.0.0"
   }
 }
