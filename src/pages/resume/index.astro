@@ -1,6 +1,7 @@
 ---
-import { getEntry } from 'astro:content';
 import ContentPage from '../../components/ContentPage.astro';
-const entry = await getEntry('pages', 'resume');
+import { getPageEntry } from '../../lib/page-loader';
+
+const { entry, section } = await getPageEntry('resume');
 ---
-<ContentPage entry={entry} section="About" />
+<ContentPage entry={entry} section={section} />
