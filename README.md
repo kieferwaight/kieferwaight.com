@@ -31,6 +31,8 @@ The development server is available at `http://localhost:4321/` by default.
 
 GitHub Pages uses the official `withastro/action` to run `npm run test:quality` and upload the validated static artifact. This project intentionally does not use `@astrojs/cloudflare`: it is a static GitHub Pages site, and Astro's Cloudflare adapter is for Cloudflare Workers/server-rendered features. R2 is used separately as the image origin.
 
+GitLab owns Cloudflare R2 synchronization. Configure masked, protected GitLab CI/CD variables named `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY`; the GitLab `image_sync` stage runs `npm run images:upload` before quality validation. GitHub Actions does not receive R2 write credentials and only builds and deploys the Pages artifact.
+
 ## Image storage
 
 Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Every JPEG, PNG, or WebP original gets WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp`. Responsive components and Markdown images derive those URLs directly from the original URL, so no per-image configuration is required. Browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
