@@ -29,6 +29,8 @@ The development server is available at `http://localhost:4321/` by default.
 
 `npm run build` runs `npm run diagrams` first through the `prebuild` hook. Run `npm run check` after content or component changes; run `npm run build` before publishing.
 
+GitHub Pages uses the official `withastro/action` to run `npm run test:quality` and upload the validated static artifact. This project intentionally does not use `@astrojs/cloudflare`: it is a static GitHub Pages site, and Astro's Cloudflare adapter is for Cloudflare Workers/server-rendered features. R2 is used separately as the image origin.
+
 ## Image storage
 
 Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Every JPEG, PNG, or WebP original gets WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp`. Responsive components and Markdown images derive those URLs directly from the original URL, so no per-image configuration is required. Browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.

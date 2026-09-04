@@ -21,15 +21,15 @@ async function walk(directory) {
     return paths.flat();
 }
 
-function htmlAttribute(html, tag, attribute) {
-    const match = html.match(new RegExp(`<${tag}[^>]*\\s${attribute}=["']([^"']+)["']`, 'i'));
-    return match?.[1] ?? null;
-}
-
 function canonicalHref(html) {
     const linkTags = html.match(/<link\b[^>]*>/gi) ?? [];
     const canonical = linkTags.find((tag) => /\brel=["']canonical["']/i.test(tag));
     return canonical?.match(/\bhref=["']([^"']+)["']/i)?.[1] ?? null;
+}
+
+function hasSitemapLink(html) {
+    const linkTags = html.match(/<link\b[^>]*>/gi) ?? [];
+    return linkTags.some((tag) => /\brel=["']sitemap["']/i.test(tag) && /\bhref=["']\/sitemap-index\.xml["']/i.test(tag));
 }
 
 function htmlMeta(html, attribute, value) {
@@ -89,6 +89,7 @@ async function main() {
         if (!htmlMeta(html, 'name', 'description')) errors.push(`${route} is missing a meta description`);
         if (!htmlMeta(html, 'property', 'og:title')) errors.push(`${route} is missing og:title`);
         if (!htmlMeta(html, 'property', 'og:image')) errors.push(`${route} is missing og:image`);
+        if (!hasSitemapLink(html)) errors.push(`${route} is missing the sitemap discovery link`);
         const jsonLd = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i)?.[1];
         if (!jsonLd) errors.push(`${route} is missing JSON-LD`);
         else {
@@ -99,15 +100,17 @@ async function main() {
                 errors.push(`${route} contains invalid JSON-LD`);
             }
         }
+        if (pages.has(normalizedRoute)) errors.push(`${route} duplicates canonical URL ${canonical}`);
         pages.set(normalizedRoute, route);
     }
 
     const sitemap = await readSitemapUrls();
     errors.push(...sitemap.errors);
+    const robots = await readFile(path.join(dist, 'robots.txt'), 'utf8').catch(() => null);
+    if (!robots) errors.push('dist/robots.txt is missing');
+    else if (!robots.includes(`Sitemap: ${siteOrigin}/sitemap-index.xml`)) errors.push('robots.txt is missing the sitemap index URL');
     for (const [url, route] of pages) if (!sitemap.urls.has(url)) errors.push(`${route} is missing from the sitemap`);
     for (const url of sitemap.urls) if (!pages.has(url)) errors.push(`sitemap contains a route without generated HTML: ${url}`);
-    if (pages.size !== new Set([...pages.keys()]).size) errors.push('generated pages contain duplicate canonical URLs');
-
     fail(errors);
     if (errors.length === 0) console.log(`Build validation passed: ${pages.size} pages and ${sitemap.urls.size} sitemap URLs.`);
 }

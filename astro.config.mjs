@@ -5,7 +5,11 @@ import { rehypeR2Images } from './src/lib/markdown-r2-images.mjs';
 
 export default defineConfig({
   site: 'https://kieferwaight.com',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      namespaces: { news: false, xhtml: false, image: false, video: false },
+    }),
+  ],
   markdown: {
     processor: unified({ rehypePlugins: [rehypeR2Images] }),
     shikiConfig: { theme: 'github-dark-default' },

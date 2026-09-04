@@ -18,17 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - name: Install, validate, build, and upload the site
+        uses: withastro/action@v6
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run test:quality
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+          build-cmd: npm run test:quality
 
   deploy:
     needs: build
@@ -38,4 +32,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
