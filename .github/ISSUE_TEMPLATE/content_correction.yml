@@ -1,0 +1,26 @@
+name: Content correction
+description: Report an inaccurate or outdated public claim, source, or link.
+title: "content: "
+labels: [content]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Page or source
+      description: Provide the published URL and the specific claim or link.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: State the correction and include a public source when available.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This report does not contain private or confidential information.
+          required: true
