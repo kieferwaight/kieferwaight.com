@@ -1,14 +1,14 @@
 ---
-import '../styles/global.css';
-import CodeBlocks from '../components/CodeBlocks.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
-import MobileMenu from '../components/MobileMenu.astro';
-import { siteConfig } from '../config/site';
+import "../styles/global.css";
+import CodeBlocks from "../components/CodeBlocks.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import MobileMenu from "../components/MobileMenu.astro";
+import { siteConfig } from "../config/site";
 
 const {
   title,
   description,
-  type = 'website',
+  type = "website",
   published,
   modified,
   image,
@@ -20,57 +20,85 @@ const {
   aboutUrl,
   aboutSameAs,
 } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url).toString();
+const canonical = new URL(
+  Astro.url.pathname,
+  Astro.site ?? siteConfig.url,
+).toString();
 const ogImage = image || siteConfig.defaultOgImage;
 
 // JSON-LD: reuses the schema_type/schema_name/about_* fields already authored in content frontmatter.
 const jsonLd = schemaType && {
-  '@context': 'https://schema.org',
-  '@type': schemaType,
+  "@context": "https://schema.org",
+  "@type": schemaType,
   name: schemaName || title,
-  headline: ['Article', 'BlogPosting', 'TechArticle'].includes(schemaType) ? title : undefined,
+  headline: ["Article", "BlogPosting", "TechArticle"].includes(schemaType)
+    ? title
+    : undefined,
   description,
   url: canonical,
-  ...(authorName && ['Article', 'BlogPosting', 'TechArticle'].includes(schemaType)
-    ? { author: { '@type': 'Person', name: authorName } }
+  ...(authorName &&
+  ["Article", "BlogPosting", "TechArticle"].includes(schemaType)
+    ? { author: { "@type": "Person", name: authorName } }
     : {}),
-  ...(published && ['Article', 'BlogPosting', 'TechArticle'].includes(schemaType)
-    ? { datePublished: published.toISOString(), dateModified: (modified ?? published).toISOString() }
+  ...(published &&
+  ["Article", "BlogPosting", "TechArticle"].includes(schemaType)
+    ? {
+        datePublished: published.toISOString(),
+        dateModified: (modified ?? published).toISOString(),
+      }
     : {}),
   ...(ogImage ? { image: ogImage } : {}),
   ...(aboutName
     ? {
         about: {
-          '@type': aboutType || 'Thing',
+          "@type": aboutType || "Thing",
           name: aboutName,
           url: aboutUrl,
-          sameAs: aboutSameAs ? aboutSameAs.split(',').map((entry: string) => entry.trim()) : undefined,
+          sameAs: aboutSameAs
+            ? aboutSameAs.split(",").map((entry: string) => entry.trim())
+            : undefined,
         },
       }
     : {}),
 };
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
-    <script is:inline define:vars={{ gaMeasurementId: siteConfig.gaMeasurementId }}>
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}
+    ></script>
+    <script
+      is:inline
+      define:vars={{ gaMeasurementId: siteConfig.gaMeasurementId }}
+    >
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args) { window.dataLayer.push(args); }
-      gtag('js', new Date());
-      gtag('config', gaMeasurementId);
+      function gtag(...args) {
+        window.dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", gaMeasurementId);
     </script>
     <script is:inline>
-      const savedTheme = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = savedTheme || (systemDark ? 'dark' : 'light');
+      const savedTheme = localStorage.getItem("theme");
+      const systemDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      document.documentElement.dataset.theme =
+        savedTheme || (systemDark ? "dark" : "light");
     </script>
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
@@ -81,8 +109,22 @@ const jsonLd = schemaType && {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content={siteConfig.name} />
-    {published && <meta property="article:published_time" content={published.toISOString()} />}
-    {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
+    {
+      published && (
+        <meta
+          property="article:published_time"
+          content={published.toISOString()}
+        />
+      )
+    }
+    {
+      modified && (
+        <meta
+          property="article:modified_time"
+          content={modified.toISOString()}
+        />
+      )
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -91,7 +133,15 @@ const jsonLd = schemaType && {
     <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />}
+    {
+      jsonLd && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(jsonLd)}
+          is:inline
+        />
+      )
+    }
   </head>
   <body>
     <header class="site-header">
@@ -109,7 +159,10 @@ const jsonLd = schemaType && {
       </div>
     </header>
     <main><slot /></main>
-    <footer class="site-footer"><span>© {new Date().getFullYear()} Kiefer Waight</span><span>Systems, software, and the space between.</span></footer>
+    <footer class="site-footer">
+      <span>© {new Date().getFullYear()} Kiefer Waight</span><span
+        >Systems, software, and the space between.</span>
+    </footer>
     <CodeBlocks />
   </body>
 </html>

@@ -1,8 +1,16 @@
 ---
-import ResponsiveImage from './ResponsiveImage.astro';
-import { siteConfig } from '../config/site';
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { siteConfig } from "../config/site";
 ---
+
 <figure class="home-headshot">
-  <ResponsiveImage src={`${siteConfig.imageOrigin}/kiefer-bryan-waight-headshot.jpg`} alt={siteConfig.name} sizes="(max-width: 700px) calc(100vw - 4rem), 38vw" loading="eager" />
-  <figcaption>Systems architecture, applied AI, and operational intelligence.</figcaption>
+    <ResponsiveImage
+        src={`${siteConfig.imageOrigin}/kiefer-bryan-waight-headshot.jpg`}
+        alt={siteConfig.name}
+        sizes="(max-width: 700px) calc(100vw - 4rem), 38vw"
+        loading="eager"
+    />
+    <figcaption>
+        Systems architecture, applied AI, and operational intelligence.
+    </figcaption>
 </figure>
