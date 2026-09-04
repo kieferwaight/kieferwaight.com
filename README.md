@@ -19,8 +19,8 @@ The development server is available at `http://localhost:4321/` by default.
 | `npm run dev` | Start the Astro development server. |
 | `npm run check` | Run Astro type, content, and component diagnostics. |
 | `npm run diagrams` | Compile every `src/diagrams/*.mmd` source into a static SVG in `public/diagrams/`. |
-| `npm run images:dry-run` | List the non-icon image assets prepared for Cloudflare R2 upload. |
-| `npm run images:upload` | Upload those assets to R2 and confirm every custom-domain URL responds successfully. |
+| `npm run images:dry-run` | List R2 originals that will receive responsive WebP variants. |
+| `npm run images:upload` | Generate `480`, `768`, `960`, and `1440`px WebP variants in R2, without upscaling, and verify each public URL. |
 | `npm run build` | Regenerate diagrams, then build the static site into `dist/`. |
 | `npm run preview` | Serve the production build locally. |
 
@@ -28,9 +28,9 @@ The development server is available at `http://localhost:4321/` by default.
 
 ## Image storage
 
-Content images are prepared for delivery from `https://images.kieferwaight.com`, backed by Cloudflare R2. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
+Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Each JPEG or PNG original has WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp` when the original is large enough. Responsive components and Markdown images emit those URLs in `srcset`; browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
 
-Before the first upload, set these values in the shell environment (not in Git): `R2_BUCKET`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`. `R2_ENDPOINT` is optional; the upload script derives the account endpoint when it is absent. Run `npm run images:dry-run` to inspect the upload set, then `npm run images:upload`. The command preserves paths below `public/assets/img/`, verifies each object in R2, and checks its public custom-domain URL before reporting success.
+Set these values in the shell environment (not in Git): `R2_BUCKET`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`. `R2_ENDPOINT` is optional; the upload script derives the account endpoint when it is absent. Run `npm run images:dry-run` to inspect R2 source objects, then `npm run images:upload` to generate and verify variants. GitHub Actions repeats the upload step on every `main` push using `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY` repository secrets before it builds the Pages artifact.
 
 ## Source organization
 

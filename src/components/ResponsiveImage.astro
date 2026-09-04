@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { getR2WebpSrcset } from '../lib/r2-image-variants.mjs';
 
 const {
   src,
@@ -8,10 +8,13 @@ const {
   loading = 'lazy',
   ...attributes
 } = Astro.props;
-const isR2Image = typeof src === 'string' && src.startsWith('https://images.kieferwaight.com/');
+const webpSrcset = getR2WebpSrcset(src);
 ---
-{isR2Image ? (
-  <Image src={src} alt={alt} widths={[480, 768, 960, 1440]} sizes={sizes} loading={loading} decoding="async" inferSize {...attributes} />
+{webpSrcset ? (
+  <picture>
+    <source srcset={webpSrcset} sizes={sizes} type="image/webp" />
+    <img src={src} alt={alt} sizes={sizes} loading={loading} decoding="async" {...attributes} />
+  </picture>
 ) : (
   <img src={src} alt={alt} loading={loading} decoding="async" {...attributes} />
 )}

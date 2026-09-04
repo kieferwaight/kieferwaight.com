@@ -1,61 +1,77 @@
-import { createReadStream } from 'node:fs';
-import { readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { HeadObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import sharp from 'sharp';
+import { GetObjectCommand, HeadObjectCommand, ListObjectsV2Command, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE_DIRECTORY = path.join(ROOT, 'public/assets/img');
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID ?? '5f920424d9df83f01ea9c30e43c99965';
 const ENDPOINT = process.env.R2_ENDPOINT ?? `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`;
 const PUBLIC_ORIGIN = 'https://images.kieferwaight.com';
 const DRY_RUN = process.argv.includes('--dry-run');
+const WIDTHS = [480, 768, 960, 1440];
 
 const contentTypes = new Map([
-    ['.afdesign', 'application/octet-stream'],
     ['.jpg', 'image/jpeg'],
     ['.png', 'image/png'],
-    ['.svg', 'image/svg+xml'],
+    ['.webp', 'image/webp'],
 ]);
 
-function isLocalIcon(filePath) {
-    const name = path.basename(filePath);
-    return name.startsWith('favicon') || name === 'apple-touch-icon.png' || name.startsWith('android-chrome-');
+function isSourceImage(key) {
+    return /\.(?:jpg|png)$/i.test(key) && !/-w\d+\.webp$/i.test(key);
 }
 
-async function collectFiles(directory) {
-    const entries = await readdir(directory, { withFileTypes: true });
-    const files = [];
+function variantKey(key, width) {
+    const extension = path.extname(key);
+    return `${key.slice(0, -extension.length)}-w${width}.webp`;
+}
 
-    for (const entry of entries) {
-        const filePath = path.join(directory, entry.name);
-        if (entry.isDirectory()) {
-            files.push(...await collectFiles(filePath));
-        } else if (entry.isFile() && !isLocalIcon(filePath)) {
-            files.push(filePath);
-        }
+async function listSourceImages(client, bucket) {
+    const keys = [];
+    let continuationToken;
+    do {
+        const result = await client.send(new ListObjectsV2Command({ Bucket: bucket, ContinuationToken: continuationToken }));
+        keys.push(...(result.Contents ?? []).map(({ Key }) => Key).filter(isSourceImage));
+        continuationToken = result.NextContinuationToken;
+    } while (continuationToken);
+    return keys.sort();
+}
+
+async function readObject(client, bucket, key) {
+    const result = await client.send(new GetObjectCommand({ Bucket: bucket, Key: key }));
+    return Buffer.from(await result.Body.transformToByteArray());
+}
+
+async function verifyPublicUrl(key) {
+    const response = await fetch(`${PUBLIC_ORIGIN}/${key}`, { method: 'HEAD' });
+    if (!response.ok) throw new Error(`${key} uploaded but ${PUBLIC_ORIGIN} returned ${response.status}.`);
+}
+
+async function uploadObject(client, bucket, key, body, contentType) {
+    await client.send(new PutObjectCommand({
+        Bucket: bucket,
+        Key: key,
+        Body: body,
+        ContentType: contentType,
+        CacheControl: 'public, max-age=31536000, immutable',
+    }));
+    await client.send(new HeadObjectCommand({ Bucket: bucket, Key: key }));
+    await verifyPublicUrl(key);
+}
+
+async function uploadVariants(client, bucket, key) {
+    const source = await readObject(client, bucket, key);
+    const metadata = await sharp(source).metadata();
+    if (!metadata.width) throw new Error(`Could not read width for ${key}.`);
+
+    const widths = WIDTHS.filter((width) => width <= metadata.width);
+    for (const width of widths) {
+        const keyForVariant = variantKey(key, width);
+        const body = await sharp(source).resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer();
+        await uploadObject(client, bucket, keyForVariant, body, contentTypes.get('.webp'));
+        console.log(`Generated and verified ${keyForVariant}`);
     }
-
-    return files.sort();
-}
-
-function objectKey(filePath) {
-    return path.relative(SOURCE_DIRECTORY, filePath).split(path.sep).join('/');
+    if (widths.length === 0) console.log(`Skipped variants for ${key}; original is ${metadata.width}px wide.`);
 }
 
 async function main() {
-    const files = await collectFiles(SOURCE_DIRECTORY);
-    const totalBytes = (await Promise.all(files.map((filePath) => stat(filePath)))).reduce(
-        (total, file) => total + file.size,
-        0,
-    );
-
-    if (DRY_RUN) {
-        console.log(`Would upload ${files.length} assets (${(totalBytes / 1024 / 1024).toFixed(1)} MiB) to ${PUBLIC_ORIGIN}.`);
-        for (const filePath of files) console.log(objectKey(filePath));
-        return;
-    }
-
     const bucket = process.env.R2_BUCKET;
     if (!bucket) throw new Error('R2_BUCKET must be set.');
     if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
@@ -77,22 +93,14 @@ async function main() {
         },
     });
 
-    for (const filePath of files) {
-        const key = objectKey(filePath);
-        const contentType = contentTypes.get(path.extname(filePath).toLowerCase()) ?? 'application/octet-stream';
-        await client.send(new PutObjectCommand({
-            Bucket: bucket,
-            Key: key,
-            Body: createReadStream(filePath),
-            ContentType: contentType,
-            CacheControl: 'public, max-age=31536000, immutable',
-        }));
-        await client.send(new HeadObjectCommand({ Bucket: bucket, Key: key }));
-
-        const response = await fetch(`${PUBLIC_ORIGIN}/${key}`, { method: 'HEAD' });
-        if (!response.ok) throw new Error(`${key} uploaded but ${PUBLIC_ORIGIN} returned ${response.status}.`);
-        console.log(`Uploaded and verified ${key}`);
+    const keys = await listSourceImages(client, bucket);
+    if (DRY_RUN) {
+        console.log(`Would generate responsive WebP variants for ${keys.length} R2 source images.`);
+        for (const key of keys) console.log(key);
+        return;
     }
+
+    for (const key of keys) await uploadVariants(client, bucket, key);
 }
 
 main().catch((error) => {
