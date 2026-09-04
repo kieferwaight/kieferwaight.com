@@ -9,6 +9,7 @@ og_image: "https://images.kieferwaight.com/kiefer-bryan-waight-headshot-og-image
 author_name: "Kiefer Waight"
 schema_type: "ProfilePage"
 nav_variant: "content"
+content_class: "resume-content"
 author_type: "Person"
 author_url: "https://kieferwaight.com"
 profile_name: "Kiefer Waight"

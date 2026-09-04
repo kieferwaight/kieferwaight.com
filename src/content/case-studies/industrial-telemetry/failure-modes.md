@@ -9,6 +9,7 @@ og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-s
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
+content_class: "telemetry-deep-dive"
 author_type: "Person"
 author_url: "https://kieferwaight.com"
 date_published: "2026-09-01"

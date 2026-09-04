@@ -10,6 +10,7 @@ const contentSchema = z.object({
   og_image: z.string().optional(),
   schema_type: z.string().optional(),
   canonical: z.string().optional(),
+  content_class: z.string().optional(),
 }).passthrough();
 
 export const collections = {
