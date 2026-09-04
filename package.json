@@ -7,6 +7,7 @@
     "diagrams": "node scripts/build-diagrams.mjs",
     "images:upload": "node scripts/upload-images-to-r2.mjs",
     "images:dry-run": "node scripts/upload-images-to-r2.mjs --dry-run",
+    "install-hooks": "node scripts/install-git-hooks.mjs",
     "llm-txt": "node scripts/build-llm-txt.mjs",
     "dev": "astro dev",
     "prebuild": "npm run diagrams && npm run llm-txt",

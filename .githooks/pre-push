@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+repository_root=$(git rev-parse --show-toplevel)
+cd "$repository_root"
+
+echo "Generating and verifying R2 responsive image variants..."
+npm run images:upload
