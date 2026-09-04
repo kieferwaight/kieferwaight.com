@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+
+const {
+  src,
+  alt = '',
+  sizes = '(max-width: 700px) calc(100vw - 4rem), 38vw',
+  loading = 'lazy',
+  ...attributes
+} = Astro.props;
+const isR2Image = typeof src === 'string' && src.startsWith('https://images.kieferwaight.com/');
+---
+{isR2Image ? (
+  <Image src={src} alt={alt} widths={[480, 768, 960, 1440]} sizes={sizes} loading={loading} decoding="async" inferSize {...attributes} />
+) : (
+  <img src={src} alt={alt} loading={loading} decoding="async" {...attributes} />
+)}

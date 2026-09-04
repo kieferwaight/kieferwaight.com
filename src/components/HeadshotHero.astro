@@ -1,4 +1,7 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+---
 <figure class="home-headshot">
-  <img src="https://images.kieferwaight.com/kiefer-bryan-waight-headshot.jpg" alt="Kiefer Waight" loading="eager" decoding="async" />
+  <ResponsiveImage src="https://images.kieferwaight.com/kiefer-bryan-waight-headshot.jpg" alt="Kiefer Waight" sizes="(max-width: 700px) calc(100vw - 4rem), 38vw" loading="eager" />
   <figcaption>Systems architecture, applied AI, and operational intelligence.</figcaption>
 </figure>
