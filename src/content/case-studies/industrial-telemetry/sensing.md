@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/sensing/"
 og_title: "The Compactor Became the Sensor"
 og_description: "A practical case study in indirect measurement, industrial telemetry, and machine behavior."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -21,7 +21,7 @@ The visible problem was simple: a commercial compactor needed service at the rig
 
 The useful design move was to stop assuming that fullness had to be measured directly. The machine already produced electrical and mechanical behavior whenever it ran. That behavior could become an indirect measurement of the state inside the container.
 
-![Non-invasive electromagnetic sensing and telemetry flow](/assets/img/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png)
+![Non-invasive electromagnetic sensing and telemetry flow](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png)
 
 ## The sensing problem
 
@@ -44,7 +44,7 @@ The public case study describes a cycle as a structured event rather than an und
 
 An empty machine tends to produce a shorter, smoother, lower-resistance cycle. A fuller machine can show earlier resistance, longer sustained load, distorted waveform shape, or repeated crush attempts. None of those observations is a complete answer by itself. Together, they form evidence.
 
-![Empty and full waveform comparison](/assets/img/industrial-telemetry/figure-diagram-empty-vs-full-waveform-overlay.png)
+![Empty and full waveform comparison](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-empty-vs-full-waveform-overlay.png)
 
 ## A useful boundary around the claim
 

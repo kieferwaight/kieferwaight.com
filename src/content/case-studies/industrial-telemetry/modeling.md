@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/modeling/
 og_title: "Reading Industrial Behavior as a Time-Series System"
 og_description: "How waveform behavior becomes model-ready evidence without relying on a universal threshold."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/industrial-telemetry/figure-diagram-compactor-feature-engineering.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-compactor-feature-engineering.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -19,7 +19,7 @@ source_url: "https://github.com/kieferwaight/industrial-telemetry-ml-system"
 
 There was no direct measurement of fullness. The modeling task was to observe noisy telemetry, isolate meaningful crush cycles, normalize different machines, and convert behavior into a decision that an operations team could understand.
 
-![Feature engineering for compactor telemetry](/assets/img/industrial-telemetry/figure-diagram-compactor-feature-engineering.png)
+![Feature engineering for compactor telemetry](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-compactor-feature-engineering.png)
 
 ## Start with the cycle, not the whole stream
 
@@ -72,7 +72,7 @@ That small function is not the whole system. It shows an important engineering h
 
 Two compactors at the same fullness level can produce dramatically different raw telemetry because of motor configuration, equipment age, hydraulic condition, power supply, container size, installation, and maintenance history.
 
-![Device fingerprint comparison](/assets/img/industrial-telemetry/figure-diagram-device-fingerprint-comparison.png)
+![Device fingerprint comparison](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-device-fingerprint-comparison.png)
 
 The system therefore learns a device fingerprint. It establishes an empty-state baseline, tracks normal runtime distributions, and asks whether a new cycle departs from that device’s own behavior. Site type provides another layer of context: apartments, offices, industrial locations, construction sites, and hospitality environments have different rhythms and different failure patterns.
 

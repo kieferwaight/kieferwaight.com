@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/evolution
 og_title: "From Rules to Adaptive Models"
 og_description: "Model evolution, ground truth, and the feedback loop behind industrial operational intelligence."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/industrial-telemetry/figure-diagram-end-to-end-model-evolution-workflow.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-end-to-end-model-evolution-workflow.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -22,7 +22,7 @@ The system's job was not simply to classify a container as full or empty. It was
 It evolved through progressively more honest representations of uncertainty: direct observation, thresholds, segmented cycles, device-specific baselines, trend-aware confidence, and operational feedback.
 
 <figure class="diagram-figure">
-    <img src="/assets/img/industrial-telemetry/figure-diagram-end-to-end-model-evolution-workflow.png" alt="Model evolution from raw observation and thresholds through normalized cycles, device behavior, confidence, trend, and service outcomes" loading="lazy" decoding="async" />
+    <img src="https://images.kieferwaight.com/industrial-telemetry/figure-diagram-end-to-end-model-evolution-workflow.png" alt="Model evolution from raw observation and thresholds through normalized cycles, device behavior, confidence, trend, and service outcomes" loading="lazy" decoding="async" />
     <figcaption>The workflow shifts model output from a binary classification to a confidence-ranked review signal.</figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ The question changed from “is this cycle full?” to “is this device trendin
 Pickup confirmations, dump records, service timing, account-manager corrections, and exception notes become imperfect but valuable supervision. A pickup timestamp is not a perfect fullness label, because routing convenience or vendor availability can move service earlier or later than the actual threshold crossing. Feedback entered through dispatch review, technician records, and post-service reconciliation could improve the next iteration without pretending that every service event was ground truth.
 
 <figure class="diagram-figure">
-    <img src="/assets/img/industrial-telemetry/figure-diagram-human-feedback-loop.png" alt="Human feedback loop connecting model predictions, operational review, service outcomes, and future model updates" loading="lazy" decoding="async" />
+    <img src="https://images.kieferwaight.com/industrial-telemetry/figure-diagram-human-feedback-loop.png" alt="Human feedback loop connecting model predictions, operational review, service outcomes, and future model updates" loading="lazy" decoding="async" />
     <figcaption>Service outcomes and human review provide imperfect supervision for the next model iteration.</figcaption>
 </figure>
 

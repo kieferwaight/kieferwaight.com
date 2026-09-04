@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/archive/getmyboat-launches-boat-and-breakfa
 og_title: "GetMyBoat Boat-and-Breakfast Launch"
 og_description: "A preserved reference to an early GetMyBoat marketplace launch page."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/kiefer-bryan-headshot-og-image.jpg"
+og_image: "https://images.kieferwaight.com/kiefer-bryan-waight-headshot-og-image.jpg"
 author_name: "AppealingStudio"
 schema_type: "Article"
 nav_variant: "content"

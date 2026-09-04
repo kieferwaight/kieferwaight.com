@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/"
 og_title: "Industrial Telemetry ML System"
 og_description: "A public case study of sensing, waveform analysis, synthetic telemetry, and fill-level inference."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/kiefer-bryan-waight-headshot-og-image.jpg"
+og_image: "https://images.kieferwaight.com/kiefer-bryan-waight-headshot-og-image.jpg"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -20,7 +20,7 @@ This project sits at the intersection of sensing, machine learning, and operatio
 
 The core problem was to make an industrial compaction system more legible by using non-invasive signal collection, waveform analysis, and synthetic telemetry to infer fill-level behavior. The important output was not a chart. It was a better answer to a dispatch question: should this asset be serviced now?
 
-![Fullness inference workflow](/assets/img/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
+![Fullness inference workflow](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
 
 ## Read the case study in parts
 

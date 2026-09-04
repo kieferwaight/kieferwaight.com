@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/archive/getmyboat-buenos-aires/"
 og_title: "Buenos Aires, Argentina"
 og_description: "Visiting GetMyBoat's Argentina engineering team during a period of rapid global growth."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/getmyboat/buenos-aires-team.jpg"
+og_image: "https://images.kieferwaight.com/getmyboat/buenos-aires-team.jpg"
 author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
@@ -18,11 +18,11 @@ date_modified: "2026-09-03"
 ---
 # Buenos Aires, Argentina
 
-![Colorful architecture in Caminito, Buenos Aires](/assets/img/getmyboat/buenos-aires-caminito.jpg)
+![Colorful architecture in Caminito, Buenos Aires](https://images.kieferwaight.com/getmyboat/buenos-aires-caminito.jpg)
 
 I traveled to Buenos Aires to meet with GetMyBoat's remote engineering team during a period of rapid global growth. The team was later part of an equity-aligned acquisition path, and this visit helped strengthen our direct relationship with technical leadership on the ground.
 
-![Street art in Buenos Aires](/assets/img/getmyboat/buenos-aires-street-art.jpg)
+![Street art in Buenos Aires](https://images.kieferwaight.com/getmyboat/buenos-aires-street-art.jpg)
 
 During the trip, we planned global office space, team resources, and benefits, including signing an agreement with WeWork to provide local office access for the Argentina team. Building a real boots-on-the-ground relationship with the development team was important to GetMyBoat's success as we scaled from a U.S.-centered marketplace into a 24/7 global operation.
 
@@ -32,7 +32,7 @@ Argentina became our nearshore development hub, complementing our Dallas and San
 
 These distributed teams eventually came under direct GetMyBoat management shortly before the company's first major liquidity event with Yanmar, a Japanese entity that acquired a significant stake in GetMyBoat.
 
-![Dinner with the GetMyBoat Argentina team](/assets/img/getmyboat/buenos-aires-team.jpg)
+![Dinner with the GetMyBoat Argentina team](https://images.kieferwaight.com/getmyboat/buenos-aires-team.jpg)
 
 ## Growth, COVID, and consolidation
 

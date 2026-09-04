@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/failure-m
 og_title: "Failure Modes and Drift in Industrial Telemetry"
 og_description: "Physical systems change. This is how failure analysis and drift handling become part of the product."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/industrial-telemetry/figure-diagram-site-type-waveform-overlay.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-site-type-waveform-overlay.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -19,7 +19,7 @@ source_url: "https://github.com/kieferwaight/industrial-telemetry-ml-system"
 
 Physical systems rarely produce perfect signals. The challenge is not to eliminate uncertainty. It is to manage uncertainty intelligently enough that the system can support a decision without hiding what it does not know.
 
-![Site-type waveform comparison](/assets/img/industrial-telemetry/figure-diagram-site-type-waveform-overlay.png)
+![Site-type waveform comparison](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-site-type-waveform-overlay.png)
 
 ## The main ways interpretation goes wrong
 

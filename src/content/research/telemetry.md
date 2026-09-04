@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/research/telemetry/"
 og_title: "The Compactor Became the Sensor"
 og_description: "From electrical signal to dispatch intelligence: an applied machine learning research brief."
 og_type: "article"
-og_image: "/assets/img/industrial-telemetry/figure-diagram-fullness-inference-workflow.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-diagram-fullness-inference-workflow.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 date_published: "2026-09-03"
@@ -19,7 +19,7 @@ source_pdf: "The Compactor Became The Sensor v2"
 
 This research brief examines how an ordinary industrial asset became an observable system. The system did not add a direct fill-level sensor. It learned to interpret electrical and mechanical behavior as evidence about operational state.
 
-![Fullness inference workflow](/assets/img/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
+![Fullness inference workflow](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
 
 > **Research position:** The valuable output was not a percentage-full dashboard. It was a more defensible answer to a dispatch question: should this asset be serviced now?
 
@@ -58,7 +58,7 @@ The compactor was not a passive container. Every cycle produced a structured int
 
 A single current value did not mean the same thing across every machine. A change relative to the same device's empty-state baseline, recent cycle history, site type, and maintenance condition was more informative than a universal threshold.
 
-![Empty and full waveform comparison](/assets/img/industrial-telemetry/figure-diagram-empty-vs-full-waveform-overlay.png)
+![Empty and full waveform comparison](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-empty-vs-full-waveform-overlay.png)
 
 ### <span class="subsection-number">2.3</span> Fullness was not the only signal
 
@@ -70,7 +70,7 @@ The same electrical behavior could be explained by dense material, a temporary o
 
 The architecture separated raw observation from interpretation. That separation made the system inspectable: analysts could distinguish what the machine emitted, what the feature pipeline derived, and what the model recommended.
 
-![Electromagnetic sensor telemetry flow](/assets/img/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png)
+![Electromagnetic sensor telemetry flow](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-electromagnetic-sensor-telemetry-flow.png)
 
 ### <span class="subsection-number">3.2</span> A research system still needs operational boundaries
 
@@ -94,7 +94,7 @@ The useful unit was not the entire stream. It was a segmented cycle with a start
 | Repetition | retries, short-interval clusters | identifies behavior that persists across attempts |
 | Context | device history, site type, recent service | prevents a global threshold from doing too much |
 
-![Feature engineering for compactor telemetry](/assets/img/industrial-telemetry/figure-diagram-compactor-feature-engineering.png)
+![Feature engineering for compactor telemetry](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-compactor-feature-engineering.png)
 
 ## <span class="section-number">05</span> Why this was hard
 
@@ -136,7 +136,7 @@ The important evolution was not a claim of model sophistication. It was a change
 
 The model score mattered when it changed a decision. The operational loop connected telemetry collection, inference, review, service scheduling, haul confirmation, and feedback.
 
-![Business outcome dashboard concept](/assets/img/industrial-telemetry/figure-mockup-business-outcome-dashboard.png)
+![Business outcome dashboard concept](https://images.kieferwaight.com/industrial-telemetry/figure-mockup-business-outcome-dashboard.png)
 
 | Before | After |
 | --- | --- |

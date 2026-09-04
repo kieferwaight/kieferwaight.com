@@ -5,7 +5,7 @@ canonical: "https://kieferwaight.com/case-studies/industrial-telemetry/operation
 og_title: "From Prediction to Dispatch"
 og_description: "The value of industrial machine learning appears when inference changes the operational workflow."
 og_type: "article"
-og_image: "https://kieferwaight.com/assets/img/industrial-telemetry/figure-mockup-business-outcome-dashboard.png"
+og_image: "https://images.kieferwaight.com/industrial-telemetry/figure-mockup-business-outcome-dashboard.png"
 author_name: "Kiefer Waight"
 schema_type: "TechArticle"
 nav_variant: "content"
@@ -19,7 +19,7 @@ source_url: "https://github.com/kieferwaight/industrial-telemetry-ml-system"
 
 The system mattered because it changed operational behavior. A model score that stays inside an analytics screen is interesting; a model score that helps decide whether a compactor should be serviced is useful.
 
-![Business outcome dashboard concept](/assets/img/industrial-telemetry/figure-mockup-business-outcome-dashboard.png)
+![Business outcome dashboard concept](https://images.kieferwaight.com/industrial-telemetry/figure-mockup-business-outcome-dashboard.png)
 
 ## The decision loop
 
@@ -65,7 +65,7 @@ That format supports a useful operational distinction: a high-confidence stable 
 
 Account managers connect telemetry to customer expectations, vendor availability, maintenance context, and site knowledge. A dashboard can expose the current state, history, confidence, recent cycles, and recommended action without requiring the operator to understand every feature.
 
-![Fullness inference workflow](/assets/img/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
+![Fullness inference workflow](https://images.kieferwaight.com/industrial-telemetry/figure-diagram-fullness-inference-workflow.png)
 
 Review is not evidence that the model failed. In an uncertain physical system, review is a control boundary. It prevents a temporary obstruction, a maintenance event, or a connectivity gap from becoming an overconfident automated dispatch.
 
