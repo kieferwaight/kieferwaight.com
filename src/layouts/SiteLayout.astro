@@ -5,6 +5,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 
 const DEFAULT_OG_IMAGE = 'https://images.kieferwaight.com/kiefer-bryan-waight-headshot-og-image.jpg';
+const GA_MEASUREMENT_ID = 'G-6NC4CWLV8G';
 
 const {
   title,
@@ -56,6 +57,13 @@ const jsonLd = schemaType && {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) { window.dataLayer.push(args); }
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
     <script is:inline>
       const savedTheme = localStorage.getItem('theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
