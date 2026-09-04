@@ -14,7 +14,6 @@ about_name: "Kiefer Waight"
 about_type: "Person"
 about_url: "https://kieferwaight.com"
 schema_name: "Kiefer Waight"
-about_same_as: "https://github.com/kieferwaight,https://www.linkedin.com/in/kieferwaight/"
 ---
 ## Three systems boundaries
 

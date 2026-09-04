@@ -25,6 +25,11 @@ const canonical = new URL(
   Astro.site ?? siteConfig.url,
 ).toString();
 const ogImage = image || siteConfig.defaultOgImage;
+const socialProfiles = aboutSameAs
+  ? aboutSameAs.split(",").map((entry: string) => entry.trim())
+  : aboutName === siteConfig.name
+    ? siteConfig.socialProfiles
+    : undefined;
 
 // JSON-LD: reuses the schema_type/schema_name/about_* fields already authored in content frontmatter.
 const jsonLd = schemaType && {
@@ -54,9 +59,7 @@ const jsonLd = schemaType && {
           "@type": aboutType || "Thing",
           name: aboutName,
           url: aboutUrl,
-          sameAs: aboutSameAs
-            ? aboutSameAs.split(",").map((entry: string) => entry.trim())
-            : undefined,
+          sameAs: socialProfiles,
         },
       }
     : {}),
