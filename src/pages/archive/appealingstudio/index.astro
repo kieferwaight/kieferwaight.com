@@ -1,7 +1,16 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-import ArchiveTimelinePage from '../../../components/ArchiveTimelinePage.astro';
-const entry = await getEntry('archive', 'appealingstudio');
-const items = await getCollection('studio-timeline');
+import { getCollection, getEntry } from "astro:content";
+import ArchiveTimelinePage from "../../../components/ArchiveTimelinePage.astro";
+const entry = await getEntry("archive", "appealingstudio");
+const items = await getCollection("studio-timeline");
 ---
-<ArchiveTimelinePage entry={entry} items={items} eyebrow="Archive" authorFallback="AppealingStudio" dateLabel="Historical record" timelineId="studio-timeline" timelineTitle="Studio timeline" />
+
+<ArchiveTimelinePage
+    entry={entry}
+    items={items}
+    eyebrow="Archive"
+    authorFallback="AppealingStudio"
+    dateLabel="Historical record"
+    timelineId="studio-timeline"
+    timelineTitle="Studio timeline"
+/>

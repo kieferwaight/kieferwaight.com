@@ -15,7 +15,7 @@ const contentTypes = new Map([
 ]);
 
 function isSourceImage(key) {
-    return /\.(?:jpg|png)$/i.test(key) && !/-w\d+\.webp$/i.test(key);
+    return /\.(?:jpe?g|png|webp)$/i.test(key) && !/-w\d+\.webp$/i.test(key);
 }
 
 function variantKey(key, width) {
@@ -58,17 +58,12 @@ async function uploadObject(client, bucket, key, body, contentType) {
 
 async function uploadVariants(client, bucket, key) {
     const source = await readObject(client, bucket, key);
-    const metadata = await sharp(source).metadata();
-    if (!metadata.width) throw new Error(`Could not read width for ${key}.`);
-
-    const widths = WIDTHS.filter((width) => width <= metadata.width);
-    for (const width of widths) {
+    for (const width of WIDTHS) {
         const keyForVariant = variantKey(key, width);
-        const body = await sharp(source).resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer();
+        const body = await sharp(source).resize({ width }).webp({ quality: 80 }).toBuffer();
         await uploadObject(client, bucket, keyForVariant, body, contentTypes.get('.webp'));
         console.log(`Generated and verified ${keyForVariant}`);
     }
-    if (widths.length === 0) console.log(`Skipped variants for ${key}; original is ${metadata.width}px wide.`);
 }
 
 async function main() {

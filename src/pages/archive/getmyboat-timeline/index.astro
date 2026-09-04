@@ -1,7 +1,19 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-import ArchiveTimelinePage from '../../../components/ArchiveTimelinePage.astro';
-const entry = await getEntry('archive', 'getmyboat-timeline');
-const items = await getCollection('timeline');
+import { getCollection, getEntry } from "astro:content";
+import ArchiveTimelinePage from "../../../components/ArchiveTimelinePage.astro";
+const entry = await getEntry("archive", "getmyboat-timeline");
+const items = await getCollection("timeline");
 ---
-<ArchiveTimelinePage entry={entry} items={items} eyebrow="Public record" authorFallback="Kiefer Waight" dateLabel={new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(entry.data.date_published)} timelineId="structured-timeline" timelineTitle="Structured timeline" />
+
+<ArchiveTimelinePage
+  entry={entry}
+  items={items}
+  eyebrow="Public record"
+  authorFallback="Kiefer Waight"
+  dateLabel={new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(entry.data.date_published)}
+  timelineId="structured-timeline"
+  timelineTitle="Structured timeline"
+/>

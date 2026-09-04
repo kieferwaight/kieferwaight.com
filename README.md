@@ -29,7 +29,7 @@ The development server is available at `http://localhost:4321/` by default.
 
 ## Image storage
 
-Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Each JPEG or PNG original has WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp` when the original is large enough. Responsive components and Markdown images emit those URLs in `srcset`; browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
+Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Every JPEG, PNG, or WebP original gets WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp`. Responsive components and Markdown images derive those URLs directly from the original URL, so no per-image configuration is required. Browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
 
 Set these values in the shell environment (not in Git): `R2_BUCKET`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`. `R2_ENDPOINT` is optional; the upload script derives the account endpoint when it is absent. Run `npm run images:dry-run` to inspect R2 source objects, then `npm run images:upload` to generate and verify variants whenever you add or replace an original. GitHub Pages builds only the site artifact; it does not require R2 write credentials.
 
