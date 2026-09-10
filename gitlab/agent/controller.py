@@ -4,7 +4,7 @@ import os
 import subprocess
 import sys
 import uuid
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List, Tuple
 
 from .models import IssueContext, TaskPacket, QAResult
 from .issue_parser import parse_issue, build_task_packet
