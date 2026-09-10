@@ -61,6 +61,13 @@ const formattedDate = entry.data.date_published
   >
     <Content />
   </article>
+  {
+    section === "Writing" && !isIndex && (
+      <p class="article-pdf-link">
+        <a href={`/pdfs/${entry.id}.pdf`}>Download as PDF</a>
+      </p>
+    )
+  }
   {section === "Archive" && !isIndex && <ArchiveSourcePanel entry={entry} />}
   {
     ["Writing", "Case studies", "Archive"].includes(section) && !isIndex && (
