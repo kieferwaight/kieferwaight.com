@@ -1175,6 +1175,10 @@ pre {
         color: #000;
     }
 
+    body::before {
+        display: none;
+    }
+
     main {
         max-width: none;
         padding: 0;
