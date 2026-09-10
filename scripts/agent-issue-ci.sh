@@ -89,7 +89,7 @@ if printf '%s\n' "$changed_paths" | grep -Eqv '^(src/content/|src/data/project-p
   exit 1
 fi
 
-git add -A -- . ':(exclude).agent-state'
+git add -A -- .
 git diff --cached --check
 git commit -m "${branch_kind}: ${issue_title} (refs #${AGENT_ISSUE_IID})"
 git remote set-url origin "https://oauth2:${GITLAB_AGENT_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
