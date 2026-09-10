@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available local workflows
+    cmds:
+      - task --list
+    silent: true
+
+  issue:start:
+    desc: Create a clean content branch from a GitLab issue (ISSUE=number)
+    requires:
+      vars: [ISSUE]
+    cmds:
+      - bash scripts/issue-start.sh {{.ISSUE | quote}}
+
+  issue:submit:
+    desc: Validate, commit, push, and open a prefilled GitLab MR form (ISSUE=number)
+    requires:
+      vars: [ISSUE]
+    cmds:
+      - bash scripts/issue-submit.sh {{.ISSUE | quote}}
+
+  issue:status:
+    desc: Show the current issue branch and its GitLab MR form URL (ISSUE=number)
+    requires:
+      vars: [ISSUE]
+    cmds:
+      - bash scripts/issue-status.sh {{.ISSUE | quote}}

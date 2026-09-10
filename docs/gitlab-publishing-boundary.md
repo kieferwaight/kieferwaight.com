@@ -13,6 +13,26 @@ GitLab merge requests are the approval boundary for changes to this site. A cont
 
 Do not push directly to GitHub `main`. GitHub is the static-hosting target; GitLab owns the review and publishing decision.
 
+## Local issue workflow
+
+The issue board is the work queue. The local Taskfile creates a content branch from the public issue title, runs the full quality suite, then opens a prefilled GitLab merge-request form. It does not merge or deploy.
+
+```sh
+# Start a branch such as content/1-zigair-page from gitlab/main.
+task issue:start ISSUE=1
+
+# Use refresh or fix when the branch type better describes the work.
+ISSUE_BRANCH_KIND=fix task issue:start ISSUE=3
+
+# Validate, commit, push the branch, and open a form prefilled with Closes #1.
+task issue:submit ISSUE=1
+
+# Print the issue and MR URLs for the current issue branch.
+task issue:status ISSUE=1
+```
+
+The helper reads a public GitLab issue title without API credentials. If the issue is private or unavailable, provide the title explicitly: `ISSUE_TITLE="ZigAir Page" task issue:start ISSUE=1`.
+
 ## Required project settings
 
 Configure these settings in GitLab before merging this change:
