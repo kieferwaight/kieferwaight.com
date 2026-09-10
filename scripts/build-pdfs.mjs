@@ -8,9 +8,16 @@ import puppeteer from 'puppeteer';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(root, 'dist');
-const writingDir = path.join(distDir, 'writing');
 const pdfDir = path.join(distDir, 'pdfs');
 const HEADLINE = 'SYSTEMS ARCHITECT &amp; FRACTIONAL CTO';
+
+// Each section's dist directory is walked recursively for index.html files;
+// skipRootIndex excludes the section's own top-level listing page (not a real article).
+const SECTIONS = [
+    { urlBase: 'writing', distSubdir: 'writing', skipRootIndex: true },
+    { urlBase: 'case-studies', distSubdir: 'case-studies', skipRootIndex: true },
+    { urlBase: 'research', distSubdir: 'research', skipRootIndex: false },
+];
 
 const contentTypes = new Map([
     ['.html', 'text/html'],
@@ -39,15 +46,40 @@ function startStaticServer() {
     });
 }
 
-async function listWritingSlugs() {
-    const entries = await readdir(writingDir, { withFileTypes: true }).catch(() => []);
-    return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+async function listIndexFiles(dir) {
+    const entries = await readdir(dir, { withFileTypes: true }).catch(() => []);
+    const results = [];
+    for (const entry of entries) {
+        const entryPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            results.push(...(await listIndexFiles(entryPath)));
+        } else if (entry.name === 'index.html') {
+            results.push(entryPath);
+        }
+    }
+    return results;
+}
+
+async function collectPages() {
+    const pages = [];
+    for (const section of SECTIONS) {
+        const sectionDir = path.join(distDir, section.distSubdir);
+        const indexFiles = await listIndexFiles(sectionDir);
+        for (const indexFile of indexFiles) {
+            const relativeDir = path.relative(sectionDir, path.dirname(indexFile));
+            if (section.skipRootIndex && relativeDir === '') continue;
+            const urlPath = relativeDir === '' ? `${section.urlBase}/` : `${section.urlBase}/${relativeDir}/`;
+            const slug = relativeDir === '' ? section.urlBase : `${section.urlBase}-${relativeDir.split(path.sep).join('-')}`;
+            pages.push({ urlPath, slug });
+        }
+    }
+    return pages;
 }
 
 async function main() {
-    const slugs = await listWritingSlugs();
-    if (slugs.length === 0) {
-        console.log('pdfs: no writing pages found in dist/writing, skipping (run `npm run build` first)');
+    const pages = await collectPages();
+    if (pages.length === 0) {
+        console.log('pdfs: no pages found in dist/, skipping (run `npm run build` first)');
         return;
     }
 
@@ -55,11 +87,11 @@ async function main() {
     const { server, port } = await startStaticServer();
     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
     try {
-        for (const slug of slugs) {
+        for (const { urlPath, slug } of pages) {
             const page = await browser.newPage();
             await page.setViewport({ width: 1240, height: 1754 });
             await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
-            await page.goto(`http://127.0.0.1:${port}/writing/${slug}/`, { waitUntil: 'networkidle0' });
+            await page.goto(`http://127.0.0.1:${port}/${urlPath}`, { waitUntil: 'networkidle0' });
             await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
             await page.emulateMediaType('print');
             const pdf = await page.pdf({

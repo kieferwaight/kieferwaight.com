@@ -17,6 +17,15 @@ const formattedDate = entry.data.date_published
       year: "numeric",
     }).format(entry.data.date_published)
   : null;
+const pdfUrlBase =
+  section === "Writing"
+    ? "writing"
+    : section === "Case studies"
+      ? "case-studies"
+      : section === "Telemetry research"
+        ? "research"
+        : null;
+const pdfSlug = pdfUrlBase && `${pdfUrlBase}-${entry.id.replace(/\//g, "-")}`;
 ---
 
 <SiteLayout
@@ -62,9 +71,9 @@ const formattedDate = entry.data.date_published
     <Content />
   </article>
   {
-    section === "Writing" && !isIndex && (
+    pdfSlug && !isIndex && (
       <p class="article-pdf-link">
-        <a href={`/pdfs/${entry.id}.pdf`}>Download as PDF</a>
+        <a href={`/pdfs/${pdfSlug}.pdf`}>Download as PDF</a>
       </p>
     )
   }
