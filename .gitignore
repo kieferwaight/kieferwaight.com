@@ -7,5 +7,7 @@ public/assets-manifest.json
 src/data/assets-manifest.json
 public/fonts/
 .DS_Store
+__pycache__/
+*.py[cod]
 .agent-worktrees/
 .agent-state/

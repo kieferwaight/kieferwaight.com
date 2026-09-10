@@ -41,4 +41,3 @@ agent_issue:
     paths:
       - .agent-state/events.jsonl
       - .agent-state/context.json
-      - .agent-state/task-packet.json

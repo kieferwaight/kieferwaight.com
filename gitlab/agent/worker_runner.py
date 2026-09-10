@@ -1,8 +1,7 @@
-"""Worker agent execution in a sealed workspace without GitLab write tokens."""
-import json
+"""Worker agent execution without GitLab write tokens."""
 import os
 import subprocess
-from typing import Tuple, Dict, Any, Optional
+from typing import Tuple, Optional
 from .models import TaskPacket
 
 
@@ -23,20 +22,20 @@ class WorkerRunner:
 
     def run_worker(self, task_packet: TaskPacket) -> Tuple[int, str, str]:
         os.makedirs(self.state_dir, exist_ok=True)
-        packet_path = os.path.join(self.state_dir, "task-packet.json")
-
-        # Write read-only task packet file
-        with open(packet_path, "w", encoding="utf-8") as f:
-            json.dump(task_packet.to_dict(), f, indent=2)
-        os.chmod(packet_path, 0o444)
-
-        # Worker prompt focuses ONLY on repository implementation and validation
+        issue = task_packet.issue_snapshot
+        acceptance = "\n".join(f"- {item}" for item in task_packet.acceptance_criteria) or "- Use the issue content as the requirement."
+        links = "\n".join(f"- {item}" for item in issue.get("relevant_links", [])) or "- None"
         prompt = (
-            f"Read the task packet at {packet_path}. "
-            "Implement the requested issue requirements in the repository. "
-            "Work ONLY in the permitted paths. "
-            "Run relevant build/validation checks. "
-            "Do NOT create branches, commit, push, open merge requests, post comments, or modify remote state."
+            "Implement this GitLab issue in the current repository.\n\n"
+            f"Issue: #{issue.get('iid')} {issue.get('title')}\n"
+            f"URL: {issue.get('web_url') or 'Unavailable'}\n"
+            f"Branch: {task_packet.branch_name}\n\n"
+            f"Goal:\n{issue.get('goal') or issue.get('description') or issue.get('title')}\n\n"
+            f"Description:\n{issue.get('description') or issue.get('title')}\n\n"
+            f"Acceptance Criteria:\n{acceptance}\n\n"
+            f"Relevant Links:\n{links}\n\n"
+            "Mutate the working tree to satisfy the issue. Run relevant build or validation checks when practical. "
+            "Do not create branches, commit, push, open merge requests, post comments, or modify remote state."
         )
 
         # Prepare environment stripped of GitLab write tokens and credentials
@@ -65,7 +64,6 @@ class WorkerRunner:
         except Exception:
             pass
 
-        # If entrypoint script exists, run entrypoint.sh task ...
         cmd = [self.entrypoint_script, "task", prompt] if os.path.exists(self.entrypoint_script) else ["bash", "entrypoint.sh", "task", prompt]
 
         p = subprocess.run(

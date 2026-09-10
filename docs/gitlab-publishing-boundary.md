@@ -37,7 +37,7 @@ During the initial migration, `issue:start` refuses to create a branch while Git
 
 ## Ready-for-agent queue
 
-Apply the `ready-for-agent` label to an open issue when its brief and evidence are ready. A trusted issue-event relay triggers a GitLab pipeline with `AGENT_ISSUE_IID`. The `agent_issue` job uses the agent container and LiteLLM at runtime, creates a content branch, limits edits to portfolio content paths, pushes the branch, and creates a draft merge request. The normal merge-request pipeline then performs the site validation. It does not approve, merge, change labels, publish, or expose GitLab write credentials to the model process.
+Apply the `ready-for-agent` label to an open issue when its brief and evidence are ready. A trusted issue-event relay triggers a GitLab pipeline with `AGENT_ISSUE_IID`. The `agent_issue` job uses the configured Codex, Gemini, or OpenCode CLI at runtime, creates or updates an issue branch, passes the issue context as a prompt, lets the repository mutate, commits a non-empty diff, pushes the branch, and creates or updates a draft merge request. The normal merge-request pipeline then performs the site validation. The job does not approve, merge, publish, or expose GitLab write credentials to the model process.
 
 GitLab does not create a CI pipeline directly from an issue event. Configure the issue webhook relay to call the pipeline trigger API with `AGENT_ISSUE_IID`; the job exits without changes unless the issue is open and labeled `ready-for-agent`.
 
