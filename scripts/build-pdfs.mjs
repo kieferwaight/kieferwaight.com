@@ -56,7 +56,9 @@ async function main() {
     try {
         for (const slug of slugs) {
             const page = await browser.newPage();
+            await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
             await page.goto(`http://127.0.0.1:${port}/writing/${slug}/`, { waitUntil: 'networkidle0' });
+            await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
             await page.emulateMediaType('print');
             const pdf = await page.pdf({ format: 'A4', printBackground: true, margin: { top: '1in', bottom: '1in', left: '0.75in', right: '0.75in' } });
             await page.close();
