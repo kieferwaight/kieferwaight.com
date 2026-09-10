@@ -3,9 +3,17 @@ image: node:22-bookworm
 variables:
   PUPPETEER_CACHE_DIR: $CI_PROJECT_DIR/.cache/puppeteer
 
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - when: never
+
 stages:
-  - image_sync
-  - quality
+  - validate
+  - build
+  - review
+  - publish
 
 cache:
   key:
@@ -14,15 +22,35 @@ cache:
   paths:
     - .npm/
 
-image_sync:
-  stage: image_sync
+.install:
   before_script:
     - npm ci --cache .npm --prefer-offline
+
+check:
+  extends: .install
+  stage: validate
   script:
-    - npm run images:upload
+    - npm run check
+    - npm run test:unit
+
+build:
+  extends: .install
+  stage: build
+  needs: ["check"]
+  script:
+    - npm run build
+    - node scripts/validate-build.mjs
+    - node scripts/validate-links.mjs
+    - node scripts/validate-images.mjs
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 7 days
 
 quality:
-  stage: quality
+  extends: .install
+  stage: review
+  needs: ["check", "build"]
   cache:
     - key:
         files:
@@ -64,7 +92,6 @@ quality:
     - npm ci --cache .npm --prefer-offline
   script:
     - npm run test:quality
-    - npm run pdfs:upload
   artifacts:
     when: on_failure
     expire_in: 1 week
@@ -72,3 +99,40 @@ quality:
       - dist/
       - public/llm.txt
       - public/diagrams/
+
+image_sync:
+  extends: .install
+  stage: publish
+  needs: ["quality"]
+  variables:
+    AWS_ACCESS_KEY_ID: $R2_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $R2_SECRET_ACCESS_KEY
+  script:
+    - npm run images:upload
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+pdf_sync:
+  extends: .install
+  stage: publish
+  needs: ["quality"]
+  variables:
+    AWS_ACCESS_KEY_ID: $R2_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $R2_SECRET_ACCESS_KEY
+  script:
+    - npm run build
+    - npm run pdfs:upload
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+mirror_to_github:
+  stage: publish
+  needs: ["image_sync", "pdf_sync"]
+  before_script:
+    - git config user.name "GitLab publisher"
+    - git config user.email "gitlab-publisher@kieferwaight.com"
+  script:
+    - test -n "$GITHUB_MIRROR_TOKEN" || { echo "GITHUB_MIRROR_TOKEN is required on protected main to publish."; exit 1; }
+    - git push "https://x-access-token:${GITHUB_MIRROR_TOKEN}@github.com/kieferwaight/kieferwaight.com.git" "HEAD:main"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
