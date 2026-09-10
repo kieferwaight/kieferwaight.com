@@ -14,7 +14,8 @@ import manifest from "../data/assets-manifest.json";
         <p>
             {manifest.summary.diagramCount ?? 0} diagrams, {
                 manifest.summary.imageCount ?? 0
-            } images. Generated {manifest.generatedAt}.
+            } images, {manifest.summary.staticAssetCount ?? 0} static assets. Generated
+            {manifest.generatedAt}.
         </p>
 
         <h2>Diagrams</h2>
@@ -59,6 +60,18 @@ import manifest from "../data/assets-manifest.json";
                         <p class="asset-refs">
                             {image.referencedBy.join(", ")}
                         </p>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <h2>Static assets</h2>
+        <ul class="asset-grid">
+            {
+                (manifest.staticAssets ?? []).map((asset: any) => (
+                    <li class="asset-card">
+                        <img src={asset.url} alt={asset.id} loading="lazy" />
+                        <p class="asset-id">{asset.id}</p>
                     </li>
                 ))
             }

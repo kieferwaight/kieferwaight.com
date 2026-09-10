@@ -6,9 +6,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = path.join(root, 'src', 'content');
 const diagramsDir = path.join(root, 'src', 'diagrams');
 const publicDiagramsDir = path.join(root, 'public', 'diagrams');
+const publicDir = path.join(root, 'public');
 const outputPath = path.join(root, 'public', 'assets-manifest.json');
 const dataOutputPath = path.join(root, 'src', 'data', 'assets-manifest.json');
 const imageOrigin = 'https://images.kieferwaight.com/';
+const staticAssetPattern = /\.(?:png|ico|svg|webmanifest)$/i;
+const staticExcludedDirs = new Set(['diagrams']);
 
 async function walk(dir) {
     const entries = await readdir(dir, { withFileTypes: true }).catch(() => []);
@@ -69,27 +72,44 @@ function buildImageEntries(imageRefs) {
     }));
 }
 
+async function buildStaticEntries() {
+    const files = await walk(publicDir);
+    const staticFiles = files.filter((filePath) => {
+        const relativePath = path.relative(publicDir, filePath);
+        if (staticExcludedDirs.has(relativePath.split(path.sep)[0])) return false;
+        return staticAssetPattern.test(relativePath);
+    });
+
+    return staticFiles.map((filePath) => {
+        const relativePath = path.relative(publicDir, filePath);
+        return { id: relativePath, url: `/${relativePath}` };
+    }).sort((a, b) => a.id.localeCompare(b.id));
+}
+
 async function main() {
     const { diagramRefs, imageRefs } = await collectReferences();
     const diagrams = await buildDiagramEntries(diagramRefs);
     const images = buildImageEntries(imageRefs);
+    const staticAssets = await buildStaticEntries();
 
     const manifest = {
         generatedAt: new Date().toISOString(),
         diagrams,
         images,
+        staticAssets,
         summary: {
             diagramCount: diagrams.length,
             diagramsMissingOnDisk: diagrams.filter((entry) => !entry.existsOnDisk).length,
             diagramsUnreferenced: diagrams.filter((entry) => entry.referencedBy.length === 0).length,
             imageCount: images.length,
+            staticAssetCount: staticAssets.length,
         },
     };
 
     await writeFile(outputPath, JSON.stringify(manifest, null, 2) + '\n');
     await mkdir(path.dirname(dataOutputPath), { recursive: true });
     await writeFile(dataOutputPath, JSON.stringify(manifest, null, 2) + '\n');
-    console.log(`asset manifest: ${diagrams.length} diagrams, ${images.length} images -> ${path.relative(root, outputPath)}`);
+    console.log(`asset manifest: ${diagrams.length} diagrams, ${images.length} images, ${staticAssets.length} static assets -> ${path.relative(root, outputPath)}`);
 }
 
 main();
