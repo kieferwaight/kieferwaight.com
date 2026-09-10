@@ -10,6 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(root, 'dist');
 const pdfDir = path.join(distDir, 'pdfs');
 const HEADLINE = 'SYSTEMS ARCHITECT &amp; FRACTIONAL CTO';
+const SITE_ORIGIN = 'https://kieferwaight.com/';
 
 // Each section's dist directory is walked recursively for index.html files;
 // skipRootIndex excludes the section's own top-level listing page (not a real article).
@@ -102,6 +103,12 @@ async function main() {
             await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
             await page.goto(`http://127.0.0.1:${port}/${urlPath}`, { waitUntil: 'networkidle0' });
             await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
+            // Root-relative links otherwise resolve against the local static server used for rendering.
+            await page.evaluate((origin) => {
+                const base = document.createElement('base');
+                base.href = origin;
+                document.head.prepend(base);
+            }, SITE_ORIGIN);
             await page.emulateMediaType('print');
             const pdf = await page.pdf({
                 format: 'A4',
