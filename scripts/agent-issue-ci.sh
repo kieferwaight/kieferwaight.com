@@ -2,7 +2,8 @@
 set -euo pipefail
 
 : "${AGENT_ISSUE_IID:?AGENT_ISSUE_IID is required}"
-: "${GITLAB_AGENT_TOKEN:?GITLAB_AGENT_TOKEN is required}"
+export GITLAB_AGENT_TOKEN="${GITLAB_PAT:-${GITLAB_AGENT_TOKEN:-}}"
+: "${GITLAB_AGENT_TOKEN:?GITLAB_PAT or GITLAB_AGENT_TOKEN is required}"
 : "${LITELLM_API_KEY:?LITELLM_API_KEY is required}"
 : "${CI_API_V4_URL:?CI_API_V4_URL is required}"
 : "${CI_PROJECT_ID:?CI_PROJECT_ID is required}"
