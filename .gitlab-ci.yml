@@ -24,6 +24,28 @@ cache:
 
 .install:
   before_script:
+    - apt-get update
+    - |
+      apt-get install --yes --no-install-recommends \
+        libasound2 \
+        libxfixes3 \
+        libxext6 \
+        libxrender1 \
+        libx11-xcb1 \
+        libxkbcommon0 \
+        libxi6 \
+        fonts-liberation \
+        libatk-bridge2.0-0 \
+        libatk1.0-0 \
+        libcups2 \
+        libdrm2 \
+        libgbm1 \
+        libnspr4 \
+        libnss3 \
+        libpango-1.0-0 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxrandr2
     - npm ci --cache .npm --prefer-offline
 
 check:
@@ -68,29 +90,6 @@ quality:
     - key: fonts
       paths:
         - public/fonts/
-  before_script:
-    - apt-get update
-    - |
-      apt-get install --yes --no-install-recommends \
-        libasound2 \
-        libxfixes3 \
-        libxext6 \
-        libxrender1 \
-        libx11-xcb1 \
-        libxkbcommon0 \
-        libxi6 \
-        fonts-liberation \
-        libatk-bridge2.0-0 \
-        libatk1.0-0 \
-        libcups2 \
-        libdrm2 \
-        libgbm1 \
-        libnss3 \
-        libpango-1.0-0 \
-        libxcomposite1 \
-        libxdamage1 \
-        libxrandr2
-    - npm ci --cache .npm --prefer-offline
   script:
     - npm run test:quality
   artifacts:
