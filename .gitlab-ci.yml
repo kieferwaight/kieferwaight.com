@@ -5,7 +5,7 @@ variables:
 
 workflow:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger" && $AGENT_ISSUE_IID'
+    - if: '$AGENT_ISSUE_IID && ($CI_PIPELINE_SOURCE == "trigger" || $CI_PIPELINE_SOURCE == "api")'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
     - when: never
@@ -156,7 +156,7 @@ agent_issue:
     AGENT_APPROVAL: never
     AGENT_SANDBOX: workspace-write
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger" && $AGENT_ISSUE_IID'
+    - if: '$AGENT_ISSUE_IID && ($CI_PIPELINE_SOURCE == "trigger" || $CI_PIPELINE_SOURCE == "api")'
   script:
     - bash scripts/agent-issue-ci.sh
   artifacts:
