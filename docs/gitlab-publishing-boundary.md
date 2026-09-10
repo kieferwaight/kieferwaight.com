@@ -37,9 +37,9 @@ During the initial migration, `issue:start` refuses to create a branch while Git
 
 ## Ready-for-agent queue
 
-Before the first run, start `gemini` in an interactive terminal and complete its authentication setup. Apply the `ready-for-agent` label to one issue when its brief and evidence are ready. Run `task agent:ready` from a clean primary worktree to select the first open labeled issue. The runner checks Gemini authentication before it creates an isolated Git worktree, asks the local Gemini CLI to edit only portfolio content, rejects changes outside the allowed content paths, runs `task issue:submit`, and opens a prefilled MR form.
+Apply the `ready-for-agent` label to an open issue when its brief and evidence are ready. A trusted issue-event relay triggers a GitLab pipeline with `AGENT_ISSUE_IID`. The `agent_issue` job uses the agent container and LiteLLM at runtime, creates a content branch, limits edits to portfolio content paths, pushes the branch, and creates a draft merge request. The normal merge-request pipeline then performs the site validation. It does not approve, merge, change labels, publish, or expose GitLab write credentials to the model process.
 
-The runner skips an issue when its remote branch already exists. It does not approve, merge, change labels, or publish. Those steps remain in GitLab review and the protected-main pipeline.
+GitLab does not create a CI pipeline directly from an issue event. Configure the issue webhook relay to call the pipeline trigger API with `AGENT_ISSUE_IID`; the job exits without changes unless the issue is open and labeled `ready-for-agent`.
 
 ## Required project settings
 
@@ -48,6 +48,9 @@ Configure these settings in GitLab before merging this change:
 - Protect `main`; allow merges only for the designated maintainer and disallow direct pushes.
 - Require one approval from the designated maintainer, disallow author approval, require successful pipelines, and require all discussions to be resolved.
 - Mark `R2_BUCKET`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, and `GITHUB_MIRROR_TOKEN` as masked and protected variables.
+- Publish an agent image and set its immutable image reference as the masked `AGENT_IMAGE` variable.
+- Set `LITELLM_API_KEY` as a masked, protected variable for the agent trigger pipeline.
+- Set `GITLAB_AGENT_TOKEN` as a masked, protected project access token with `api` and `write_repository` scopes. It is used only after the model exits to push the generated branch and create its draft merge request.
 - Use a fine-grained GitHub token for `GITHUB_MIRROR_TOKEN` with repository contents write access only. It is used only by the protected `mirror_to_github` job.
 - Configure GitHub `main` so only the GitLab publisher can push. GitHub Pages continues to deploy when that mirror push reaches `main`.
 
