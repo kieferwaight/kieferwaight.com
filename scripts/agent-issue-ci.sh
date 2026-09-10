@@ -83,7 +83,7 @@ if [[ -z "$changed_paths" ]]; then
   echo 'Agent produced no repository changes; no merge request created.'
   exit 0
 fi
-if printf '%s\n' "$changed_paths" | rg -qv '^(src/content/|src/data/project-photo-collections\.json$|public/project-images/|public/assets/img/|public/decks/)'; then
+if printf '%s\n' "$changed_paths" | grep -Eqv '^(src/content/|src/data/project-photo-collections\.json$|public/project-images/|public/assets/img/|public/decks/)'; then
   echo 'Agent changed a file outside the content-only scope; refusing to submit:' >&2
   printf '%s\n' "$changed_paths" >&2
   exit 1
