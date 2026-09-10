@@ -10,26 +10,8 @@ author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
 author_type: "Person"
-photo_collection:
-  title: "CorkSharing — Napa Valley product visits"
-  source: "Five photographs supplied by Kiefer Waight in chat"
-  asset_status: "Awaiting local source files for embedding"
-  images:
-    - id: "corksharing-napa-outdoor-tanks"
-      caption: "Outdoor tanks and pipework during the CorkSharing Napa Valley product visits."
-      alt: "Large stainless-steel tanks and overhead pipes, with a visitor in a high-visibility vest"
-    - id: "corksharing-napa-barrel-storage"
-      caption: "Barrel storage during the Napa Valley visits."
-      alt: "Wine barrels stacked on metal racks inside a storage building"
-    - id: "corksharing-napa-barrel-aisle"
-      caption: "A second view of the barrel storage area."
-      alt: "An aisle beside tall racks of stacked wine barrels"
-    - id: "corksharing-napa-indoor-tour"
-      caption: "A walk through the indoor production area during the product visits."
-      alt: "Visitors in high-visibility vests walking between stainless-steel tanks indoors"
-    - id: "corksharing-napa-facility-panorama"
-      caption: "Panoramic view of the production facility during the Napa Valley visits."
-      alt: "Panorama of outdoor tanks, pipework, and elevated walkways with visitors"
+photo_gallery: "corksharing"
+
 ---
 # CorkSharing
 

@@ -16,6 +16,7 @@ schema_name: "Kiefer Waight Archive"
 This archive collects original URLs and source snapshots for public content that used to live on AppealingStudio.com.
 
 - [Buenos Aires, Argentina](/archive/getmyboat-buenos-aires/) - Kiefer Waight's account of visiting the GetMyBoat Argentina engineering team during global expansion.
+- [Vinoez in Napa Valley](/archive/vinoez/) - Seven photos of Kiefer Waight and the team visiting winery facilities and grounds.
 - [SaraGEO mapping platform](/archive/sarageo/) - My co-founder and architect role, project handover, and original product deck.
 - [ZigAir flight-sharing marketplace](/archive/zigair/) - Product history, historical interface, and company sources for the studio's aviation marketplace work.
 - [AppealingStudio](/archive/appealingstudio/) - The studio history that contextualizes the early GetMyBoat work.

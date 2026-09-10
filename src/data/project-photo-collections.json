@@ -1,0 +1,207 @@
+{
+  "zigair": {
+    "title": "ZigAir homepage",
+    "page": "/archive/zigair/",
+    "images": [
+      {
+        "caption": "Historical ZigAir beta homepage, with seat-based flight search and an aircraft listing entry point.",
+        "alt": "ZigAir homepage with route, dates, and seat search above a photograph of a charter aircraft",
+        "src": "/project-images/zigair/01.png",
+        "width": 1425,
+        "height": 805
+      }
+    ],
+    "source": "Images supplied by Kiefer Waight"
+  },
+  "prankdial": {
+    "title": "PrankDial app screens",
+    "page": "/archive/prankdial/",
+    "images": [
+      {
+        "caption": "Browse and preview call scenarios.",
+        "alt": "PrankDial promotional screenshot showing scenario categories, audio previews, and a token balance",
+        "src": "/project-images/prankdial/01.png",
+        "width": 600,
+        "height": 1299
+      },
+      {
+        "caption": "Follow the call status live.",
+        "alt": "PrankDial promotional screenshot showing a selected scenario, live call status, and elapsed time",
+        "src": "/project-images/prankdial/02.png",
+        "width": 600,
+        "height": 1299
+      },
+      {
+        "caption": "Review call history and play recordings.",
+        "alt": "PrankDial promotional screenshot showing saved calls with dates and recording playback controls",
+        "src": "/project-images/prankdial/03.png",
+        "width": 600,
+        "height": 1299
+      },
+      {
+        "caption": "Customize the details of a scenario.",
+        "alt": "PrankDial promotional screenshot showing editable names and other details within a call script",
+        "src": "/project-images/prankdial/04.png",
+        "width": 600,
+        "height": 1299
+      }
+    ],
+    "source": "Images supplied by Kiefer Waight"
+  },
+  "sarageo": {
+    "title": "SaraGEO identity",
+    "page": "/archive/sarageo/",
+    "images": [
+      {
+        "caption": "SaraGEO logo supplied with the project record.",
+        "alt": "SaraGEO wordmark with a blue map pin above an outlined map",
+        "src": "/project-images/sarageo/01.png",
+        "width": 320,
+        "height": 320
+      }
+    ],
+    "source": "Images supplied by Kiefer Waight"
+  },
+  "corksharing": {
+    "title": "CorkSharing — Napa Valley product visits",
+    "source": "Images supplied by Kiefer Waight",
+    "images": [
+      {
+        "id": "corksharing-napa-outdoor-tanks",
+        "caption": "Outdoor tanks and pipework during the CorkSharing Napa Valley product visits.",
+        "alt": "Large stainless-steel tanks and overhead pipes, with a visitor in a high-visibility vest",
+        "src": "/project-images/corksharing/01.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "corksharing-napa-barrel-storage",
+        "caption": "Barrel storage during the Napa Valley visits.",
+        "alt": "Wine barrels stacked on metal racks inside a storage building",
+        "src": "/project-images/corksharing/02.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "corksharing-napa-barrel-aisle",
+        "caption": "A second view of the barrel storage area.",
+        "alt": "An aisle beside tall racks of stacked wine barrels",
+        "src": "/project-images/corksharing/03.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "corksharing-napa-indoor-tour",
+        "caption": "A walk through the indoor production area during the product visits.",
+        "alt": "Visitors in high-visibility vests walking between stainless-steel tanks indoors",
+        "src": "/project-images/corksharing/04.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      {
+        "id": "corksharing-napa-facility-panorama",
+        "caption": "Panoramic view of the production facility during the Napa Valley visits.",
+        "alt": "Panorama of outdoor tanks, pipework, and elevated walkways with visitors",
+        "src": "/project-images/corksharing/05.jpg",
+        "width": 1664,
+        "height": 472
+      }
+    ],
+    "page": "/archive/corksharing/"
+  },
+  "getmyboat-techcrunch": {
+    "title": "Melanie and Kiefer at TechCrunch for the GetMyBoat launch",
+    "source": "Images supplied by Kiefer Waight",
+    "event_date": "Not yet specified",
+    "images": [
+      {
+        "id": "getmyboat-techcrunch-exhibition-floor",
+        "caption": "The exhibition floor during Melanie and Kiefer's TechCrunch visit for the GetMyBoat launch.",
+        "alt": "Conference exhibition floor with a KeepTrax banner and surrounding exhibitor booths",
+        "src": "/project-images/getmyboat-techcrunch/01.jpg",
+        "width": 768,
+        "height": 1024
+      },
+      {
+        "id": "getmyboat-techcrunch-melanie",
+        "caption": "Melanie at the event during the TechCrunch visit for the GetMyBoat launch.",
+        "alt": "Melanie waving inside an exhibition space with white curtains and green floor tiles",
+        "src": "/project-images/getmyboat-techcrunch/02.jpg",
+        "width": 665,
+        "height": 1182
+      }
+    ],
+    "page": "/archive/getmyboat-timeline/"
+  },
+  "vinoez": {
+    "project": "Vinoez",
+    "title": "Vinoez — Kiefer Waight and team exploring Napa Valley",
+    "source": "Images supplied by Kiefer Waight",
+    "images": [
+      {
+        "id": "vinoez-napa-team-production-tour",
+        "caption": "Kiefer Waight and the Vinoez team exploring Napa Valley.",
+        "alt": "A group in high-visibility vests touring outdoor winery production equipment",
+        "source_order": 1,
+        "src": "/project-images/vinoez/01.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-winery-yard",
+        "caption": "Winery yard during the Vinoez Napa Valley visit.",
+        "alt": "Wine barrels and wooden racks beside a production building, with a green hillside beyond",
+        "source_order": 2,
+        "src": "/project-images/vinoez/02.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-barrels-and-tanks",
+        "caption": "Barrel storage and tanks during the team visit.",
+        "alt": "Elevated view of stacked wine barrels between stainless-steel production equipment and tanks",
+        "source_order": 3,
+        "src": "/project-images/vinoez/03.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-production-floor",
+        "caption": "A second view across the winery production floor.",
+        "alt": "Rows of wine barrels on racks beside processing equipment and a yellow forklift",
+        "source_order": 4,
+        "src": "/project-images/vinoez/04.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-vineyard-view",
+        "caption": "Vineyard landscape during the Napa Valley visit.",
+        "alt": "A lawn and trees overlooking vineyard rows and wooded hills",
+        "source_order": 5,
+        "src": "/project-images/vinoez/05.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-winery-gardens",
+        "caption": "Gardens and grounds during the team visit.",
+        "alt": "A landscaped driveway lined with flowers and trees beneath Napa Valley hills",
+        "source_order": 6,
+        "src": "/project-images/vinoez/06.jpg",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "id": "vinoez-napa-wine-box",
+        "caption": "Wine selection from the Vinoez Napa Valley photo record.",
+        "alt": "An open red presentation box holding three wine bottles beside a computer keyboard",
+        "source_order": 7,
+        "src": "/project-images/vinoez/07.jpg",
+        "width": 768,
+        "height": 1024
+      }
+    ],
+    "page": "/archive/vinoez/"
+  }
+}

@@ -41,6 +41,10 @@ Set these values in the shell environment (not in Git): `R2_BUCKET`, `AWS_ACCESS
 
 Run `npm run install-hooks` once after cloning. The pre-push hook runs `npm run images:upload` and blocks the push if R2 variants cannot be generated and verified. Upload new original images to R2 before pushing content that references them.
 
+### Historical project galleries
+
+The user-supplied project photos and screenshots live in `public/project-images/` and are served with the Pages artifact. Their captions, dimensions, and page associations are recorded in `src/data/project-photo-collections.json`. Archive frontmatter selects a collection with `photo_gallery`; `ProjectGallery.astro` renders each image with a full-size link. These archival originals are kept on the site origin alongside the SaraGEO PDF, so publishing them does not depend on an R2 upload.
+
 ## Source organization
 
 ```text

@@ -10,6 +10,7 @@ author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
 author_type: "Person"
+photo_gallery: "sarageo"
 ---
 # SaraGEO
 

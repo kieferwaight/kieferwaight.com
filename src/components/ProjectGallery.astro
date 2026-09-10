@@ -1,0 +1,37 @@
+---
+import collections from '../data/project-photo-collections.json';
+
+interface Props { collection?: string; }
+const { collection } = Astro.props;
+const gallery = collection ? collections[collection as keyof typeof collections] : undefined;
+if (collection && !gallery) throw new Error(`Unknown project photo collection: ${collection}`);
+---
+
+{gallery && (
+  <section class="project-gallery" aria-labelledby={`gallery-${collection}`}>
+    <h2 id={`gallery-${collection}`}>{gallery.title}</h2>
+    <p class="gallery-help">Select an image to view it at full size.</p>
+    <div class="gallery-grid">
+      {gallery.images.map((photo) => (
+        <figure class:list={{ 'gallery-wide': photo.width / photo.height > 1.8 }}>
+          <a href={photo.src}>
+            <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .project-gallery { margin-block: 3rem; }
+  .gallery-help { color: var(--muted); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+  .gallery-grid figure { margin: 0; min-width: 0; }
+  .gallery-grid a { display: block; }
+  .gallery-grid img { width: 100%; height: auto; }
+  .gallery-grid figcaption { text-transform: none; letter-spacing: normal; line-height: 1.6; }
+  .gallery-wide { grid-column: 1 / -1; }
+  @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; } }
+</style>

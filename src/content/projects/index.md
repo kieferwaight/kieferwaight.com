@@ -91,6 +91,12 @@ The project account records that history alongside the original product presenta
 
 ## Marketplace & consumer products
 
+### Vinoez
+
+Photographs from my time exploring Napa Valley with the Vinoez team, including winery production areas, barrel storage, and the surrounding grounds.
+
+[View the Vinoez Napa Valley gallery](/archive/vinoez/).
+
 ### CorkSharing
 
 I built the CorkSharing platform, its web and mobile applications, and its API. I also set up the offshore engineering team and traveled through Napa Valley to help establish the product.

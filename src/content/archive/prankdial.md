@@ -10,6 +10,7 @@ author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
 author_type: "Person"
+photo_gallery: "prankdial"
 ---
 # PrankDial
 
@@ -25,7 +26,7 @@ Alongside that work, I maintained the PrankDial website and its Express.js API a
 
 The broader role also covered media workflows for recordings and a migration to stateless, serverless infrastructure that reduced AWS operating costs. Those are portfolio-level responsibilities in my career record; the available account does not assign every media feature or infrastructure change specifically to PrankDial.
 
-This was work on an existing product with an established history. The mobile screens below are described as product context, rather than as a claim that I designed or implemented the iOS application.
+This was work on an existing product with an established history. The gallery below shows the product's mobile interface.
 
 ## Product experience
 
