@@ -10,6 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(root, 'dist');
 const writingDir = path.join(distDir, 'writing');
 const pdfDir = path.join(distDir, 'pdfs');
+const HEADLINE = 'SYSTEMS ARCHITECT &amp; FRACTIONAL CTO';
 
 const contentTypes = new Map([
     ['.html', 'text/html'],
@@ -56,11 +57,19 @@ async function main() {
     try {
         for (const slug of slugs) {
             const page = await browser.newPage();
+            await page.setViewport({ width: 1240, height: 1754 });
             await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
             await page.goto(`http://127.0.0.1:${port}/writing/${slug}/`, { waitUntil: 'networkidle0' });
             await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
             await page.emulateMediaType('print');
-            const pdf = await page.pdf({ format: 'A4', printBackground: true, margin: { top: '1in', bottom: '1in', left: '0.75in', right: '0.75in' } });
+            const pdf = await page.pdf({
+                format: 'A4',
+                printBackground: true,
+                margin: { top: '0.6in', bottom: '0.6in', left: '0.5in', right: '0.5in' },
+                displayHeaderFooter: true,
+                headerTemplate: `<div style="width:100%;font-size:8px;color:#94a3b8;text-align:center;padding-top:6px;letter-spacing:.08em;">KIEFER WAIGHT &nbsp;|&nbsp; ${HEADLINE}</div>`,
+                footerTemplate: '<div style="width:100%;font-size:8px;color:#94a3b8;text-align:center;padding-bottom:6px;"><span class="pageNumber"></span> / <span class="totalPages"></span></div>',
+            });
             await page.close();
             const outputPath = path.join(pdfDir, `${slug}.pdf`);
             await writeFile(outputPath, pdf);

@@ -1161,6 +1161,7 @@ pre {
 }
 
 @media print {
+
     .site-header,
     .site-footer,
     .article-pdf-link,
@@ -1186,5 +1187,12 @@ pre {
 
     .content-shell {
         max-width: none;
+    }
+
+    .content-shell table {
+        display: table;
+        white-space: normal;
+        overflow-x: visible;
+        font-size: .78rem;
     }
 }
