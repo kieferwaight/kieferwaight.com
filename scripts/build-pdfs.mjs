@@ -67,7 +67,7 @@ async function main() {
                 printBackground: true,
                 margin: { top: '0.6in', bottom: '0.6in', left: '0.5in', right: '0.5in' },
                 displayHeaderFooter: true,
-                headerTemplate: `<div style="width:100%;font-size:8px;color:#94a3b8;text-align:center;padding-top:6px;letter-spacing:.08em;">KIEFER WAIGHT &nbsp;|&nbsp; ${HEADLINE}</div>`,
+                headerTemplate: `<div style="width:100%;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:9px;letter-spacing:-.03em;text-transform:uppercase;text-align:center;padding-top:6px;color:#0f172a;">KIEFER <span style="color:#68a0ff;">WAIGHT</span> <span style="font-weight:500;letter-spacing:.06em;color:#64748b;margin-left:6px;">| ${HEADLINE}</span></div>`,
                 footerTemplate: '<div style="width:100%;font-size:8px;color:#94a3b8;text-align:center;padding-bottom:6px;"><span class="pageNumber"></span> / <span class="totalPages"></span></div>',
             });
             await page.close();
