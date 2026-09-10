@@ -8,6 +8,39 @@ source "$script_dir/issue-workflow.sh"
 readonly ready_label="ready-for-agent"
 readonly worktree_root="$repo_root/.agent-worktrees"
 
+gemini_auth_is_configured() {
+  [[ -n "${GEMINI_API_KEY:-}" || -n "${GOOGLE_API_KEY:-}" || -n "${GOOGLE_GENAI_USE_VERTEXAI:-}" || -n "${GOOGLE_GENAI_USE_GCA:-}" ]] && return 0
+
+  python3 - <<'PY'
+import json
+from pathlib import Path
+
+settings_path = Path.home() / '.gemini' / 'settings.json'
+try:
+    settings = json.loads(settings_path.read_text())
+except (FileNotFoundError, json.JSONDecodeError):
+    raise SystemExit(1)
+
+auth_type = settings.get('security', {}).get('auth', {}).get('selectedType')
+raise SystemExit(0 if auth_type else 1)
+PY
+}
+
+require_gemini_auth() {
+  if ! command -v gemini >/dev/null 2>&1; then
+    echo "Gemini CLI is required. Install and authenticate it before running task agent:ready." >&2
+    exit 41
+  fi
+  if ! gemini_auth_is_configured; then
+    cat >&2 <<'EOF'
+Gemini has no non-interactive authentication configuration.
+Run `gemini` once in an interactive terminal, choose an authentication method, and complete sign-in.
+Then rerun `task agent:ready`. Alternatively, provide an authorized Gemini or Google runtime credential to this command.
+EOF
+    exit 41
+  fi
+}
+
 query_ready_issues() {
   if [[ -n "${AGENT_READY_PAYLOAD_FILE:-}" ]]; then
     cat "$AGENT_READY_PAYLOAD_FILE"
@@ -49,6 +82,7 @@ issue_name="${issue_fields[1]}"
 issue_description="${issue_fields[2]}"
 issue_web_url="${issue_fields[3]}"
 require_issue_number "$issue_number"
+require_gemini_auth
 
 if [[ -n "$(git -C "$repo_root" status --porcelain)" ]]; then
   echo "The primary worktree must be clean before starting an agent run." >&2
@@ -83,7 +117,7 @@ prompt="You are drafting a single GitLab issue for Kiefer Waight's Astro portfol
 
 (
   cd "$worktree"
-  gemini --sandbox --approval-mode auto_edit --prompt "$prompt"
+  gemini --skip-trust --sandbox --approval-mode auto_edit --prompt "$prompt"
 )
 
 changed_paths="$(git -C "$worktree" diff --name-only)"
