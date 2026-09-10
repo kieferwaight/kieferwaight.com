@@ -35,6 +35,12 @@ The helper reads a public GitLab issue title without API credentials. If the iss
 
 During the initial migration, `issue:start` refuses to create a branch while GitLab `main` is behind GitHub `main`. Merge the publishing-boundary MR first; afterward GitLab becomes the branch source for every issue workflow.
 
+## Ready-for-agent queue
+
+Apply the `ready-for-agent` label to one issue when its brief and evidence are ready. Run `task agent:ready` from a clean primary worktree to select the first open labeled issue. The runner creates an isolated Git worktree, asks the local Gemini CLI to edit only portfolio content, rejects changes outside the allowed content paths, runs `task issue:submit`, and opens a prefilled MR form.
+
+The runner skips an issue when its remote branch already exists. It does not approve, merge, change labels, or publish. Those steps remain in GitLab review and the protected-main pipeline.
+
 ## Required project settings
 
 Configure these settings in GitLab before merging this change:
