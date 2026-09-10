@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import ArticleFooter from "./ArticleFooter.astro";
 import ArchiveSourcePanel from "./ArchiveSourcePanel.astro";
+import { siteConfig } from "../config/site";
 const { entry, section = "" } = Astro.props;
 const { Content } = await render(entry);
 const isIndex = entry.id === "index";
@@ -26,6 +27,7 @@ const pdfUrlBase =
         ? "research"
         : null;
 const pdfSlug = pdfUrlBase && `${pdfUrlBase}-${entry.id.replace(/\//g, "-")}`;
+const pdfUrl = pdfSlug && `${siteConfig.imageOrigin}/pdfs/${pdfSlug}.pdf`;
 ---
 
 <SiteLayout
@@ -71,9 +73,9 @@ const pdfSlug = pdfUrlBase && `${pdfUrlBase}-${entry.id.replace(/\//g, "-")}`;
     <Content />
   </article>
   {
-    pdfSlug && !isIndex && (
+    pdfUrl && !isIndex && (
       <p class="article-pdf-link">
-        <a href={`/pdfs/${pdfSlug}.pdf`}>Download as PDF</a>
+        <a href={pdfUrl}>Download as PDF</a>
       </p>
     )
   }

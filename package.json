@@ -17,6 +17,8 @@
     "build": "astro build",
     "postbuild": "npm run pdfs",
     "pdfs": "node scripts/build-pdfs.mjs",
+    "pdfs:upload": "node scripts/upload-pdfs-to-r2.mjs",
+    "pdfs:dry-run": "node scripts/upload-pdfs-to-r2.mjs --dry-run",
     "test:build": "npm run build && node scripts/validate-build.mjs && node scripts/validate-links.mjs && node scripts/validate-images.mjs",
     "test:links": "node scripts/validate-links.mjs",
     "test:images": "node scripts/validate-images.mjs",

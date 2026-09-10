@@ -85,7 +85,16 @@ async function main() {
 
     await mkdir(pdfDir, { recursive: true });
     const { server, port } = await startStaticServer();
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    let browser;
+    try {
+        browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    } catch (error) {
+        // GitHub Actions' build image lacks the Chromium system libraries GitLab installs;
+        // PDF generation there is skipped and left to GitLab, which uploads results to R2.
+        console.warn(`pdfs: skipping generation, Chromium failed to launch (${error.message})`);
+        server.close();
+        return;
+    }
     try {
         for (const { urlPath, slug } of pages) {
             const page = await browser.newPage();

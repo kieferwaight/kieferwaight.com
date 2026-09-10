@@ -58,6 +58,7 @@ quality:
     - npm ci --cache .npm --prefer-offline
   script:
     - npm run test:quality
+    - npm run pdfs:upload
   artifacts:
     when: on_failure
     expire_in: 1 week
