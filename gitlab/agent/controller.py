@@ -6,6 +6,7 @@ import sys
 import uuid
 from typing import Optional, Dict, Any, List, Tuple
 
+from .models import IssueContext, TaskPacket, QAResult
 from .issue_parser import parse_issue, build_task_packet
 from .triage import triage_issue
 from .gitlab_client import GitLabClient
