@@ -1,5 +1,8 @@
 image: node:22-bookworm
 
+variables:
+  PUPPETEER_CACHE_DIR: $CI_PROJECT_DIR/.cache/puppeteer
+
 stages:
   - image_sync
   - quality
@@ -26,6 +29,9 @@ quality:
           - package-lock.json
       paths:
         - .npm/
+    - key: puppeteer-chrome
+      paths:
+        - .cache/puppeteer/
     - key: diagrams
       paths:
         - src/diagrams/.manifest.json
