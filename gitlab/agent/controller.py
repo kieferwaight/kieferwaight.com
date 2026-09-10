@@ -6,8 +6,8 @@ import sys
 import uuid
 from typing import Optional, Dict, Any, List, Tuple
 
-from .models import IssueContext, TaskPacket, QAResult
 from .issue_parser import parse_issue, build_task_packet
+from .triage import triage_issue
 from .gitlab_client import GitLabClient
 from .deterministic_checker import DeterministicChecker
 from .worker_runner import WorkerRunner
@@ -57,7 +57,7 @@ class AgentController:
             print(f"Error fetching issue #{issue_iid}: {e}", file=sys.stderr)
             return False
 
-        issue_ctx = parse_issue(issue_json)
+        issue_ctx = triage_issue(issue_json, gitlab_client=self.gitlab)
 
         # 2. Check label / description validation
         if issue_ctx.parse_error or issue_ctx.is_title_only:
