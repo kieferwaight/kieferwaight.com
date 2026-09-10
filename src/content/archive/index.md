@@ -28,3 +28,12 @@ This archive collects original URLs and source snapshots for public content that
 - [Kiefer Waight bio](/archive/kiefer-waight-bio/) - An early public biography reference from the AppealingStudio record.
 - [Independent corroboration](/archive/voyage-dallas-appealingstudio/) - Independent Voyage Dallas coverage retained as external corroborating context.
 - [AppealingStudio directory listing](/archive/appealingstudio-directory/) - An external directory reference preserved as supplemental archive context.
+
+## Career record
+
+These entries are first-person accounts of prior roles, not archived third-party sources.
+
+- [Andersen Corp](/archive/andersen-corp/) - Front-end development on Andersen web properties using React, Next.js, and headless Sitecore.
+- [TC Energy](/archive/tc-energy/) - An Angular portal for pipeline meter data, with AWS and authentication modernization.
+- [Kickback Apps LLC](/archive/kickback-apps/) - Lead development across the Bellhop app and prankdial.com.
+- [Great Wolf Resorts](/archive/great-wolf-resorts/) - Middleware connecting a reservation system to booking, marketing, and loyalty workflows.

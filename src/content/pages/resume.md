@@ -28,12 +28,12 @@ Proof of work: [projects](/projects/), [case studies](/case-studies/), [technica
 
 ## Selected experience
 
-- Senior Front End Developer - Andersen Corp
+- Senior Front End Developer - [Andersen Corp](/archive/andersen-corp/)
 - Website Transformation Project Manager - [University of Texas Arlington case study](/case-studies/uta-website-transformation/)
-- Senior Angular Developer - TC Energy
+- Senior Angular Developer - [TC Energy](/archive/tc-energy/)
 - CTO - [AppealingStudio](/archive/appealingstudio/)
-- Lead Developer - Kickback Apps LLC
-- Development Consultant - Great Wolf Resorts
+- Lead Developer - [Kickback Apps LLC](/archive/kickback-apps/)
+- Development Consultant - [Great Wolf Resorts](/archive/great-wolf-resorts/)
 - Chief Architect - [GetMyBoat public timeline](/archive/getmyboat-timeline/)
 
 ## Capabilities

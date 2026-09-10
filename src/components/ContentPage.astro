@@ -79,7 +79,9 @@ const pdfUrl = pdfSlug && `${siteConfig.imageOrigin}/pdfs/${pdfSlug}.pdf`;
       </p>
     )
   }
-  {section === "Archive" && !isIndex && <ArchiveSourcePanel entry={entry} />}
+  {section === "Archive" && !isIndex && entry.data.source_url && (
+    <ArchiveSourcePanel entry={entry} />
+  )}
   {
     ["Writing", "Case studies", "Archive"].includes(section) && !isIndex && (
       <ArticleFooter
