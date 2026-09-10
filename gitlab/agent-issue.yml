@@ -1,0 +1,44 @@
+# Include this file from the target project's .gitlab-ci.yml.
+# Required masked CI/CD variables:
+#   AGENT_IMAGE: image built from this repository, for example registry.example/agent:sha
+#   GITLAB_AGENT_TOKEN: project access token with api and write_repository scopes
+#   LITELLM_API_KEY: LiteLLM runtime key
+# Trigger pipelines with AGENT_ISSUE_IID set to the GitLab issue IID.
+
+stages:
+  - agent
+
+agent_issue:
+  stage: agent
+  image:
+    name: $AGENT_IMAGE
+    entrypoint: [""]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger" && $AGENT_ISSUE_IID'
+    - when: never
+  variables:
+    GIT_STRATEGY: clone
+    GIT_DEPTH: "0"
+    AGENT_APPROVAL: never
+    AGENT_SANDBOX: workspace-write
+    AGENT_STATE_DIR: $CI_PROJECT_DIR/.agent-state
+    AGENT_REPO_DIR: $CI_PROJECT_DIR
+    AGENT_RUN_ID: $CI_PIPELINE_ID-$CI_JOB_ID
+  script:
+    - |
+      set -euo pipefail
+      : "${GITLAB_AGENT_TOKEN:?Set a masked project access token}"
+      : "${LITELLM_API_KEY:?Set the LiteLLM runtime key}"
+      : "${AGENT_ISSUE_IID:?Set the GitLab issue IID}"
+
+      git config user.name 'GitLab Agent'
+      git config user.email 'gitlab-agent@kieferwaight.com'
+
+      /usr/local/bin/agent-entrypoint controller "$AGENT_ISSUE_IID"
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - .agent-state/events.jsonl
+      - .agent-state/context.json
+      - .agent-state/task-packet.json
