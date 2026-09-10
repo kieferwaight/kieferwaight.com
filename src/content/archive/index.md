@@ -16,6 +16,9 @@ schema_name: "Kiefer Waight Archive"
 This archive collects original URLs and source snapshots for public content that used to live on AppealingStudio.com.
 
 - [Buenos Aires, Argentina](/archive/getmyboat-buenos-aires/) - Kiefer Waight's account of visiting the GetMyBoat Argentina engineering team during global expansion.
+- [Vinoez in Napa Valley](/archive/vinoez/) - Seven photos of Kiefer Waight and the team visiting winery facilities and grounds.
+- [SaraGEO mapping platform](/archive/sarageo/) - My co-founder and architect role, project handover, and original product deck.
+- [ZigAir flight-sharing marketplace](/archive/zigair/) - Product history, historical interface, and company sources for the studio's aviation marketplace work.
 - [AppealingStudio](/archive/appealingstudio/) - The studio history that contextualizes the early GetMyBoat work.
 - [GetMyBoat: Sharing the Tides](/archive/getmyboat-sharing-the-tides/) - An early case study describing product, design, and post-launch support.
 - [GMB on FBN](/archive/getmyboat-gmb-on-fbn/) - A short record connecting GetMyBoat to early Fox Business coverage.
@@ -33,7 +36,9 @@ This archive collects original URLs and source snapshots for public content that
 
 These entries are first-person accounts of prior roles, not archived third-party sources.
 
+- [CorkSharing](/archive/corksharing/) - Platform, web and mobile apps, API, offshore team setup, and Napa Valley product work.
 - [Andersen Corp](/archive/andersen-corp/) - Front-end development on Andersen web properties using React, Next.js, and headless Sitecore.
 - [TC Energy](/archive/tc-energy/) - An Angular portal for pipeline meter data, with AWS and authentication modernization.
+- [PrankDial](/archive/prankdial/) - Asterisk call-tree programming, website and Express.js API work, and product history.
 - [Kickback Apps LLC](/archive/kickback-apps/) - Lead development across the Bellhop app and prankdial.com.
 - [Great Wolf Resorts](/archive/great-wolf-resorts/) - Middleware connecting a reservation system to booking, marketing, and loyalty workflows.

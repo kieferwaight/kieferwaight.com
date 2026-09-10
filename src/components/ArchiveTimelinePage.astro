@@ -4,6 +4,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import Timeline from "./Timeline.astro";
 import ArticleFooter from "./ArticleFooter.astro";
 import ArchiveSourcePanel from "./ArchiveSourcePanel.astro";
+import ProjectGallery from "./ProjectGallery.astro";
 
 const {
     entry,
@@ -41,7 +42,10 @@ const displayTitle = entry.data.title.replace(/\s+\|\s+.*$/, "");
         </div>
     </header>
     <article class="content-shell timeline-page">
-        <Content /><section aria-labelledby={timelineId}>
+        {entry.data.photo_gallery && <p><a href={`#gallery-${entry.data.photo_gallery}`}>View event photos</a></p>}
+        <Content />
+        <ProjectGallery collection={entry.data.photo_gallery} />
+        <section aria-labelledby={timelineId}>
             <h2 id={timelineId}>
                 <span class="section-number">01</span>
                 {timelineTitle}

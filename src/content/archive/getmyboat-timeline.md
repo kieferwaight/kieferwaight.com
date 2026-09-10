@@ -10,9 +10,8 @@ author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
 author_type: "Person"
-author_url: "https://kieferwaight.com"
-date_published: "2026-08-31"
-date_modified: "2026-08-31"
+photo_gallery: "getmyboat-techcrunch"
+
 ---
 # A timeline for the public history around GetMyBoat.
 
@@ -24,6 +23,10 @@ This page turns the recovered archive into a chronological record. It is meant t
 - GetMyBoat as a repeated public case study
 - Press and retrospective coverage as corroboration
 - A stable first-party trail back to the source pages
+
+## TechCrunch launch visit
+
+Melanie and I attended TechCrunch for the GetMyBoat launch. My personal photo record includes a view of the exhibition floor and Melanie at the event. The exhibition-floor image shows a KeepTrax display among the surrounding booths; it records the event setting. The event date has not yet been added to this account.
 
 ## Timeline
 

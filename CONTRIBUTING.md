@@ -12,7 +12,8 @@ Thanks for taking the time to contribute. This is a personal portfolio and archi
 
 1. Install dependencies with `npm install`.
 2. Start the site with `npm run dev`.
-3. Run `npm run check` and `npm run build` before opening a pull request.
+3. Run `npm run check`, `npm run test:unit`, and `npm run build` before opening a GitLab merge request.
+4. Use the GitLab Content merge-request template and wait for approval before publishing; do not push directly to `main`.
 
 ## Content and assets
 

@@ -40,6 +40,25 @@ async function main() {
     const localDerivatives = (await walk(path.join(dist, '_astro')).catch(() => [])).filter((filePath) => /\.(?:avif|webp)$/.test(filePath));
     if (localDerivatives.length > 0) errors.push(`dist/_astro contains ${localDerivatives.length} local image derivatives; expected R2-hosted variants`);
 
+    // Captions in metadata are not sufficient: every project image must render
+    // on its associated page and be included in the deployment artifact.
+    const galleries = JSON.parse(await readFile(path.join(root, 'src/data/project-photo-collections.json'), 'utf8'));
+    let projectImageCount = 0;
+    for (const [name, gallery] of Object.entries(galleries)) {
+        const pagePath = path.join(dist, gallery.page, 'index.html');
+        const html = await readFile(pagePath, 'utf8').catch(() => '');
+        const tags = html.match(/<img\b[^>]*>/gi) ?? [];
+        for (const photo of gallery.images) {
+            projectImageCount++;
+            const tag = tags.find((tag) => tag.match(/\bsrc=["']([^"']+)["']/i)?.[1] === photo.src);
+            if (!tag) errors.push(`${gallery.page} does not render ${photo.src} from gallery ${name}`);
+            if (!tag?.match(/\balt=["'][^"']+["']/i)) errors.push(`${photo.src} is missing alt text`);
+            if (!(photo.width > 0 && photo.height > 0)) errors.push(`${photo.src} has invalid dimensions`);
+            const file = await readFile(path.join(dist, photo.src)).catch(() => null);
+            if (!file?.length) errors.push(`${photo.src} is missing from dist`);
+        }
+    }
+
     if (process.argv.includes('--remote')) {
         for (const url of candidates) {
             const response = await fetch(url, { method: 'HEAD' });
@@ -53,7 +72,7 @@ async function main() {
         process.exitCode = 1;
         return;
     }
-    console.log(`Image validation passed: ${candidates.size} R2 candidates across ${htmlFiles.length} pages.`);
+    console.log(`Image validation passed: ${candidates.size} R2 candidates and ${projectImageCount} project images across ${htmlFiles.length} pages.`);
 }
 
 main().catch((error) => {

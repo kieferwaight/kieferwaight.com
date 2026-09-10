@@ -1,7 +1,8 @@
 ---
-title: "ZigAir adds travel context"
+title: "ZigAir flight-sharing marketplace"
 date: 2012-01-01
-summary: "ZigAir adds travel and charter-product context to the studio record before the GetMyBoat period."
-sourceLabel: "AppealingStudio about-page record"
+summary: "ZigAir brings seat-based private charter search into the studio project history before the GetMyBoat period."
+sourceLabel: "ZigAir project history and sources"
+sourceUrl: "https://kieferwaight.com/archive/zigair/"
 tags: [studio, travel]
 ---

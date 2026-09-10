@@ -29,9 +29,9 @@ The development server is available at `http://localhost:4321/` by default.
 
 `npm run build` runs `npm run diagrams` first through the `prebuild` hook. Run `npm run check` after content or component changes; run `npm run build` before publishing.
 
-GitHub Pages uses the official `withastro/action` to run `npm run test:quality` and upload the validated static artifact. This project intentionally does not use `@astrojs/cloudflare`: it is a static GitHub Pages site, and Astro's Cloudflare adapter is for Cloudflare Workers/server-rendered features. R2 is used separately as the image origin.
+GitLab merge requests are the approval boundary for publishing. Merge-request pipelines run content validation without R2 or GitHub publishing credentials. After an approved merge to protected GitLab `main`, the protected pipeline synchronizes R2 assets and PDFs, mirrors the exact commit to GitHub, and GitHub Pages deploys the static artifact. See [the publishing boundary](docs/gitlab-publishing-boundary.md) for the required project settings.
 
-GitLab owns Cloudflare R2 synchronization. Configure masked, protected GitLab CI/CD variables named `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY`; the GitLab `image_sync` stage runs `npm run images:upload` before quality validation. GitHub Actions does not receive R2 write credentials and only builds and deploys the Pages artifact.
+GitLab owns Cloudflare R2 synchronization. Configure masked, protected GitLab CI/CD variables named `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY`; protected `main` runs image and PDF synchronization only after validation. GitHub Actions does not receive R2 write credentials and only builds and deploys the Pages artifact.
 
 ## Image storage
 
@@ -40,6 +40,10 @@ Content images are delivered from `https://images.kieferwaight.com`, backed by C
 Set these values in the shell environment (not in Git): `R2_BUCKET`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY`. `R2_ENDPOINT` is optional; the upload script derives the account endpoint when it is absent. Run `npm run images:dry-run` to inspect R2 source objects, then `npm run images:upload` to generate and verify variants whenever you add or replace an original. GitHub Pages builds only the site artifact; it does not require R2 write credentials.
 
 Run `npm run install-hooks` once after cloning. The pre-push hook runs `npm run images:upload` and blocks the push if R2 variants cannot be generated and verified. Upload new original images to R2 before pushing content that references them.
+
+### Historical project galleries
+
+The user-supplied project photos and screenshots live in `public/project-images/` and are served with the Pages artifact. Their captions, dimensions, and page associations are recorded in `src/data/project-photo-collections.json`. Archive frontmatter selects a collection with `photo_gallery`; `ProjectGallery.astro` renders each image with a full-size link. These archival originals are kept on the site origin alongside the SaraGEO PDF, so publishing them does not depend on an R2 upload.
 
 ## Source organization
 
