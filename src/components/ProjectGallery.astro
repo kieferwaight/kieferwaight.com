@@ -12,10 +12,10 @@ if (collection && !gallery) throw new Error(`Unknown project photo collection: $
     <h2 id={`gallery-${collection}`}>{gallery.title}</h2>
     <p class="gallery-help">Select an image to view it at full size.</p>
     <div class="gallery-grid">
-      {gallery.images.map((photo) => (
+      {gallery.images.map((photo, index) => (
         <figure class:list={{ 'gallery-wide': photo.width / photo.height > 1.8 }}>
           <a href={photo.src}>
-            <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+            <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
           </a>
           <figcaption>{photo.caption}</figcaption>
         </figure>
