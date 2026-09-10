@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+set -x
 set -euo pipefail
+
+echo "=== AGENT CI SCRIPT STARTING ==="
+echo "AGENT_ISSUE_IID=${AGENT_ISSUE_IID:-unset}"
+echo "CI_PROJECT_DIR=${CI_PROJECT_DIR:-unset}"
 
 export GITLAB_AGENT_TOKEN="${GITLAB_PAT:-${GITLAB_AGENT_TOKEN:-glpat-wEEXY3ui3Ck1QzdLTTjPFm86MQp1OjEH.01.0w06avcw7}}"
 export LITELLM_API_KEY="${LITELLM_API_KEY:-dummy-key}"
