@@ -54,7 +54,7 @@ check:
   extends: .install
   stage: validate
   rules:
-    - if: '$CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
   script:
     - npm run assets:manifest
     - npm run check
@@ -65,7 +65,7 @@ build:
   stage: build
   needs: ["check"]
   rules:
-    - if: '$CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
   script:
     - npm run build
     - node scripts/validate-build.mjs
@@ -77,7 +77,7 @@ quality:
   stage: review
   needs: ["check", "build"]
   rules:
-    - if: '$CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
   cache:
     - key:
         files:
@@ -114,7 +114,7 @@ image_sync:
   script:
     - npm run images:upload
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
 
 pdf_sync:
   extends: .install
@@ -127,7 +127,7 @@ pdf_sync:
     - npm run build
     - npm run pdfs:upload
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
 
 mirror_to_github:
   stage: publish
@@ -139,7 +139,7 @@ mirror_to_github:
     - test -n "$GITHUB_MIRROR_TOKEN" || { echo "GITHUB_MIRROR_TOKEN is required on protected main to publish."; exit 1; }
     - git push "https://x-access-token:${GITHUB_MIRROR_TOKEN}@github.com/kieferwaight/kieferwaight.com.git" "HEAD:main"
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
+    - when: never
 
 agent_issue:
   stage: agent
