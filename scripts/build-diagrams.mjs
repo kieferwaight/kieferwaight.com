@@ -36,7 +36,17 @@ for (const source of sources) {
   const hash = createHash('sha256').update(await readFile(source)).digest('hex');
   if (manifest[relativeSource] === hash && await outputExists(output)) continue;
   await mkdir(new URL('.', `file://${output}`).pathname, { recursive: true }).catch(() => { });
-  await execFileAsync('mmdc', ['-i', source, '-o', output, '-b', '#0b1120', '-t', 'dark', '-p', join(root, 'scripts', 'puppeteer.config.json')], { cwd: root });
+  try {
+    await execFileAsync('mmdc', ['-i', source, '-o', output, '-b', '#0b1120', '-t', 'dark', '-p', join(root, 'scripts', 'puppeteer.config.json')], { cwd: root });
+  } catch (err) {
+    if (err.stderr && err.stderr.includes('chrome-headless-shell')) {
+      console.log('Installing missing puppeteer chrome-headless-shell browser...');
+      await execFileAsync('npx', ['puppeteer', 'browsers', 'install', 'chrome-headless-shell'], { cwd: root });
+      await execFileAsync('mmdc', ['-i', source, '-o', output, '-b', '#0b1120', '-t', 'dark', '-p', join(root, 'scripts', 'puppeteer.config.json')], { cwd: root });
+    } else {
+      throw err;
+    }
+  }
   manifest[relativeSource] = hash;
   built += 1;
   console.log(`diagram: ${relative(root, output)}`);

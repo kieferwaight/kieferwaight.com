@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "postinstall": "npx puppeteer browsers install chrome-headless-shell",
     "diagrams": "node scripts/build-diagrams.mjs",
     "images:upload": "node scripts/upload-images-to-r2.mjs",
     "images:dry-run": "node scripts/upload-images-to-r2.mjs --dry-run",
