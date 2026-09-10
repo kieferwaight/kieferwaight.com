@@ -56,7 +56,7 @@ quality:
   script:
     - npm run test:quality
   artifacts:
-    when: always
+    when: on_failure
     expire_in: 1 week
     paths:
       - dist/
