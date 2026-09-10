@@ -33,6 +33,8 @@ GitLab merge requests are the approval boundary for publishing. Merge-request pi
 
 GitLab owns Cloudflare R2 synchronization. Configure masked, protected GitLab CI/CD variables named `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY`; protected `main` runs image and PDF synchronization only after validation. GitHub Actions does not receive R2 write credentials and only builds and deploys the Pages artifact.
 
+For issue-driven content work, use `task issue:start ISSUE=<number>` to create a branch from a GitLab issue, then `task issue:submit ISSUE=<number>` to validate, commit, push, and open a prefilled MR form. The helpers never merge or deploy. See [the local issue workflow](docs/gitlab-publishing-boundary.md#local-issue-workflow).
+
 ## Image storage
 
 Content images are delivered from `https://images.kieferwaight.com`, backed by Cloudflare R2. Every JPEG, PNG, or WebP original gets WebP variants named `<filename>-w480.webp`, `<filename>-w768.webp`, `<filename>-w960.webp`, and `<filename>-w1440.webp`. Responsive components and Markdown images derive those URLs directly from the original URL, so no per-image configuration is required. Browsers choose the smallest adequate candidate, then fall back to the original when WebP is unavailable. Browser icons remain in `public/assets/img/` so the manifest and favicon paths stay on the main origin.
