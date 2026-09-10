@@ -33,6 +33,8 @@ task issue:status ISSUE=1
 
 The helper reads a public GitLab issue title without API credentials. If the issue is private or unavailable, provide the title explicitly: `ISSUE_TITLE="ZigAir Page" task issue:start ISSUE=1`.
 
+During the initial migration, `issue:start` refuses to create a branch while GitLab `main` is behind GitHub `main`. Merge the publishing-boundary MR first; afterward GitLab becomes the branch source for every issue workflow.
+
 ## Required project settings
 
 Configure these settings in GitLab before merging this change:

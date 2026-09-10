@@ -57,6 +57,19 @@ branch_kind() {
   esac
 }
 
+verify_gitlab_main_is_current() {
+  git fetch "$GITLAB_REMOTE" main
+  if ! git remote get-url origin >/dev/null 2>&1; then
+    return
+  fi
+
+  git fetch origin main
+  if ! git merge-base --is-ancestor origin/main "$GITLAB_REMOTE/main"; then
+    echo "GitLab main is behind GitHub main. Merge the publishing-boundary MR before starting issue branches." >&2
+    exit 1
+  fi
+}
+
 mr_url() {
   local issue_number="$1"
   local branch="$2"

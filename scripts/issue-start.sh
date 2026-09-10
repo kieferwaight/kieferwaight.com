@@ -21,7 +21,7 @@ if [[ -z "$slug" ]]; then
 fi
 branch="${kind}/${issue_number}-${slug}"
 
-git fetch "$GITLAB_REMOTE" main
+verify_gitlab_main_is_current
 if git show-ref --verify --quiet "refs/heads/$branch"; then
   git switch "$branch"
 else
