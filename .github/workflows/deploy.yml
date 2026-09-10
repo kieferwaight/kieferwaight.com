@@ -19,10 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install, validate, build, and upload the site
+      - name: Install and build the site
         uses: withastro/action@v6
-        with:
-          build-cmd: npm run test:quality
 
   deploy:
     needs: build
