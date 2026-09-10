@@ -26,8 +26,8 @@ api() {
 }
 
 api "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/issues/${AGENT_ISSUE_IID}" > "$issue_file"
-if ! jq -e --arg label "$ready_label" \
-  '.state == "opened" and (.labels | index($label) != null)' "$issue_file" >/dev/null; then
+if ! jq -e --arg label_name "$ready_label" \
+  '.state == "opened" and (.labels | index($label_name) != null)' "$issue_file" >/dev/null; then
   echo "Issue #${AGENT_ISSUE_IID} must be open and labeled ${ready_label}; no agent run started."
   exit 0
 fi
