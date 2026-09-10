@@ -7,3 +7,4 @@ public/assets-manifest.json
 src/data/assets-manifest.json
 public/fonts/
 .DS_Store
+.agent-worktrees/

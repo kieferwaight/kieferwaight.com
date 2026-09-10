@@ -27,3 +27,8 @@ tasks:
       vars: [ISSUE]
     cmds:
       - bash scripts/issue-status.sh {{.ISSUE | quote}}
+
+  agent:ready:
+    desc: Draft and submit one open ready-for-agent issue without merging or deploying
+    cmds:
+      - bash scripts/agent-ready.sh
