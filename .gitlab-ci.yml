@@ -17,12 +17,19 @@ image_sync:
     - npm ci --cache .npm --prefer-offline
   script:
     - npm run images:upload
-  variables:
-    AWS_ACCESS_KEY_ID: $R2_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY: $R2_SECRET_ACCESS_KEY
 
 quality:
   stage: quality
+  cache:
+    - key:
+        files:
+          - package-lock.json
+      paths:
+        - .npm/
+    - key: diagrams
+      paths:
+        - src/diagrams/.manifest.json
+        - public/diagrams/
   before_script:
     - apt-get update
     - |

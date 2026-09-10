@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { GetObjectCommand, HeadObjectCommand, ListObjectsV2Command, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
@@ -14,11 +15,11 @@ const contentTypes = new Map([
     ['.webp', 'image/webp'],
 ]);
 
-function isSourceImage(key) {
+export function isSourceImage(key) {
     return /\.(?:jpe?g|png|webp)$/i.test(key) && !/-w\d+\.webp$/i.test(key);
 }
 
-function variantKey(key, width) {
+export function variantKey(key, width) {
     const extension = path.extname(key);
     return `${key.slice(0, -extension.length)}-w${width}.webp`;
 }
@@ -98,7 +99,10 @@ async function main() {
     for (const key of keys) await uploadVariants(client, bucket, key);
 }
 
-main().catch((error) => {
-    console.error(error.message);
-    process.exitCode = 1;
-});
+// Only run when executed directly (e.g. `npm run images:upload`), not when imported in tests.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    main().catch((error) => {
+        console.error(error.message);
+        process.exitCode = 1;
+    });
+}
