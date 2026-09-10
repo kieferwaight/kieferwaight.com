@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isSourceImage, variantKey } from '../../scripts/upload-images-to-r2.mjs';
+import { isSourceImage, variantKey, verifyPublicUrl } from '../../scripts/upload-images-to-r2.mjs';
 
 describe('isSourceImage', () => {
     it('accepts jpg, jpeg, png, and webp originals', () => {
@@ -44,5 +44,30 @@ describe('variantKey', () => {
 
     it('handles filenames with multiple dots', () => {
         expect(variantKey('my.photo.v2.png', 480)).toBe('my.photo.v2-w480.webp');
+    });
+});
+
+describe('verifyPublicUrl', () => {
+    it('retries a transient public URL failure', async () => {
+        const fetchImpl = async () => {
+            if (fetchImpl.calls++ === 0) throw new TypeError('fetch failed');
+            return { ok: true, status: 200 };
+        };
+        fetchImpl.calls = 0;
+
+        await expect(verifyPublicUrl('archive/photo-w480.webp', {
+            attempts: 2,
+            delayMs: 0,
+            fetchImpl,
+        })).resolves.toBeUndefined();
+        expect(fetchImpl.calls).toBe(2);
+    });
+
+    it('reports the image key after repeated public URL failures', async () => {
+        await expect(verifyPublicUrl('archive/photo-w480.webp', {
+            attempts: 2,
+            delayMs: 0,
+            fetchImpl: async () => ({ ok: false, status: 503 }),
+        })).rejects.toThrow('Could not verify archive/photo-w480.webp at https://images.kieferwaight.com after 2 attempts: https://images.kieferwaight.com returned 503.');
     });
 });
