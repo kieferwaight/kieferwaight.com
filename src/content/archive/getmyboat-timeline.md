@@ -10,9 +10,21 @@ author_name: "Kiefer Waight"
 schema_type: "Article"
 nav_variant: "content"
 author_type: "Person"
+photo_collection:
+  title: "Melanie and Kiefer at TechCrunch for the GetMyBoat launch"
+  source: "Two photographs supplied and contextualized by Kiefer Waight in chat"
+  asset_status: "Awaiting local source files for embedding"
+  event_date: "Not yet specified"
+  images:
+    - id: "getmyboat-techcrunch-exhibition-floor"
+      caption: "The exhibition floor during Melanie and Kiefer's TechCrunch visit for the GetMyBoat launch."
+      alt: "Conference exhibition floor with a KeepTrax banner and surrounding exhibitor booths"
+    - id: "getmyboat-techcrunch-melanie"
+      caption: "Melanie at the event during the TechCrunch visit for the GetMyBoat launch."
+      alt: "Melanie waving inside an exhibition space with white curtains and green floor tiles"
 author_url: "https://kieferwaight.com"
 date_published: "2026-08-31"
-date_modified: "2026-08-31"
+date_modified: "2026-09-10"
 ---
 # A timeline for the public history around GetMyBoat.
 
@@ -24,6 +36,10 @@ This page turns the recovered archive into a chronological record. It is meant t
 - GetMyBoat as a repeated public case study
 - Press and retrospective coverage as corroboration
 - A stable first-party trail back to the source pages
+
+## TechCrunch launch visit
+
+Melanie and I attended TechCrunch for the GetMyBoat launch. My personal photo record includes a view of the exhibition floor and Melanie at the event. The exhibition-floor image shows a KeepTrax display among the surrounding booths; it records the event setting. The event date has not yet been added to this account.
 
 ## Timeline
 

@@ -1,0 +1,51 @@
+{
+  "project": "Vinoez",
+  "title": "Vinoez \u2014 Kiefer Waight and team exploring Napa Valley",
+  "source": "Seven photographs supplied and identified by Kiefer Waight in chat",
+  "asset_status": "Awaiting local source files for embedding",
+  "relationship_to_corksharing": "Awaiting clarification",
+  "images": [
+    {
+      "id": "vinoez-napa-team-production-tour",
+      "caption": "Kiefer Waight and the Vinoez team exploring Napa Valley.",
+      "alt": "A group in high-visibility vests touring outdoor winery production equipment",
+      "source_order": 1
+    },
+    {
+      "id": "vinoez-napa-winery-yard",
+      "caption": "Winery yard during the Vinoez Napa Valley visit.",
+      "alt": "Wine barrels and wooden racks beside a production building, with a green hillside beyond",
+      "source_order": 2
+    },
+    {
+      "id": "vinoez-napa-barrels-and-tanks",
+      "caption": "Barrel storage and tanks during the team visit.",
+      "alt": "Elevated view of stacked wine barrels between stainless-steel production equipment and tanks",
+      "source_order": 3
+    },
+    {
+      "id": "vinoez-napa-production-floor",
+      "caption": "A second view across the winery production floor.",
+      "alt": "Rows of wine barrels on racks beside processing equipment and a yellow forklift",
+      "source_order": 4
+    },
+    {
+      "id": "vinoez-napa-vineyard-view",
+      "caption": "Vineyard landscape during the Napa Valley visit.",
+      "alt": "A lawn and trees overlooking vineyard rows and wooded hills",
+      "source_order": 5
+    },
+    {
+      "id": "vinoez-napa-winery-gardens",
+      "caption": "Gardens and grounds during the team visit.",
+      "alt": "A landscaped driveway lined with flowers and trees beneath Napa Valley hills",
+      "source_order": 6
+    },
+    {
+      "id": "vinoez-napa-wine-box",
+      "caption": "Wine selection from the Vinoez Napa Valley photo record.",
+      "alt": "An open red presentation box holding three wine bottles beside a computer keyboard",
+      "source_order": 7
+    }
+  ]
+}
