@@ -8,3 +8,4 @@ src/data/assets-manifest.json
 public/fonts/
 .DS_Store
 .agent-worktrees/
+.agent-state/

@@ -5,11 +5,13 @@ variables:
 
 workflow:
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger" && $AGENT_ISSUE_IID'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
     - when: never
 
 stages:
+  - agent
   - validate
   - build
   - review
@@ -51,6 +53,8 @@ cache:
 check:
   extends: .install
   stage: validate
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "trigger"'
   script:
     - npm run assets:manifest
     - npm run check
@@ -60,6 +64,8 @@ build:
   extends: .install
   stage: build
   needs: ["check"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "trigger"'
   script:
     - npm run build
     - node scripts/validate-build.mjs
@@ -70,6 +76,8 @@ quality:
   extends: .install
   stage: review
   needs: ["check", "build"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "trigger"'
   cache:
     - key:
         files:
@@ -106,7 +114,7 @@ image_sync:
   script:
     - npm run images:upload
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
 
 pdf_sync:
   extends: .install
@@ -119,7 +127,7 @@ pdf_sync:
     - npm run build
     - npm run pdfs:upload
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
 
 mirror_to_github:
   stage: publish
@@ -131,4 +139,29 @@ mirror_to_github:
     - test -n "$GITHUB_MIRROR_TOKEN" || { echo "GITHUB_MIRROR_TOKEN is required on protected main to publish."; exit 1; }
     - git push "https://x-access-token:${GITHUB_MIRROR_TOKEN}@github.com/kieferwaight/kieferwaight.com.git" "HEAD:main"
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
+
+agent_issue:
+  stage: agent
+  image:
+    name: $AGENT_IMAGE
+    entrypoint: [""]
+  before_script: []
+  variables:
+    GIT_STRATEGY: clone
+    GIT_DEPTH: "0"
+    AGENT_REPO_DIR: $CI_PROJECT_DIR
+    AGENT_STATE_DIR: $CI_PROJECT_DIR/.agent-state
+    AGENT_RUN_ID: $CI_PIPELINE_ID-$CI_JOB_ID
+    AGENT_APPROVAL: never
+    AGENT_SANDBOX: workspace-write
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger" && $AGENT_ISSUE_IID'
+  script:
+    - bash scripts/agent-issue-ci.sh
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - .agent-state/events.jsonl
+      - .agent-state/context.json
