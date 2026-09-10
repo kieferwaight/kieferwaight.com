@@ -30,6 +30,7 @@ check:
   extends: .install
   stage: validate
   script:
+    - npm run assets:manifest
     - npm run check
     - npm run test:unit
 
