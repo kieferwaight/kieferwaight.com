@@ -8,6 +8,8 @@ const ENDPOINT = process.env.R2_ENDPOINT ?? `https://${ACCOUNT_ID}.r2.cloudflare
 const PUBLIC_ORIGIN = 'https://images.kieferwaight.com';
 const DRY_RUN = process.argv.includes('--dry-run');
 const WIDTHS = [480, 768, 960, 1440];
+const PUBLIC_VERIFY_ATTEMPTS = 4;
+const PUBLIC_VERIFY_DELAY_MS = 1_000;
 
 const contentTypes = new Map([
     ['.jpg', 'image/jpeg'],
@@ -40,9 +42,29 @@ async function readObject(client, bucket, key) {
     return Buffer.from(await result.Body.transformToByteArray());
 }
 
-async function verifyPublicUrl(key) {
-    const response = await fetch(`${PUBLIC_ORIGIN}/${key}`, { method: 'HEAD' });
-    if (!response.ok) throw new Error(`${key} uploaded but ${PUBLIC_ORIGIN} returned ${response.status}.`);
+function wait(milliseconds) {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+export async function verifyPublicUrl(key, {
+    attempts = PUBLIC_VERIFY_ATTEMPTS,
+    delayMs = PUBLIC_VERIFY_DELAY_MS,
+    fetchImpl = fetch,
+} = {}) {
+    let lastError;
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+        try {
+            const response = await fetchImpl(`${PUBLIC_ORIGIN}/${key}`, { method: 'HEAD' });
+            if (response.ok) return;
+            lastError = new Error(`${PUBLIC_ORIGIN} returned ${response.status}`);
+        } catch (error) {
+            lastError = error;
+        }
+
+        if (attempt < attempts) await wait(delayMs);
+    }
+
+    throw new Error(`Could not verify ${key} at ${PUBLIC_ORIGIN} after ${attempts} attempts: ${lastError?.message ?? 'unknown error'}.`);
 }
 
 async function uploadObject(client, bucket, key, body, contentType) {
