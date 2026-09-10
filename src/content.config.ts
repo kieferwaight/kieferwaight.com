@@ -12,6 +12,10 @@ const contentSchema = z.object({
   canonical: z.string().optional(),
   content_class: z.string().optional(),
   photo_gallery: z.string().optional(),
+  gallery_reflection: z.object({
+    title: z.string(),
+    paragraphs: z.array(z.string()),
+  }).optional(),
 }).passthrough();
 
 export const collections = {

@@ -135,12 +135,12 @@
   },
   "vinoez": {
     "project": "Vinoez",
-    "title": "Vinoez — Kiefer Waight and team exploring Napa Valley",
+    "title": "The visit: production, place, and presentation",
     "source": "Images supplied by Kiefer Waight",
     "images": [
       {
         "id": "vinoez-napa-team-production-tour",
-        "caption": "Kiefer Waight and the Vinoez team exploring Napa Valley.",
+        "caption": "The team beside outdoor processing equipment, showing the scale of the machinery and the space around it.",
         "alt": "A group in high-visibility vests touring outdoor winery production equipment",
         "source_order": 1,
         "src": "/project-images/vinoez/01.jpg",
@@ -149,7 +149,7 @@
       },
       {
         "id": "vinoez-napa-winery-yard",
-        "caption": "Winery yard during the Vinoez Napa Valley visit.",
+        "caption": "Barrels and empty racks beside the production building, with the Napa Valley hillside immediately beyond the yard.",
         "alt": "Wine barrels and wooden racks beside a production building, with a green hillside beyond",
         "source_order": 2,
         "src": "/project-images/vinoez/02.jpg",
@@ -158,7 +158,7 @@
       },
       {
         "id": "vinoez-napa-barrels-and-tanks",
-        "caption": "Barrel storage and tanks during the team visit.",
+        "caption": "Barrel racks positioned alongside stainless-steel tanks: storage and production equipment share the same working space.",
         "alt": "Elevated view of stacked wine barrels between stainless-steel production equipment and tanks",
         "source_order": 3,
         "src": "/project-images/vinoez/03.jpg",
@@ -167,7 +167,7 @@
       },
       {
         "id": "vinoez-napa-production-floor",
-        "caption": "A second view across the winery production floor.",
+        "caption": "A wider view of the production floor, with rows of barrels, processing equipment, and a forklift between them.",
         "alt": "Rows of wine barrels on racks beside processing equipment and a yellow forklift",
         "source_order": 4,
         "src": "/project-images/vinoez/04.jpg",
@@ -176,7 +176,7 @@
       },
       {
         "id": "vinoez-napa-vineyard-view",
-        "caption": "Vineyard landscape during the Napa Valley visit.",
+        "caption": "The view opens out from production spaces to vineyard rows, trees, and the hills beyond.",
         "alt": "A lawn and trees overlooking vineyard rows and wooded hills",
         "source_order": 5,
         "src": "/project-images/vinoez/05.jpg",
@@ -185,7 +185,7 @@
       },
       {
         "id": "vinoez-napa-winery-gardens",
-        "caption": "Gardens and grounds during the team visit.",
+        "caption": "Paths, planting, and shaded grounds show another side of the site: the landscape encountered by visitors.",
         "alt": "A landscaped driveway lined with flowers and trees beneath Napa Valley hills",
         "source_order": 6,
         "src": "/project-images/vinoez/06.jpg",
@@ -194,7 +194,7 @@
       },
       {
         "id": "vinoez-napa-wine-box",
-        "caption": "Wine selection from the Vinoez Napa Valley photo record.",
+        "caption": "A three-bottle presentation box closes the sequence, connecting the visit to the finished wine and its packaging.",
         "alt": "An open red presentation box holding three wine bottles beside a computer keyboard",
         "source_order": 7,
         "src": "/project-images/vinoez/07.jpg",
