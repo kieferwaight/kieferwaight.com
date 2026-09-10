@@ -31,7 +31,7 @@ Proof of work: [projects](/projects/), [case studies](/case-studies/), [technica
 - Senior Front End Developer - Andersen Corp
 - Website Transformation Project Manager - [University of Texas Arlington case study](/case-studies/uta-website-transformation/)
 - Senior Angular Developer - TC Energy
-- CTO - AppealingStudio
+- CTO - [AppealingStudio](/archive/appealingstudio/)
 - Lead Developer - Kickback Apps LLC
 - Development Consultant - Great Wolf Resorts
 - Chief Architect - [GetMyBoat public timeline](/archive/getmyboat-timeline/)
