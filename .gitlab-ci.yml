@@ -30,6 +30,9 @@ quality:
       paths:
         - src/diagrams/.manifest.json
         - public/diagrams/
+    - key: fonts
+      paths:
+        - public/fonts/
   before_script:
     - apt-get update
     - |
