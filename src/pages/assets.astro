@@ -1,0 +1,104 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import manifest from "../data/assets-manifest.json";
+---
+
+<SiteLayout
+    title="Assets"
+    description="Inventory of diagrams and images used across the site."
+    schemaType="CollectionPage"
+    schemaName="Assets"
+>
+    <article class="content-shell">
+        <h1>Assets</h1>
+        <p>
+            {manifest.summary.diagramCount ?? 0} diagrams, {
+                manifest.summary.imageCount ?? 0
+            } images. Generated {manifest.generatedAt}.
+        </p>
+
+        <h2>Diagrams</h2>
+        <ul class="asset-grid">
+            {
+                manifest.diagrams.map((diagram: any) => (
+                    <li
+                        class:list={[
+                            "asset-card",
+                            { "asset-card--warning": !diagram.existsOnDisk },
+                        ]}
+                    >
+                        {diagram.existsOnDisk && (
+                            <img
+                                src={diagram.svgPath}
+                                alt={diagram.id}
+                                loading="lazy"
+                            />
+                        )}
+                        <p class="asset-id">{diagram.id}</p>
+                        {!diagram.existsOnDisk && (
+                            <p class="asset-warning">Missing on disk</p>
+                        )}
+                        {diagram.referencedBy.length === 0 && (
+                            <p class="asset-warning">Unreferenced</p>
+                        )}
+                        <p class="asset-refs">
+                            {diagram.referencedBy.join(", ") || "No references"}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <h2>Images</h2>
+        <ul class="asset-grid">
+            {
+                manifest.images.map((image: any) => (
+                    <li class="asset-card">
+                        <img src={image.url} alt={image.id} loading="lazy" />
+                        <p class="asset-id">{image.id}</p>
+                        <p class="asset-refs">
+                            {image.referencedBy.join(", ")}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+    </article>
+</SiteLayout>
+
+<style>
+    .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+    }
+    .asset-card {
+        border: 1px solid var(--border-color, #333);
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+    }
+    .asset-card img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    .asset-card--warning {
+        border-color: #d97706;
+    }
+    .asset-id {
+        font-family: monospace;
+        font-size: 0.8rem;
+        word-break: break-all;
+    }
+    .asset-refs {
+        font-size: 0.75rem;
+        color: var(--muted-color, #888);
+    }
+    .asset-warning {
+        color: #d97706;
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+</style>

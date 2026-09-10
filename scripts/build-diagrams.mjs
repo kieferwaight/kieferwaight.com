@@ -35,7 +35,7 @@ for (const source of sources) {
   const output = join(outputDir, relativeSource.replace(/\.mmd$/, '.svg'));
   const hash = createHash('sha256').update(await readFile(source)).digest('hex');
   if (manifest[relativeSource] === hash && await outputExists(output)) continue;
-  await mkdir(new URL('.', `file://${output}`).pathname, { recursive: true }).catch(() => {});
+  await mkdir(new URL('.', `file://${output}`).pathname, { recursive: true }).catch(() => { });
   await execFileAsync('mmdc', ['-i', source, '-o', output, '-b', '#0b1120', '-t', 'dark', '-p', join(root, 'scripts', 'puppeteer.config.json')], { cwd: root });
   manifest[relativeSource] = hash;
   built += 1;

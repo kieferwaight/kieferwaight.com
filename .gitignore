@@ -3,4 +3,6 @@ dist/
 .astro/
 public/diagrams/
 public/llm.txt
+public/assets-manifest.json
+src/data/assets-manifest.json
 .DS_Store
